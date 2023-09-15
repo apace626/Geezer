@@ -94,18 +94,55 @@ end
 
 function addon:UNIT_TARGET(unitTarget)
     self:Print("E:UNIT_TARGET")
-    self:Print("Type: ", UnitClassification(unitTarget))
+    -- self:Print("Type: ", UnitClassification(unitTarget))
+    if (UnitExists("target")) then
+        local name = UnitName("target") 
+        local guid = UnitGUID("target")
+        local name = UnitName("target") 
+        local class = UnitClass("unit")
+        local isEnemy = UnitIsEnemy("player","target")
+        self:Print("Name: ", name)   
+        self:Print("GUID: ", guid) 
+        self:Print("Is Enemy: ", isEnemy)
 
-    local name = UnitName("target") 
-    local guid = UnitGUID("target")
-    local name = UnitName("target") 
-    local class = UnitClass("unit")
-    local isEnemy = UnitIsEnemy("player","target")
-    self:Print("Name: ", name)
-    self:Print("Class: ", class)
-    self:Print("Is Enemy: ", isEnemy)
-    self:Print("GUID: ", guid) 
+
+        if guid then
+            --local link = unitLink:format(guid, name) -- clickable link
+            local unit_type = strsplit("-", guid)
+            if unit_type == "Creature" or unit_type == "Vehicle" then
+                local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
+                self:Print(format("[%s] is a creature with NPC ID %d", name, npc_id))
+            elseif unit_type == "Player" then
+                local _, server_id, player_id = strsplit("-", guid)
+                self:Print(format("[%s] is a player with ID %s", name, player_id))
+            end
+	    end
+    end
+    
+    -- self:Print("Class: ", class)
+    -- self:Print("Is Enemy: ", isEnemy)
+    -- self:Print("GUID: ", guid)
+    -- local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
+    -- self:Print(strsplit("-", guid))
+    -- self:Print(select(6, strsplit("-", guid)))
+    -- ParseGUID("target") 
+
+    -- local guid = UnitGUID("target")
+	-- local name = UnitName("target")
+	-- if guid then
+	-- 	local link = unitLink:format(guid, name) -- clickable link
+	-- 	local unit_type = strsplit("-", guid)
+	-- 	if unit_type == "Creature" or unit_type == "Vehicle" then
+	-- 		local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
+	-- 		print(format("%s is a creature with NPC ID %d", link, npc_id))
+	-- 	elseif unit_type == "Player" then
+	-- 		local _, server_id, player_id = strsplit("-", guid)
+	-- 		print(format("%s is a player with ID %s", link, player_id))
+	-- 	end
+	-- end
+
 end
+
 
 function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     self:Print("E:PLAYER_ENTERING_WORLD")
