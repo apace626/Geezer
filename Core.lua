@@ -1,3 +1,5 @@
+--local addon_name, addon = ...
+
 addon = LibStub("AceAddon-3.0"):NewAddon("Geezer", "AceConsole-3.0", "AceEvent-3.0")
 local ace_config = LibStub("AceConfig-3.0")
 local ace_config_dialog = LibStub("AceConfigDialog-3.0")
@@ -25,7 +27,9 @@ function addon:OnInitialize()
 	self:RegisterChatCommand("gz", "SlashCommand")
     self:RegisterChatCommand("geezer", "SlashCommand")
 
-    GetSpellInfo2(320596)
+    --GetSpellInfo2(320596)
+
+    --self:BuildFrame()
 
 end
 
@@ -164,6 +168,7 @@ end
 -- function addon:ENCOUNTER_END()
 --     self.frame:Hide()
 -- end
+
 
 
 
