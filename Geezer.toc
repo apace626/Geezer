@@ -1,0 +1,12 @@
+## Interface: 100107
+## Version: 1.0.0
+## Title: Geezer
+## Notes: Simple notes for encounters
+## Author: Rodenbach
+## SavedVariables: GeezerDB
+
+embeds.xml
+
+Core.lua
+Options.lua
+# Data.lua
