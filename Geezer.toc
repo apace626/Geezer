@@ -7,8 +7,10 @@
 
 embeds.xml
 
-Core.lua
-Options.lua
-# Data.lua
-# Frame.lua
+Before.lua
+MyFrame.xml
+After.lua
+
+#Core.lua
+#Options.lua
 
