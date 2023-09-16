@@ -1,0 +1,17 @@
+<Ui>
+  <Frame name="TemplateFrame" virtual="true">
+    <Frames><Frame><Scripts><OnLoad>print("Inherited elements of the frame are processed first.") </OnLoad></Scripts></Frame></Frames>
+  </Frame>
+  <Frame inherits="TemplateFrame">
+   <Frames>
+    <Frame>
+     <Scripts><OnLoad>print("First child frame's OnLoad fires first")</OnLoad></Scripts>
+    </Frame>
+    <Frame>
+     <Scripts><OnLoad>print("Second child frame's OnLoad fires second")</OnLoad></Scripts>
+    </Frame>
+    <Scripts><OnLoad>print("Parent frame's OnLoad fires after its children's.")</OnLoad></Scripts>
+   </Frames>
+  </Frame>
+  <Script file="file2.5.lua"/>
+</Ui>
