@@ -5,11 +5,9 @@
 ## Author: Rodenbach
 ## SavedVariables: GeezerDB
 
-embeds.xml
+#embeds.xml
 
-Before.lua
-MyFrame.xml
-After.lua
+Andy.xml
 
 #Core.lua
 #Options.lua
