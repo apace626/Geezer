@@ -4,6 +4,11 @@ local frame = CreateFrame("Frame", addon_name, UIParent, BackdropTemplateMixin a
 
 --------------------------------------------------------
 -- build frame
+frame:SetMovable(true)
+frame:EnableMouse(true)
+frame:RegisterForDrag("LeftButton")
+frame:SetScript("OnDragStart", frame.StartMoving)
+frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
 frame:SetFrameStrata("BACKGROUND")
 frame:SetWidth(300)
 frame:SetHeight(100)
@@ -23,6 +28,15 @@ notesText:SetTextColor(1, 1, 1)
 notesText:SetText("Notes asdfasdfsafsaf asdfasdfdaf aasdfasfasdf")
 --self.notesText = notesText
 
+local myButton = CreateFrame("Button", "MyButton", frame, "UIPanelButtonTemplate")
+myButton:SetPoint("CENTER", frame, "CENTER", 0, 0)
+myButton:SetWidth(20)
+myButton:SetHeight(20)
+myButton:SetText("+")
+-- myButton:ClearAllPoints()
+-- myButton:SetPoint("TOPLEFT", 16, -16)
+-- myButton:SetPoint("RIGHT", -16, 0)
+myButton:SetPoint("TOPLEFT", 16, -13)
 ---------------------------------------------------------
 -- position frame
 --frame:ClearAllPoints()
@@ -30,8 +44,8 @@ frame:SetPoint("CENTER",0,0)
 
 -- frame style
 --self.inset = 16
-frame:SetBackdrop(BACKDROP_DIALOG_32_32)
-frame:SetBackdropColor(1, 1, 1)
+--frame:SetBackdrop(BACKDROP_DIALOG_32_32)
+--frame:SetBackdropColor(1, 1, 1)
 
 
 ----------------------------------------------------------
@@ -41,7 +55,7 @@ local inset = 16
 local titleHeight = 30
 --local titleText = titleText
 titleText:ClearAllPoints()
-titleText:SetPoint("TOPLEFT", inset, -inset)
+titleText:SetPoint("TOPLEFT", 45, -inset)
 titleText:SetPoint("RIGHT", -inset, 0)
 
 --local notesText = notesText
@@ -49,10 +63,11 @@ notesText:ClearAllPoints()
 notesText:SetPoint("TOPLEFT", inset, -inset - titleHeight)
 notesText:SetPoint("RIGHT", -inset, 0)
 
+
 if frame:IsShown() then
     frame:SetHeight(titleHeight + notesText:GetHeight() + (inset * 2))
 end
 
-
-frame:Hide()
+--frame.SetMovable(true)
+--frame:Hide()
 

@@ -10,5 +10,7 @@ embeds.xml
 Core.lua
 Options.lua
 # Data.lua
-# Frame.lua
+Frame.lua
+
+#DoIt.xml
 
