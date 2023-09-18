@@ -18,7 +18,6 @@ titleText:SetFontObject("GameFontNormalLarge")
 titleText:SetJustifyV("TOP")
 titleText:SetJustifyH("LEFT")
 titleText:SetText("Title")
---self.titleText = titleText
 
 local notesText = frame:CreateFontString(nil, "BACKGROUND")
 notesText:SetFontObject("GameFontNormal")
@@ -26,7 +25,6 @@ notesText:SetJustifyV("TOP")
 notesText:SetJustifyH("LEFT")
 notesText:SetTextColor(1, 1, 1)
 notesText:SetText("Notes asdfasdfsafsaf asdfasdfdaf aasdfasfasdf")
---self.notesText = notesText
 
 local myButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
 myButton:SetPoint("CENTER", frame, "CENTER", 0, 0)
@@ -36,13 +34,12 @@ myButton:SetText("+")
 myButton:SetPoint("TOPLEFT", 16, -13)
 
 local bossDialog = CreateFrame("Frame", addon_name, frame, BackdropTemplateMixin and "BackdropTemplate")
+bossDialog:SetFrameStrata("DIALOG")
 bossDialog:SetPoint("CENTER", frame, "CENTER", 0, 0)
-bossDialog:SetWidth(100)
+bossDialog:SetWidth(200)
 bossDialog:SetHeight(100)
--- bossDialog:SetText("+")
--- bossDialog:SetPoint("TOPLEFT", 16, -13)
-bossDialog:SetBackdrop(BACKDROP_DIALOG_32_32)
-bossDialog:SetBackdropColor(1, 1, 1)
+bossDialog:SetPoint("TOPLEFT", 16, -13)
+bossDialog:SetBackdrop(BACKDROP_TUTORIAL_16_16)
 
 
 ---------------------------------------------------------
