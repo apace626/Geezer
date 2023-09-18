@@ -28,15 +28,23 @@ notesText:SetTextColor(1, 1, 1)
 notesText:SetText("Notes asdfasdfsafsaf asdfasdfdaf aasdfasfasdf")
 --self.notesText = notesText
 
-local myButton = CreateFrame("Button", "MyButton", frame, "UIPanelButtonTemplate")
+local myButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
 myButton:SetPoint("CENTER", frame, "CENTER", 0, 0)
 myButton:SetWidth(20)
 myButton:SetHeight(20)
 myButton:SetText("+")
--- myButton:ClearAllPoints()
--- myButton:SetPoint("TOPLEFT", 16, -16)
--- myButton:SetPoint("RIGHT", -16, 0)
 myButton:SetPoint("TOPLEFT", 16, -13)
+
+local bossDialog = CreateFrame("Frame", addon_name, frame, BackdropTemplateMixin and "BackdropTemplate")
+bossDialog:SetPoint("CENTER", frame, "CENTER", 0, 0)
+bossDialog:SetWidth(100)
+bossDialog:SetHeight(100)
+-- bossDialog:SetText("+")
+-- bossDialog:SetPoint("TOPLEFT", 16, -13)
+bossDialog:SetBackdrop(BACKDROP_DIALOG_32_32)
+bossDialog:SetBackdropColor(1, 1, 1)
+
+
 ---------------------------------------------------------
 -- position frame
 --frame:ClearAllPoints()
