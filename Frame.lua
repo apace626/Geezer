@@ -33,13 +33,13 @@ myButton:SetHeight(20)
 myButton:SetText("+")
 myButton:SetPoint("TOPLEFT", 16, -13)
 
-local bossDialog = CreateFrame("Frame", addon_name, frame, BackdropTemplateMixin and "BackdropTemplate")
-bossDialog:SetFrameStrata("DIALOG")
-bossDialog:SetPoint("CENTER", frame, "CENTER", 0, 0)
-bossDialog:SetWidth(200)
-bossDialog:SetHeight(100)
-bossDialog:SetPoint("TOPLEFT", 16, -13)
-bossDialog:SetBackdrop(BACKDROP_TUTORIAL_16_16)
+-- local bossDialog = CreateFrame("Frame", addon_name, frame, BackdropTemplateMixin and "BackdropTemplate")
+-- bossDialog:SetFrameStrata("DIALOG")
+-- bossDialog:SetPoint("CENTER", frame, "CENTER", 0, 0)
+-- bossDialog:SetWidth(200)
+-- bossDialog:SetHeight(100)
+-- bossDialog:SetPoint("TOPLEFT", 16, -13)
+-- bossDialog:SetBackdrop(BACKDROP_TUTORIAL_16_16)
 
 
 ---------------------------------------------------------

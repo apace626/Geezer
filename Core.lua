@@ -41,10 +41,6 @@ function addon:OnEnable()
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("PLAYER_TARGET_CHANGED")
     self:RegisterEvent("UNIT_TARGET")
-
-    
-
-    --self:Print('Show on screen', self.db.profile.showOnScreen)
 end
 
 function addon:OnDisable()
@@ -118,29 +114,6 @@ function addon:UNIT_TARGET(unitTarget)
             end
 	    end
     end
-    
-    -- self:Print("Class: ", class)
-    -- self:Print("Is Enemy: ", isEnemy)
-    -- self:Print("GUID: ", guid)
-    -- local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
-    -- self:Print(strsplit("-", guid))
-    -- self:Print(select(6, strsplit("-", guid)))
-    -- ParseGUID("target") 
-
-    -- local guid = UnitGUID("target")
-	-- local name = UnitName("target")
-	-- if guid then
-	-- 	local link = unitLink:format(guid, name) -- clickable link
-	-- 	local unit_type = strsplit("-", guid)
-	-- 	if unit_type == "Creature" or unit_type == "Vehicle" then
-	-- 		local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
-	-- 		print(format("%s is a creature with NPC ID %d", link, npc_id))
-	-- 	elseif unit_type == "Player" then
-	-- 		local _, server_id, player_id = strsplit("-", guid)
-	-- 		print(format("%s is a player with ID %s", link, player_id))
-	-- 	end
-	-- end
-
 end
 
 
@@ -191,20 +164,6 @@ function addon:CALENDAR_OPEN_EVENT()
 		self:Print("Welcome Home!")
 	end
 end
-
-
-
--- function addon:ENCOUNTER_START(event, ...)
---     local encounterID = ...
---     local note = self.data[encounterID]
---     if note then
---         self:ShowNote(note)
---     end
--- end
-
--- function addon:ENCOUNTER_END()
---     self.frame:Hide()
--- end
 
 
 
