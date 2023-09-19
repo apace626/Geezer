@@ -1,4 +1,5 @@
-local addon_name, addon = ...
+local addon_name, ns = ...
+local Geezer = _G[ addon ]
 
 local frame = CreateFrame("Frame", addon_name, UIParent, BackdropTemplateMixin and "BackdropTemplate")
 

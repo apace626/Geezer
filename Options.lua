@@ -1,7 +1,7 @@
+local addon, ns = ...
+local Geezer = _G[ addon ]
 
-
-
-addon.defaults = {
+Geezer.defaults = {
 	profile = {
 		someToggle = true,
 		someRange = 7,
@@ -11,10 +11,10 @@ addon.defaults = {
 }
 
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables
-addon.options = {
+Geezer.options = {
 	type = "group",
 	name = "Geezer (label 2)",
-	handler = addon,
+	handler = Geezer,
 	args = {
 		someToggle = {
 			type = "toggle",
@@ -22,8 +22,8 @@ addon.options = {
 			name = "a checkbox",
 			desc = "some description",
 			-- inline getter/setter example
-			get = function(info) return addon.db.profile.someToggle end,
-			set = function(info, value) addon.db.profile.someToggle = value end,
+			get = function(info) return Geezer.db.profile.someToggle end,
+			set = function(info, value) Geezer.db.profile.someToggle = value end,
 		},
 		someRange = {
 			type = "range",
@@ -73,20 +73,20 @@ addon.options = {
 	},
 }
 
-function addon:GetSomeRange(info)
-	return self.db.profile.someRange
+function Geezer:GetSomeRange(info)
+	return Geezer.db.profile.someRange
 end
 
-function addon:SetSomeRange(info, value)
-	self.db.profile.someRange = value
+function Geezer:SetSomeRange(info, value)
+	Geezer.db.profile.someRange = value
 end
 
 -- for documentation on the info table
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
-function addon:GetValue(info)
-	return self.db.profile[info[#info]]
+function Geezer:GetValue(info)
+	return Geezer.db.profile[info[#info]]
 end
 
-function addon:SetValue(info, value)
-	self.db.profile[info[#info]] = value
+function Geezer:SetValue(info, value)
+	Geezer.db.profile[info[#info]] = value
 end
