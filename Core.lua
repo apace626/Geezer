@@ -1,21 +1,24 @@
---local addon_name, addon = ...
+local addonName, T = ...
+local gz = T.GeezerAddon
 
-addon = LibStub("AceAddon-3.0"):NewAddon("Geezer", "AceConsole-3.0", "AceEvent-3.0")
+--gz = LibStub("AceAddon-3.0"):NewAddon("Geezer", "AceConsole-3.0", "AceEvent-3.0")
 local ace_config = LibStub("AceConfig-3.0")
 local ace_config_dialog = LibStub("AceConfigDialog-3.0")
 
-function addon:OnInitialize()
+function gz:OnInitialize()
     -- code that you want to run when the addon is first loaded goes here.
     self.Print('Geezer', 'OnInitialize')
+
+    gz:BuildFrame()
     
     -- uses the "Default" profile instead of character-specific profiles
     -- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
-    self.db = LibStub("AceDB-3.0"):New("GeezerDB", self.defaults, true)
+    self.db = LibStub("AceDB-3.0"):New("GeezerDB", T.defaults, true)
 
     -- registers an options table and adds it to the Blizzard options window
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-config-3-0
     
-    ace_config:RegisterOptionsTable("Geezer", self.options)
+    ace_config:RegisterOptionsTable("Geezer", T.options)
 	self.optionsFrame = ace_config_dialog:AddToBlizOptions("Geezer", "Geezer")
 
     -- adds a child options table, in this case our profiles panel
@@ -33,7 +36,7 @@ function addon:OnInitialize()
 
 end
 
-function addon:OnEnable()
+function gz:OnEnable()
     -- called when the addon is enabled
     self.Print('Geezer', 'OnEnable')
     self:RegisterEvent("ZONE_CHANGED")
@@ -43,12 +46,12 @@ function addon:OnEnable()
     self:RegisterEvent("UNIT_TARGET")
 end
 
-function addon:OnDisable()
+function gz:OnDisable()
     -- called when the addon is disabled
     self.Print('Geezer', 'OnDisable')
 end
 
-function addon:SlashCommand(input, editbox)
+function gz:SlashCommand(input, editbox)
 	if input == "enable" then
 		self:Enable()
 		self:Print("Enabled.")
@@ -73,22 +76,22 @@ function addon:SlashCommand(input, editbox)
 	end
 end
 
-function GetSpellInfo2(id)
-    addon:Print("Spell Id: ", id)
-    addon:Print(GetSpellInfo(id))
-    --addon:Print(string.format("|T%s:0|t|cff71d5ff%s|r", icon, name))
-end
+-- function GetSpellInfo2(id)
+--     addon:Print("Spell Id: ", id)
+--     addon:Print(GetSpellInfo(id))
+--     --addon:Print(string.format("|T%s:0|t|cff71d5ff%s|r", icon, name))
+-- end
 
-function addon:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
+function gz:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
     self:Print("E:ENCOUNTER_START")
     self:Print(encounterID, encounterName, difficultyID, groupSize)
 end
 
-function addon:PLAYER_TARGET_CHANGED()
+function gz:PLAYER_TARGET_CHANGED()
     self:Print("E:PLAYER_TARGET_CHANGED")
 end
 
-function addon:UNIT_TARGET(unitTarget)
+function gz:UNIT_TARGET(unitTarget)
     self:Print("E:UNIT_TARGET")
     -- self:Print("Type: ", UnitClassification(unitTarget))
     if (UnitExists("target")) then
@@ -117,7 +120,7 @@ function addon:UNIT_TARGET(unitTarget)
 end
 
 
-function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
+function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     self:Print("E:PLAYER_ENTERING_WORLD")
     if IsInInstance() then
         mapId = C_Map.GetBestMapForUnit("player") 
@@ -128,12 +131,12 @@ function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         -- addon:Print("Difficulty: ", d)
         
         name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceID, instanceGroupSize, LfgDungeonID = GetInstanceInfo()
-        addon:Print("Name: ", name)
-        addon:Print("Instance Type: ", instanceType)
-        addon:Print("Difficulty: ", difficultyName)
-        addon:Print("Instance ID: ", instanceID)
-        addon:Print("Map ID", mapId)
-        addon:Print("Lfg Dungeon ID: ", LfgDungeonID)
+        gz:Print("Name: ", name)
+        gz:Print("Instance Type: ", instanceType)
+        gz:Print("Difficulty: ", difficultyName)
+        gz:Print("Instance ID: ", instanceID)
+        gz:Print("Map ID", mapId)
+        gz:Print("Lfg Dungeon ID: ", LfgDungeonID)
 
         -- GetDifficultyInfo() - Returns information about a difficulty.
         -- GetDungeonDifficultyID() - Returns the selected dungeon difficulty.
@@ -142,13 +145,13 @@ function addon:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         -- GetLegacyRaidDifficultyID()
         -- GetRaidDifficultyID() - Returns the player's currently selected raid difficulty.
     else 
-        addon:Print('Not in instance')
+        gz:Print('Not in instance')
     end
     -- SetMapToCurrentZone()
     -- posx, posy = GetPlayerMapPosition("unit")
 end
 
-function addon:ZONE_CHANGED()
+function gz:ZONE_CHANGED()
 	local subzone = GetSubZoneText()
 	self:Print("You have changed zones!", GetZoneText(), subzone)
 	if GetBindLocation() == subzone then
@@ -156,7 +159,7 @@ function addon:ZONE_CHANGED()
 	end
 end
 
-function addon:CALENDAR_OPEN_EVENT()
+function gz:CALENDAR_OPEN_EVENT()
 	local subzone = GetSubZoneText()
 	self:Print("You have changed zones!", GetZoneText(), subzone)
     self:Print("GetBindLocation", GetBindLocation())
