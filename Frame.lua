@@ -1,5 +1,5 @@
-local addonName, T = ...
-local gz = T.GeezerAddon
+local addonName, addonTable = ...
+local gz = addonTable.GeezerAddon
 
 function gz:BuildFrame()
 
@@ -21,6 +21,7 @@ function gz:BuildFrame()
     titleText:SetJustifyV("TOP")
     titleText:SetJustifyH("LEFT")
     titleText:SetText("Title")
+    addonTable.titleText = titleText
 
     local notesText = frame:CreateFontString(nil, "BACKGROUND")
     notesText:SetFontObject("GameFontNormal")
@@ -28,6 +29,7 @@ function gz:BuildFrame()
     notesText:SetJustifyH("LEFT")
     notesText:SetTextColor(1, 1, 1)
     notesText:SetText("Notes asdfasdfsafsaf asdfasdfdaf aasdfasfasdf")
+    addonTable.notesText = notesText
 
     local myButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
     myButton:SetPoint("CENTER", frame, "CENTER", 0, 0)
@@ -75,9 +77,6 @@ function gz:BuildFrame()
     if frame:IsShown() then
         frame:SetHeight(titleHeight + notesText:GetHeight() + (inset * 2))
     end
-
-    --frame.SetMovable(true)
-    --frame:Hide()
 
 end
 

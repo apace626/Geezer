@@ -1,8 +1,8 @@
 
-local addonName, T = ...
-local gz = T.GeezerAddon
+local addonName, addonTable = ...
+local gz = addonTable.GeezerAddon
 
-T.defaults = {
+addonTable.defaults = {
 	profile = {
 		someToggle = true,
 		someRange = 7,
@@ -12,7 +12,7 @@ T.defaults = {
 }
 
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables
-T.options = {
+addonTable.options = {
 	type = "group",
 	name = "Geezer (label 2)",
 	handler = gz,

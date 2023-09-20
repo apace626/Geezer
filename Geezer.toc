@@ -9,10 +9,12 @@ embeds.xml
 
 Geezer.lua
 
-Core.lua
+Data\Shadowlands.lua
+Data\Test.lua
+
 Options.lua
 Frame.lua
+Core.lua
 
 
-#DoIt.xml
 

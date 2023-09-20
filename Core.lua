@@ -1,5 +1,5 @@
-local addonName, T = ...
-local gz = T.GeezerAddon
+local addonName, addonTable = ...
+local gz = addonTable.GeezerAddon
 
 --gz = LibStub("AceAddon-3.0"):NewAddon("Geezer", "AceConsole-3.0", "AceEvent-3.0")
 local ace_config = LibStub("AceConfig-3.0")
@@ -8,17 +8,14 @@ local ace_config_dialog = LibStub("AceConfigDialog-3.0")
 function gz:OnInitialize()
     -- code that you want to run when the addon is first loaded goes here.
     self.Print('Geezer', 'OnInitialize')
-
-    gz:BuildFrame()
     
     -- uses the "Default" profile instead of character-specific profiles
     -- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
-    self.db = LibStub("AceDB-3.0"):New("GeezerDB", T.defaults, true)
+    self.db = LibStub("AceDB-3.0"):New("GeezerDB", addonTable.defaults, true)
 
     -- registers an options table and adds it to the Blizzard options window
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-config-3-0
-    
-    ace_config:RegisterOptionsTable("Geezer", T.options)
+    ace_config:RegisterOptionsTable("Geezer", addonTable.options)
 	self.optionsFrame = ace_config_dialog:AddToBlizOptions("Geezer", "Geezer")
 
     -- adds a child options table, in this case our profiles panel
@@ -30,10 +27,8 @@ function gz:OnInitialize()
 	self:RegisterChatCommand("gz", "SlashCommand")
     self:RegisterChatCommand("geezer", "SlashCommand")
 
-    --GetSpellInfo2(320596)
-
-    --self:BuildFrame()
-
+    gz:InitializeData()
+    gz:BuildFrame()
 end
 
 function gz:OnEnable()
@@ -44,6 +39,23 @@ function gz:OnEnable()
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("PLAYER_TARGET_CHANGED")
     self:RegisterEvent("UNIT_TARGET")
+    
+    a = {}    -- new array
+    for i=1, 1000 do
+      a[i] = 0
+    end
+
+    local noteItems = { "" }
+    for _, item in ipairs(addonTable.data[2407]) do
+        --if not item.t or (not item.n and tags[item.t]) or (item.n and not tags[item.t]) then
+        table.insert(noteItems, item[1])
+        print(item[1])
+        --end
+    end
+    addonTable.titleText:SetText(addonTable.data[2407].name)
+    addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
+
+
 end
 
 function gz:OnDisable()
@@ -166,6 +178,34 @@ function gz:CALENDAR_OPEN_EVENT()
 	if GetBindLocation() == subzone then
 		self:Print("Welcome Home!")
 	end
+end
+
+
+-- function addon:ENCOUNTER_START(event, ...)
+--     local encounterID = ...
+--     local note = self.data[encounterID]
+--     if note then
+--         self:ShowNote(note)
+--     end
+-- end
+
+-- function addon:ENCOUNTER_END()
+--     self.frame:Hide()
+-- end
+
+function gz:ShowNote(note)
+    --self.lastShownNote = note
+    --self.titleText:SetText(note.name)
+    --local tags = GetPlayerTags()
+    local noteItems = { "" }
+    for _, item in ipairs(note) do
+        --if not item.t or (not item.n and tags[item.t]) or (item.n and not tags[item.t]) then
+        table.insert(noteItems, item[1])
+        --end
+    end
+    --self.notesText:SetText(table.concat(noteItems, (self.db.emptyLines and "\n\n" or "\n")))
+    --self.frame:Show()
+    --self:FitToContents()
 end
 
 
