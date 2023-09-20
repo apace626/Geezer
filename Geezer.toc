@@ -9,6 +9,7 @@ embeds.xml
 
 Geezer.lua
 
+Data\Classic.lua
 Data\Shadowlands.lua
 Data\Test.lua
 

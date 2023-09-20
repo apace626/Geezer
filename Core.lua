@@ -27,7 +27,7 @@ function gz:OnInitialize()
 	self:RegisterChatCommand("gz", "SlashCommand")
     self:RegisterChatCommand("geezer", "SlashCommand")
 
-    gz:InitializeData()
+    gz:ClassicInitializeData()
     gz:BuildFrame()
 end
 
@@ -39,22 +39,36 @@ function gz:OnEnable()
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("PLAYER_TARGET_CHANGED")
     self:RegisterEvent("UNIT_TARGET")
-    
-    a = {}    -- new array
-    for i=1, 1000 do
-      a[i] = 0
-    end
-
     local noteItems = { "" }
-    for _, item in ipairs(addonTable.data[2407]) do
-        --if not item.t or (not item.n and tags[item.t]) or (item.n and not tags[item.t]) then
-        table.insert(noteItems, item[1])
-        print(item[1])
-        --end
-    end
-    addonTable.titleText:SetText(addonTable.data[2407].name)
-    addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
 
+    print(addonTable.data[389].name)
+    --print(addonTable.data[389].bossList)
+
+    for _, item in ipairs(addonTable.data[389]) do
+        --print(item.id)
+        --print(item.bossName)
+        for _2, item2 in ipairs(item.notes) do
+            print(item2)
+        end
+        
+        --table.insert(noteItems, item[1])
+    end
+
+    for _, item in ipairs(addonTable.data[389]) do
+        print(item.bossName)
+    end
+
+    -- for _, item in ipairs(addonTable.data[389]) do
+    --     if item.boss then
+    --         print(item.boss)
+    --     else
+    --         print(item[1])
+    --     end
+        
+    --     --table.insert(noteItems, item[1])
+    -- end
+    --addonTable.titleText:SetText(addonTable.data[2357].name)
+    --addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
 
 end
 
@@ -100,35 +114,35 @@ function gz:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
 end
 
 function gz:PLAYER_TARGET_CHANGED()
-    self:Print("E:PLAYER_TARGET_CHANGED")
+    --self:Print("E:PLAYER_TARGET_CHANGED")
 end
 
 function gz:UNIT_TARGET(unitTarget)
-    self:Print("E:UNIT_TARGET")
-    -- self:Print("Type: ", UnitClassification(unitTarget))
-    if (UnitExists("target")) then
-        local name = UnitName("target") 
-        local guid = UnitGUID("target")
-        local name = UnitName("target") 
-        local class = UnitClass("unit")
-        local isEnemy = UnitIsEnemy("player","target")
-        self:Print("Name: ", name)   
-        self:Print("GUID: ", guid) 
-        self:Print("Is Enemy: ", isEnemy)
+    --self:Print("E:UNIT_TARGET")
+    
+    -- if (UnitExists("target")) then
+    --     local name = UnitName("target") 
+    --     local guid = UnitGUID("target")
+    --     local name = UnitName("target") 
+    --     local class = UnitClass("unit")
+    --     local isEnemy = UnitIsEnemy("player","target")
+    --     self:Print("Name: ", name)   
+    --     self:Print("GUID: ", guid) 
+    --     self:Print("Is Enemy: ", isEnemy)
 
 
-        if guid then
-            --local link = unitLink:format(guid, name) -- clickable link
-            local unit_type = strsplit("-", guid)
-            if unit_type == "Creature" or unit_type == "Vehicle" then
-                local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
-                self:Print(format("[%s] is a creature with NPC ID %d", name, npc_id))
-            elseif unit_type == "Player" then
-                local _, server_id, player_id = strsplit("-", guid)
-                self:Print(format("[%s] is a player with ID %s", name, player_id))
-            end
-	    end
-    end
+    --     if guid then
+    --         --local link = unitLink:format(guid, name) -- clickable link
+    --         local unit_type = strsplit("-", guid)
+    --         if unit_type == "Creature" or unit_type == "Vehicle" then
+    --             local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
+    --             self:Print(format("[%s] is a creature with NPC ID %d", name, npc_id))
+    --         elseif unit_type == "Player" then
+    --             local _, server_id, player_id = strsplit("-", guid)
+    --             self:Print(format("[%s] is a player with ID %s", name, player_id))
+    --         end
+	--     end
+    -- end
 end
 
 
@@ -143,12 +157,12 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         -- addon:Print("Difficulty: ", d)
         
         name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceID, instanceGroupSize, LfgDungeonID = GetInstanceInfo()
-        gz:Print("Name: ", name)
-        gz:Print("Instance Type: ", instanceType)
-        gz:Print("Difficulty: ", difficultyName)
-        gz:Print("Instance ID: ", instanceID)
-        gz:Print("Map ID", mapId)
-        gz:Print("Lfg Dungeon ID: ", LfgDungeonID)
+        self:Print("Name: ", name)
+        self:Print("Instance Type: ", instanceType)
+        self:Print("Difficulty: ", difficultyName)
+        self:Print("Instance ID: ", instanceID)
+        self:Print("Map ID", mapId)
+        self:Print("Lfg Dungeon ID: ", LfgDungeonID)
 
         -- GetDifficultyInfo() - Returns information about a difficulty.
         -- GetDungeonDifficultyID() - Returns the selected dungeon difficulty.
@@ -157,7 +171,7 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         -- GetLegacyRaidDifficultyID()
         -- GetRaidDifficultyID() - Returns the player's currently selected raid difficulty.
     else 
-        gz:Print('Not in instance')
+        self:Print('Not in instance')
     end
     -- SetMapToCurrentZone()
     -- posx, posy = GetPlayerMapPosition("unit")
@@ -194,19 +208,35 @@ end
 -- end
 
 function gz:ShowNote(note)
+
+    local noteItems = { "" }
+    for _, item in ipairs(addonTable.data[2357]) do
+        --if not item.t or (not item.n and tags[item.t]) or (item.n and not tags[item.t]) then
+        table.insert(noteItems, item[1])
+        --print(item.t)
+        --end
+    end
+    addonTable.titleText:SetText(addonTable.data[2357].name)
+    addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
+
     --self.lastShownNote = note
     --self.titleText:SetText(note.name)
     --local tags = GetPlayerTags()
-    local noteItems = { "" }
-    for _, item in ipairs(note) do
+    --local noteItems = { "" }
+    --for _, item in ipairs(note) do
         --if not item.t or (not item.n and tags[item.t]) or (item.n and not tags[item.t]) then
-        table.insert(noteItems, item[1])
+        --table.insert(noteItems, item[1])
         --end
-    end
+    --end
     --self.notesText:SetText(table.concat(noteItems, (self.db.emptyLines and "\n\n" or "\n")))
     --self.frame:Show()
     --self:FitToContents()
 end
+
+    -- EJ_GetCurrentInstance() - for instanceID
+    -- EJ_GetEncounterInfoByIndex(index, instanceID) - for encounter name, id and link
+    -- EJ_GetCreatureInfo(index, encounterID) - for creature name
+
 
 
 
