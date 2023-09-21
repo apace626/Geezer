@@ -63,52 +63,52 @@ function gz:BuildFrame()
     -- UIDropDownMenu_SetText(addonTable.dropDown, "Ragefire Chasm")
     
     -- Create and bind the initialization function to the dropdown menu
-    UIDropDownMenu_Initialize(addonTable.dropDown, function(self, level, menuList)
-        local titleInfo = UIDropDownMenu_CreateInfo()
-        titleInfo.isTitle = true
-        titleInfo.text = "Ragefire Chasm"
-        UIDropDownMenu_AddButton(titleInfo) 
+    -- UIDropDownMenu_Initialize(addonTable.dropDown, function(self, level, menuList)
+    --     local titleInfo = UIDropDownMenu_CreateInfo()
+    --     titleInfo.isTitle = true
+    --     titleInfo.text = "Ragefire Chasm"
+    --     UIDropDownMenu_AddButton(titleInfo) 
         
-        UIDropDownMenu_AddSeparator()
+    --     UIDropDownMenu_AddSeparator()
         
-        info = UIDropDownMenu_CreateInfo()
-        info.func = self.SetValue
-        info.text = "Dark Shaman Koranthal"
-        info.value = 1 
-        info.arg1 = 1
-        UIDropDownMenu_AddButton(info)
-        info.text = "Horseman Goliath"
-        info.value = 2 
-        info.arg1 = 2
-        UIDropDownMenu_AddButton(info)
-        -- if (level or 1) == 1 then
-        -- -- Display the 0-9, 10-19, ... groups
-        --     for i=0,4 do
-        --         info.text, info.checked = i*10 .. " - " .. (i*10+9), favoriteNumber >= i*10 and favoriteNumber <= (i*10+9)
-        --         info.menuList, info.hasArrow = i, true
-        --         UIDropDownMenu_AddButton(info)
-        --     end
+    --     info = UIDropDownMenu_CreateInfo()
+    --     info.func = self.SetValue
+    --     info.text = "Dark Shaman Koranthal"
+    --     info.value = 1 
+    --     info.arg1 = 1
+    --     UIDropDownMenu_AddButton(info)
+    --     info.text = "Horseman Goliath"
+    --     info.value = 2 
+    --     info.arg1 = 2
+    --     UIDropDownMenu_AddButton(info)
+    --     -- if (level or 1) == 1 then
+    --     -- -- Display the 0-9, 10-19, ... groups
+    --     --     for i=0,4 do
+    --     --         info.text, info.checked = i*10 .. " - " .. (i*10+9), favoriteNumber >= i*10 and favoriteNumber <= (i*10+9)
+    --     --         info.menuList, info.hasArrow = i, true
+    --     --         UIDropDownMenu_AddButton(info)
+    --     --     end
         
-        -- else
-        -- -- Display a nested group of 10 favorite number options
-        --     info.func = self.SetValue
-        --     for i=menuList*10, menuList*10+9 do
-        --         info.text, info.arg1, info.checked = i, i, i == favoriteNumber
-        --         UIDropDownMenu_AddButton(info, level)
-        --     end
-        -- end
-    end)
+    --     -- else
+    --     -- -- Display a nested group of 10 favorite number options
+    --     --     info.func = self.SetValue
+    --     --     for i=menuList*10, menuList*10+9 do
+    --     --         info.text, info.arg1, info.checked = i, i, i == favoriteNumber
+    --     --         UIDropDownMenu_AddButton(info, level)
+    --     --     end
+    --     -- end
+    -- end)
         
         -- Implement the function to change the favoriteNumber
-    function addonTable.dropDown:SetValue(newValue)
-        print(newValue)
-        print('<><><><>')
-        -- Update the text; if we merely wanted it to display newValue, we would not need to do this
-        --UIDropDownMenu_SetText(dropDown, "Favorite number: " .. favoriteNumber)
-        -- Because this is called from a sub-menu, only that menu level is closed by default.
-        -- Close the entire menu with this next call
-        --CloseDropDownMenus()
-    end
+    -- function addonTable.dropDown:SetValue(newValue)
+    --     print(newValue)
+    --     print('<><><><>')
+    --     -- Update the text; if we merely wanted it to display newValue, we would not need to do this
+    --     --UIDropDownMenu_SetText(dropDown, "Favorite number: " .. favoriteNumber)
+    --     -- Because this is called from a sub-menu, only that menu level is closed by default.
+    --     -- Close the entire menu with this next call
+    --     --CloseDropDownMenus()
+    -- end
 
     
 
@@ -162,6 +162,35 @@ function gz:BuildFrame()
 
 end
 
+function gz:InitializeBossDropdown(instanceID)
+    print(instanceID)
+    local instanceData = addonTable.data[instanceID]
+    if instanceData then
 
+        UIDropDownMenu_Initialize(addonTable.dropDown, function(self, level, menuList)
+            local titleInfo = UIDropDownMenu_CreateInfo()
+            titleInfo.isTitle = true
+            titleInfo.text = "Ragefire Chasm"
+            UIDropDownMenu_AddButton(titleInfo) 
+            
+            UIDropDownMenu_AddSeparator()
+            
+            for _, item in ipairs(addonTable.data[instanceID]) do
+                info = UIDropDownMenu_CreateInfo()
+                --info.func = self.SetValue
+                info.text = item.bossName
+                info.value = item.npcID 
+                info.arg1 = item.npcID
+                UIDropDownMenu_AddButton(info)
+            end
+
+            
+        end)
+
+        
+    else
+        self:Print("No instance data found.")
+    end
+end
 
 

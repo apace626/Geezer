@@ -23,8 +23,8 @@ function gz:ClassicInitializeData()
     addonTable.data[389] = {
         name = "Ragefire Chasm",
         { 
-            npcId = 61408,
-            ecounterId = 1443, 
+            npcID = 61408,
+            encounterID = 1443, 
             bossName="Adarogg",
             notes = {
                 "Adarogg fixes his eyes on a player, charging their location and inflicting Physical damage to all nearby players on impact. ("..S(119299)..").",
@@ -32,8 +32,8 @@ function gz:ClassicInitializeData()
                 }
         },
         { 
-            npcId = 61412, 
-            ecounterId = 1444,
+            npcID = 61412, 
+            encounterID = 1444,
             bossName="Dark Shaman Koranthal",
             notes = {
                 "Hurls ("..S(119300)..") at an enemy, inflicting Shadow damage.",
