@@ -23,7 +23,7 @@ function gz:ClassicInitializeData()
     addonTable.data[389] = {
         name = "Ragefire Chasm",
         { 
-            npcId = 123,
+            npcId = 61408,
             ecounterId = 1443, 
             bossName="Adarogg",
             notes = {
@@ -32,7 +32,8 @@ function gz:ClassicInitializeData()
                 }
         },
         { 
-            id = 123, 
+            npcId = 61412, 
+            ecounterId = 1444,
             bossName="Dark Shaman Koranthal",
             notes = {
                 "Hurls ("..S(119300)..") at an enemy, inflicting Shadow damage.",
