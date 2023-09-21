@@ -163,7 +163,8 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         self:Print("Instance ID: ", instanceID)
         self:Print("Map ID", mapId)
         self:Print("Lfg Dungeon ID: ", LfgDungeonID)
-
+        
+        self:GetBosses(123)
         -- GetDifficultyInfo() - Returns information about a difficulty.
         -- GetDungeonDifficultyID() - Returns the selected dungeon difficulty.
         -- GetInstanceBootTimeRemaining() - Gets the time in seconds after which the player will be ejected from an instance.
@@ -194,8 +195,16 @@ function gz:CALENDAR_OPEN_EVENT()
 	end
 end
 
+function gz:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
+    self:Print("E:ENCOUNTER_START")
+    self:Print(encounterID, encounterName, difficultyID, groupSize)
+    local note = self.data[encounterID]
+    if note then
+        self:ShowNote(note)
+    end
+end
 
--- function addon:ENCOUNTER_START(event, ...)
+-- function gz:ENCOUNTER_START(event, ...)
 --     local encounterID = ...
 --     local note = self.data[encounterID]
 --     if note then
@@ -231,6 +240,19 @@ function gz:ShowNote(note)
     --self.notesText:SetText(table.concat(noteItems, (self.db.emptyLines and "\n\n" or "\n")))
     --self.frame:Show()
     --self:FitToContents()
+end
+
+function gz:GetBosses(instanceID)
+    local instanceData = addonTable.data[instanceID]
+    if instanceData then
+        for _, item in ipairs(addonTable.data[instanceID]) do
+            print(item.bossName)
+        end
+    else
+        self:Print("No instance data found.")
+    end
+
+    addonTable.bossDialog:Show()
 end
 
     -- EJ_GetCurrentInstance() - for instanceID

@@ -23,7 +23,8 @@ function gz:ClassicInitializeData()
     addonTable.data[389] = {
         name = "Ragefire Chasm",
         { 
-            id = 123, 
+            npcId = 123,
+            ecounterId = 1443, 
             bossName="Adarogg",
             notes = {
                 "Adarogg fixes his eyes on a player, charging their location and inflicting Physical damage to all nearby players on impact. ("..S(119299)..").",
