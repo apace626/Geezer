@@ -10,16 +10,6 @@ function gz:ClassicInitializeData()
     addonTable.data = {}
 
     -- Ragefire Chasm
-    --THIS WORKS
-    -- for _, item in ipairs(addonTable.data[389]) do
-    --     print(item.id)
-    --     print(item.bossName)
-    --     for _2, item2 in ipairs(item.notes) do
-    --         print(item2)
-    --     end
-        
-    --     --table.insert(noteItems, item[1])
-    -- end
     addonTable.data[389] = {
         name = "Ragefire Chasm",
         { 
@@ -27,8 +17,8 @@ function gz:ClassicInitializeData()
             encounterID = 1443, 
             bossName="Adarogg",
             notes = {
-                "Adarogg fixes his eyes on a player, charging their location and inflicting Physical damage to all nearby players on impact. ("..S(119299)..").",
-                "Dodge ("..S(119420)..")."
+                "Move out of the way of "..S(119299)..".",
+                "Take note of the frontal cone "..S(119420).."."
                 }
         },
         { 
@@ -36,8 +26,74 @@ function gz:ClassicInitializeData()
             encounterID = 1444,
             bossName="Dark Shaman Koranthal",
             notes = {
-                "Hurls ("..S(119300)..") at an enemy, inflicting Shadow damage.",
-                "Calls down ("..S(119971)..") for 15 seconds, inflicting Shadow damage to all players within 2 yards of each impact."
+                "Interrupt "..S(119300)..", inflicts shadow damage on target.",
+                "Avoid "..S(119971).." , inflicts shadow damage to all players within 2 yards of purple circles."
+                }
+        },
+        { 
+            npcID = 61463, 
+            encounterID = 1445,
+            bossName="Slagmaw",
+            notes = {
+                "Boss will occasionally vanish in the lava and pop up somewhere else."
+                }
+        },
+        { 
+            npcID = 61528, 
+            encounterID = 1446,
+            bossName="Lava Guard Gordoth",
+            notes = {
+                S(119999).." and "..S(120024).." will knock back players.",
+                "Boss will "..S(50420).." at 30% health."
+                }
+        }
+    }
+
+    -- Deadmines
+    addonTable.data[36] = {
+        name = "Deadmines",
+        { 
+            npcID = 61408,
+            encounterID = 1443, 
+            bossName="Glubtok",
+            notes = {
+                "Move out of the way of "..S(119299)..".",
+                "Take note of the frontal cone "..S(119420).."."
+                }
+        },
+        { 
+            npcID = 61412, 
+            encounterID = 1444,
+            bossName="Helix Gearbreaker",
+            notes = {
+                "Interrupt "..S(119300)..", inflicts shadow damage on target.",
+                "Avoid "..S(119971).." , inflicts shadow damage to all players within 2 yards of purple circles."
+                }
+        },
+        { 
+            npcID = 61463, 
+            encounterID = 1445,
+            bossName="Foe Reaper 5000",
+            notes = {
+                "Boss will occasionally vanish in the lava and pop up somewhere else."
+                }
+        },
+        { 
+            npcID = 61528, 
+            encounterID = 1446,
+            bossName="Admiral Ripsnarl",
+            notes = {
+                S(119999).." and "..S(120024).." will knock back players.",
+                "Boss will "..S(50420).." at 30% health."
+                }
+        },
+        { 
+            npcID = 61528, 
+            encounterID = 1446,
+            bossName="Cookie",
+            notes = {
+                S(119999).." and "..S(120024).." will knock back players.",
+                "Boss will "..S(50420).." at 30% health."
                 }
         }
     }

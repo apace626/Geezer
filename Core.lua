@@ -10,6 +10,7 @@ local ace_config_dialog = LibStub("AceConfigDialog-3.0")
 
 --TODO pull out instance data from table and only use that. dont scan all instances every time
 --TODO hide not when not in instance
+--TODO tanking for noobs, use image? contact them?
 
 
 
@@ -42,21 +43,14 @@ function gz:OnInitialize()
 end
 
 function gz:OnEnable()
-    -- called when the addon is enabled
     self.Print('Geezer', 'OnEnable')
     self:RegisterEvent("ZONE_CHANGED")
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("ENCOUNTER_START")
-    self:RegisterEvent("PLAYER_TARGET_CHANGED")
     self:RegisterEvent("UNIT_TARGET")
-
-    --self:InitializeBossDropdown(389)
-    --self:ShowNote(389, nil, nil) -- show first boss by calling same function you would in onclick menu
-
 end
 
 function gz:OnDisable()
-    -- called when the addon is disabled
     self.Print('Geezer', 'OnDisable')
 end
 
@@ -85,23 +79,7 @@ function gz:SlashCommand(input, editbox)
 	end
 end
 
--- function GetSpellInfo2(id)
---     addon:Print("Spell Id: ", id)
---     addon:Print(GetSpellInfo(id))
---     --addon:Print(string.format("|T%s:0|t|cff71d5ff%s|r", icon, name))
--- end
-
-function gz:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
-    self:Print("E:ENCOUNTER_START")
-    self:Print(encounterID, encounterName, difficultyID, groupSize)
-end
-
-function gz:PLAYER_TARGET_CHANGED()
-    --self:Print("E:PLAYER_TARGET_CHANGED")
-end
-
 function gz:UNIT_TARGET(unitTarget)
-    --self:Print("E:UNIT_TARGET")
     
     if (UnitExists("target")) then
         local name = UnitName("target") 
@@ -112,7 +90,6 @@ function gz:UNIT_TARGET(unitTarget)
         self:Print("Name: ", name)   
         self:Print("GUID: ", guid) 
         self:Print("Is Enemy: ", isEnemy)
-
 
         if guid then
             --local link = unitLink:format(guid, name) -- clickable link
@@ -128,7 +105,6 @@ function gz:UNIT_TARGET(unitTarget)
                 self:Print(format("[%s] is a player with ID %s", name, player_id))
             end
 	    end
-
         
     end
 end
@@ -138,13 +114,8 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     self:Print("E:PLAYER_ENTERING_WORLD")
     if IsInInstance() then
         mapId = C_Map.GetBestMapForUnit("player") 
-        -- addon:Print(format("You are in %s (%d)", C_Map.GetMapInfo(mapId).name, mapId))
-        -- difficultyID = GetDungeonDifficultyID()
-        -- addon:Print("difficultyID: ", difficultyID)
-        -- d = GetDifficultyInfo(difficultyID)
-        -- addon:Print("Difficulty: ", d)
-        
         name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceID, instanceGroupSize, LfgDungeonID = GetInstanceInfo()
+
         self:Print("Name: ", name)
         self:Print("Instance Type: ", instanceType)
         self:Print("Difficulty: ", difficultyName)
@@ -155,7 +126,6 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         self:InitializeBossDropdown(instanceID)
         self:ShowNote(instanceID, nil, nil) -- show first boss
         
-        --self:GetBosses(123)
         -- GetDifficultyInfo() - Returns information about a difficulty.
         -- GetDungeonDifficultyID() - Returns the selected dungeon difficulty.
         -- GetInstanceBootTimeRemaining() - Gets the time in seconds after which the player will be ejected from an instance.
@@ -164,9 +134,10 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         -- GetRaidDifficultyID() - Returns the player's currently selected raid difficulty.
     else 
         self:Print('Not in instance')
+        --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
+        self:InitializeBossDropdown(36)
+        self:ShowNote(36, nil, nil) -- show first boss
     end
-    -- SetMapToCurrentZone()
-    -- posx, posy = GetPlayerMapPosition("unit")
 end
 
 function gz:ZONE_CHANGED()
@@ -192,31 +163,22 @@ function gz:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
     self:ShowNote(instanceID, nil, encounterID)
 end
 
--- function gz:ENCOUNTER_START(event, ...)
---     local encounterID = ...
---     local note = self.data[encounterID]
---     if note then
---         self:ShowNote(note)
---     end
--- end
-
--- function addon:ENCOUNTER_END()
---     self.frame:Hide()
--- end
-
 function gz:ShowNote(instanceID, npcID, encounterID)
     local title = ""
+    local selectedBossNpcID = nil
     local noteItems = { "" }
 
     -- Grab first boss if not specified
     if not npcID and not encounterID then
         title = addonTable.data[instanceID][1].bossName
+        selectedBossNpcID = addonTable.data[instanceID][1].npcID
         for _2, item2 in ipairs(addonTable.data[instanceID][1].notes) do
             table.insert(noteItems, item2)
         end
     else
         for _, item in ipairs(addonTable.data[instanceID]) do
             if (tonumber(npcID) == item.npcID) or (tonumber(encounterID) == item.encounterID) then
+                selectedBossNpcID = item.npcID
                 title = item.bossName
                 for _2, item2 in ipairs(item.notes) do
                     table.insert(noteItems, item2)
@@ -227,28 +189,8 @@ function gz:ShowNote(instanceID, npcID, encounterID)
 
     addonTable.titleText:SetText(title)
     addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
+    UIDropDownMenu_SetSelectedValue(addonTable.bossDropDown, selectedBossNpcID)
 
-    -- local noteItems = { "" }
-    -- for _, item in ipairs(addonTable.data[2357]) do
-    --     --if not item.t or (not item.n and tags[item.t]) or (item.n and not tags[item.t]) then
-    --     table.insert(noteItems, item[1])
-    --     --print(item.t)
-    --     --end
-    -- end
-    -- addonTable.titleText:SetText(addonTable.data[2357].name)
-    -- addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
-
-    --self.lastShownNote = note
-    --self.titleText:SetText(note.name)
-    --local tags = GetPlayerTags()
-    --local noteItems = { "" }
-    --for _, item in ipairs(note) do
-        --if not item.t or (not item.n and tags[item.t]) or (item.n and not tags[item.t]) then
-        --table.insert(noteItems, item[1])
-        --end
-    --end
-    --self.notesText:SetText(table.concat(noteItems, (self.db.emptyLines and "\n\n" or "\n")))
-    --self.frame:Show()
     --self:FitToContents()
 end
 
@@ -264,10 +206,6 @@ function gz:IsInstanceBoss(instanceID, npcID)
     
     return false
 end
-
-    -- EJ_GetCurrentInstance() - for instanceID
-    -- EJ_GetEncounterInfoByIndex(index, instanceID) - for encounter name, id and link
-    -- EJ_GetCreatureInfo(index, encounterID) - for creature name
 
 
 
