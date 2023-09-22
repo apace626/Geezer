@@ -10,8 +10,10 @@ embeds.xml
 Geezer.lua
 
 Data\Classic.lua
-Data\Shadowlands.lua
-Data\Test.lua
+#Data\Cataclysm.lua
+#Data\Shadowlands.lua
+#Data\Dragonflight.lua
+
 
 Options.lua
 Frame.lua

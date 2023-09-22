@@ -4,7 +4,7 @@ local gz = addonTable.GeezerAddon
 --gz = LibStub("AceAddon-3.0"):NewAddon("Geezer", "AceConsole-3.0", "AceEvent-3.0")
 local ace_config = LibStub("AceConfig-3.0")
 local ace_config_dialog = LibStub("AceConfigDialog-3.0")
-
+addonTable.data = {}
 
 
 
@@ -183,6 +183,7 @@ function gz:ShowNote(instanceID, npcID, encounterID)
                 for _2, item2 in ipairs(item.notes) do
                     table.insert(noteItems, item2)
                 end
+                --TODO: show text that no data is found and to contribute
             end
         end
     end

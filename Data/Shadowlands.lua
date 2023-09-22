@@ -7,7 +7,6 @@ local function S(id)
 end
 
 function gz:InitializeData()
-    addonTable.data = {}
 
     -- The Necrotic Wake
     addonTable.data[2387] = {
