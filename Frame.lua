@@ -32,22 +32,29 @@ function gz:BuildFrame()
     addonTable.notesText = notesText
 
     local collapseButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
+    local notesHidden = false
     collapseButton:SetPoint("CENTER", frame, "CENTER", 0, 0)
     collapseButton:SetWidth(20)
     collapseButton:SetHeight(20)
-    collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-CollapseButton-Up") -- opposite is ExpandButton
-    collapseButton:SetPushedTexture("Interface\\Icons\\UI-Panel-CollapseButton-Down")
+    collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-CollapseButton-Up")
     collapseButton:SetPoint("TOPRIGHT", 16, -13)
     collapseButton:SetScript("OnClick", function(self, button, down)
-        ToggleDropDownMenu(1, nil, addonTable.bossDropDown, "cursor", 3, -3)
-        --myButton:SetNormalTexture("Interface\\Icons\\Inv_misc_archaeology_amburfly")
+        if notesHidden then
+            notesText:Show()
+            collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-CollapseButton-Up")
+        else 
+            notesText:Hide()
+            collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-ExpandButton-Up")
+        end
+
+        notesHidden = not notesHidden
     end)
 
     local searchButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
     searchButton:SetPoint("CENTER", frame, "CENTER", 0, 0)
     searchButton:SetWidth(20)
     searchButton:SetHeight(20)
-    --searchButton:SetNormalTexture("Interface\\Common\\UI-Searchbox-Icon")
+    --searchButton:SetNormalTexture("Interface\\Buttons\\UI-AttributeButton-Down")
     searchButton:SetText('+')
     searchButton:SetPoint("TOPLEFT", 16, -13)
     searchButton:SetScript("OnClick", function(self, button, down)
