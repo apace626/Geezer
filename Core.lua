@@ -184,12 +184,19 @@ function gz:ShowNote(instanceID, npcID, encounterID)
                     table.insert(noteItems, item2)
                 end
                 --TODO: show text that no data is found and to contribute
+                
             end
         end
     end
 
     addonTable.titleText:SetText(title)
+
+    if table.getn(noteItems) == 1 then
+        addonTable.notesText:SetText("\n\nNotes have not been added. Let us know if you would like to contribute!")
+    else
     addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
+    end
+    
     UIDropDownMenu_SetSelectedValue(addonTable.bossDropDown, selectedBossNpcID)
 
     --self:FitToContents()

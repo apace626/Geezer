@@ -152,7 +152,9 @@ function gz:ClassicInitializeData()
             npcID = 3653,
             encounterID = 587, 
             bossName= "Kresh",
-            notes = {}
+            notes = {
+                "test"
+            }
         },
         
         {
