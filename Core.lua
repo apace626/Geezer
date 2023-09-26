@@ -136,8 +136,8 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     else 
         self:Print('Not in instance')
         --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
-        self:InitializeBossDropdown(725)
-        self:ShowNote(725, nil, nil) -- show first boss
+        self:InitializeBossDropdown(657)
+        self:ShowNote(657, nil, nil) -- show first boss
     end
 end
 

@@ -306,21 +306,37 @@ function gz:CataclysmInitializeData()
                 npcID = 43878,
                 encounterID = 1043, 
                 bossName= "Grand Vizier Ertan",
-                notes = {}
+                notes = {
+                    "Careful of moving cyclones, avoid when they move to boss.",
+                    "Move back within the circle of cyclones, don’t stay on outside - "..S(86309),
+                    "Interrupt "..S(188196),
+                    "|cffff0000(!)|r [H] "..S(413151).." will only attack players with "..S(411001).." if no one is looking at them.",
+                }
             },
             
             {
                 npcID = 43873,
                 encounterID = 1041, 
                 bossName= "Altairus",
-                notes = {}
+                notes = {
+                    "Wind blows in 1 of 4 directions & you will get "..S(88282).." or "..S(88286).." effects, increasing attack/spell & movement speeds of players or the boss.",
+                    "Random player hit with frontal cone "..S(88308)..", others avoid.",
+                    "(Heal) "..S(413331)..", ticking damage every 3s",
+                    "[H] "..S(88314).." fills the platform with twisters, avoid them, they deal damage & knock you in air.",
+                }
             },
             
             {
                 npcID = 999999,
                 encounterID = 1042, 
                 bossName= "Asaad, Caliph of Zephyrs",
-                notes = {}
+                notes = {
+                "All players get inside the lightning triangle to avoid damage - "..S(86911),
+                "|cffff0000(!)|r Lightning storm – "..S(86715).." – deals nature damage to all players on platform.",
+                "Uses "..S(87622).." hitting other nearby players. ",
+                "DPS focus kill "..S(413263),
+                "[H] "..S(87618).." creates a static field on ground, any player touching this is stunned for 18 seconds.",
+                }
             },
             
         }
