@@ -6,8 +6,7 @@ local function S(id)
     return string.format("|T%s:0|t|cff71d5ff%s|r", icon, name)
 end
 
-function gz:ClassicInitializeData()
-    addonTable.data = {}
+function gz:CataclysmInitializeData()
      
         -- Zul'Gurub
         addonTable.data[309] = {
@@ -236,35 +235,65 @@ function gz:ClassicInitializeData()
                 npcID = 39665,
                 encounterID = 1040, 
                 bossName= "Rom'ogg Bonecrusher",
-                notes = {}
+                notes = {
+                    "Clear the room of all trash or be overwhelmed – "..S(82137),
+                    "Move out of the dust clouds",
+                    "Tank pick up adds spawning from dust clouds. DPS kill adds",
+                    "|cffff0000(!)|r When he puts the group in "..S(75539)..", focus kill the chains and then run away before he does his AOE cleave – "..S(75543)
+                }
             },
             
             {
                 npcID = 39679,
                 encounterID = 1038, 
                 bossName= "Corla, Herald of Twilight",
-                notes = {}
+                notes = {
+                    "|cffff0000(!)|r DPS stand in beam for 80 stacks, move out, let debuff fall off, and move back in for 80. Rinse repeat - "..S(75697),
+                    "Interrupt her fear – "..S(75823),
+                    "Interrupt Twilight Zealots",
+                    "If Twiglight Zealots are kneeling don't attack - "..S(75608),
+                    "Players w/ 100 "..S(75697).." turn into Twilight Drakonid (BAD)",
+                    "Twilight Zealots w/ 100 "..S(75697).." turn into Evolved Twilight Zealots (BAD)"
+                }
             },
             
             {
                 npcID = 39698,
                 encounterID = 1039, 
                 bossName= "Karsh Steelbender",
-                notes = {}
+                notes = {
+                    "Drag the boss into the lava, make sure he always has a 1 stack of "..S(75846).." so he won’t spawn adds and can be damaged.",
+                    "Boss cannot be damagd when "..S(75842).." is active",
+                    "Attack boss from ranged to avoid "..S(63677),
+                    "Avoid frontal - "..S(845),
+                    "Avoid "..S(76007).." that erupt from grates"
+                }
             },
             
             {
                 npcID = 999999,
                 encounterID = 1037, 
                 bossName= "Beauty",
-                notes = {}
+                notes = {
+                    "Boss will charge and knockback further player - "..S(76030),
+                    S(76032).." knocks back players within 12 yds.",
+                    S(289471).." fear for 5 secs. (magic)",
+                    "Avoid Magma blobs from "..S(76031),
+                    "CC adds, focus kill the ones without CC"
+                }
             },
             
             {
                 npcID = 39705,
                 encounterID = 1036, 
                 bossName= "Ascendant Lord Obsidius",
-                notes = {}
+                notes = {
+                    "Keep the boss in the middle, while your dps kites the adds around",
+                    "At 69% and 34% HP the boss will swap place with an add",
+                    S(76185).." will stun target, use a cooldown",
+                    S(76188).." inflicts shadow damage on a player for 12 sec. (magic)",
+                    "[H] "..S(23931).." slams ground and slows movement of players within 25 yds",
+                }
             },
             
         }
@@ -482,28 +511,54 @@ function gz:ClassicInitializeData()
                 npcID = 43438,
                 encounterID = 1056, 
                 bossName= "Corborus",
-                notes = {}
+                notes = {
+                    "Channels "..S(86881).." at players, move away",
+                    "(Heal) "..S(82415).." inflicts shadow damage to players & adds a healing absorb for 6s",
+                    "Boss "..S(309865).." underground, kill Rock Borers quickly",
+                    "Avoid crumbling ground where boss will charge out of",
+                    "[H] "..S(86881).." will also summon Crystal Shards mobs in the area"
+                }
             },
             
             {
                 npcID = 43214,
                 encounterID = 1059, 
                 bossName= "Slabhide",
-                notes = {}
+                notes = {
+                    "Move out of cracks in ground, avoid lava pools",
+                    "Avoid "..S(80807).." cone in front of boss",
+                    "Avoid "..S(133638).." (rocks) falling from the ceiling",
+                    "[H] "..S(92265).." is cast after boss lands from creating "..S(133638)..". Hide behind a "..S(133638).." to avoid the storm",
+                }
             },
             
             {
                 npcID = 42188,
                 encounterID = 1058, 
                 bossName= "Ozruk",
-                notes = {}
+                notes = {
+                    "|cffff0000(!)|r Slams the ground in front of him damaging all within 4 yds - "..S(78903),
+                    S(78939).." (magic)",
+                    "Erupts spikes from his body for 10s, players who attack with melee or ranged will take ticking arcane damage, this stacks - "..S(78835),
+                    "When "..S(78835).." expires, the spikes "..S(401825).." and are fired damaging nearby players",
+                    "|cffff0000(!)|r [H] When boss slams the ground he also uses "..S(1943).." which causes 3 spikes to erupt in the direction he is facing, avoid these.",
+                    "|cffff0000(!)|r [H] Just before he "..S(401825).." the spikes he uses "..S(92426).." stunning all enemies for 8s.",
+                }
             },
             
             {
                 npcID = 42333,
                 encounterID = 1057, 
                 bossName= "High Priestess Azil",
-                notes = {}
+                notes = {
+                    "STAGE ONE",
+                    S(79345).." increases a players physical damage taken for 15s.",
+                    "Interrupt "..S(79351),
+                    "A Gravity Well is summoned at a players location, run away before it pulls you in -"..S(79340),
+                    "STAGE TWO",
+                    "Kill Devout Followers during "..S(79050),
+                    "Avoid the "..S(79002).." thrown.",
+                }
             },
             
         }
@@ -536,28 +591,54 @@ function gz:ClassicInitializeData()
                 npcID = 44577,
                 encounterID = 1052, 
                 bossName= "General Husam",
-                notes = {}
+                notes = {
+                    "Avoid the "..S(151962).."(s) on the floor.",
+                    "Charges random player and smacks them into the wall, stun effect - "..S(83113),
+                    "Throws "..S(83171)..", avoid to not trigger them",
+                    "[H] Avoid "..S(91263)..". They will detonate in 5s"
+                }
             },
             
             {
                 npcID = 43614,
                 encounterID = 1054, 
                 bossName= "Lockmaw",
-                notes = {}
+                notes = {
+                    "Avoid poison pools - "..S(81630),
+                    "Do not stand behind the boss - "..S(81642),
+                    "Will enrage at 30% HP - "..S(81706),
+                    S(81690).." will send crocs to the targeted player",
+                    "When Augh appears. Avoid "..S(190411).." and "..S(7964),
+                    "[H] When boss dies Augh steals loot and becomes attackable"
+                }
             },
             
             {
                 npcID = 43612,
                 encounterID = 1053, 
                 bossName= "High Prophet Barim",
-                notes = {}
+                notes = {
+                    "STAGE ONE",
+                    "Move out of "..S(88814),
+                    "At 50% HP the boss will force you to kneel and rips everyone's soul - "..S(81947),
+                    "[H] Phoenix add – "..S(95248).." – cannot die permanently, avoid fire patches the bird leaves behind",
+                    "STAGE TWO",
+                    "Focus kill Soul Fragments and Harbinger of Darkness",
+                    "Return to your body to continue the fight"
+                }
             },
             
             {
                 npcID = 44819,
                 encounterID = 1055, 
                 bossName= "Siamat",
-                notes = {}
+                notes = {
+                    "Avoid the cloud storms",
+                    "Kill all adds",
+                    S(83066).." will knock everyone around.",
+                    "Adds release "..S(83446).." (avoid) when they are near death, boss will absorb and attack two players",
+                    "When boss absorbs storms he does AOE damage"
+                }
             },
             
         }
@@ -639,11 +720,11 @@ function gz:ClassicInitializeData()
                 encounterID = 1884, 
                 bossName= "Echo of Tyrande",
                 notes = {
-                    "Don’t stand near the boss in the purple pool - "..S(102414)..",
-                    "Interrupt "..S(102173)",
-                    "Avoid Moonlance, this travels along the ground (magic)",
-                    "Avoid the adds that circle around the boss – Eyes of the Goddess",
-                    "Avoid or Dispel the arcane balls, they silence you – Piercing Gaze of Elune (magic)"
+                    "Don't stand near the boss in the purple pool - "..S(102414).." . Slows casting by 50%",
+                    "Interrupt "..S(102173),
+                    "Avoid "..S(102149)..", this travels along the ground (magic)",
+                    "Avoid the adds that circle around the boss – "..S(102606),
+                    "Avoid or Dispel the arcane balls, they silence you – "..S(102183).." (magic)"
                 }
             },
 
@@ -653,9 +734,9 @@ function gz:ClassicInitializeData()
                 bossName= "Echo of Sylvanas",
                 notes = {
                     "Stay spread out for this fight, lots of AOE",
-                    "A wall of Risen Ghouls will be summoned during Calling of the Highborne, focus kill one and move through",
+                    "A wall of Risen Ghouls will be summoned during "..S(100686)..", focus kill one and move through",
                     "Avoid the purple shadow clouds",
-                    "Move out of the purple circle – Blighted Arrows"
+                    "Move out of the purple circle – "..S(101401)
                 }
             },
             
@@ -664,10 +745,10 @@ function gz:ClassicInitializeData()
                 encounterID = 1883, 
                 bossName= "Echo of Jaina",
                 notes = {
-                    "Boss blinks around. Keep her away from mobs.",
-                    "A DPS needs to run over the Flarecore, that player has 10 seconds to do so or they explode.",
-                    "Avoid the ice frontal – Frost Blades",
-                    "Interrupt Frostbolt Volley"
+                    "Boss blinks around. Keep her away from mobs",
+                    "A DPS needs to run over the "..S(101927)..", that player has 10 seconds to do so or they explode",
+                    "Avoid the ice frontal – "..S(101339),
+                    "Interrupt "..S(101810)
                 }
             },
 
@@ -676,11 +757,10 @@ function gz:ClassicInitializeData()
                 encounterID = 1881, 
                 bossName= "Echo of Baine",
                 notes = {
-                    "Boss will smash the ground and Pulverize the platform you’re on, move to another one.",
-                    "Avoid tanking the boss in magma or he will be buffed by Molten Axe",
-                    "Use mitigation/cooldowns for Molten Blast",
-                    "You can buff yourself by briefly touching magma – Molten Fists",
-                    "Baine will throw his Baine's Totem at players, throw it back."
+                    "Boss will smash the ground and "..S(101626).." the platform you’re on, move to another one",
+                    "Avoid tanking the boss in magma or he will be buffed by "..S(101836),
+                    "You can buff yourself by briefly touching magma – "..S(101866),
+                    "Baine will throw his Totem at players, throw it back - "..S(101614)
                 }
             },
             
@@ -689,10 +769,10 @@ function gz:ClassicInitializeData()
                 encounterID = 1271, 
                 bossName= "Murozond",
                 notes = {
-                    "Hourglass of Time can be used 5 times during fight, restores party to full health/mana & removes bombs."
-                    "Don’t stand near boss for Temporal Blast every 15 sec",
-                    "Avoid standing in Distortion Bombs that land",
-                    "Face boss away for Infinite Breath"
+                    "Hourglass of Time can be used 5 times during fight, rewinds everything to start of fight - "..S(101591),
+                    "Don’t stand near boss for "..S(102381).." every 15s",
+                    "Avoid standing in "..S(101983).." that land",
+                    "Face boss away for "..S(102569)
                 }
             },
             

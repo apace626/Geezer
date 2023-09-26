@@ -108,14 +108,13 @@ function gz:BuildFrame()
 end
 
 function gz:InitializeBossDropdown(instanceID)
-    print(instanceID)
     local instanceData = addonTable.data[instanceID]
     if instanceData then
 
         UIDropDownMenu_Initialize(addonTable.bossDropDown, function(self, level, menuList)
             local titleInfo = UIDropDownMenu_CreateInfo()
             titleInfo.isTitle = true
-            titleInfo.text = "Ragefire Chasm"
+            titleInfo.text = instanceData.name
             UIDropDownMenu_AddButton(titleInfo) 
             
             UIDropDownMenu_AddSeparator()

@@ -39,6 +39,7 @@ function gz:OnInitialize()
     self:RegisterChatCommand("geezer", "SlashCommand")
 
     gz:ClassicInitializeData()
+    gz:CataclysmInitializeData()
     gz:BuildFrame()
 end
 
@@ -87,22 +88,22 @@ function gz:UNIT_TARGET(unitTarget)
         local name = UnitName("target") 
         local class = UnitClass("unit")
         local isEnemy = UnitIsEnemy("player","target")
-        self:Print("Name: ", name)   
-        self:Print("GUID: ", guid) 
-        self:Print("Is Enemy: ", isEnemy)
+        -- self:Print("Name: ", name)   
+        -- self:Print("GUID: ", guid) 
+        -- self:Print("Is Enemy: ", isEnemy)
 
         if guid then
             --local link = unitLink:format(guid, name) -- clickable link
             local unit_type = strsplit("-", guid)
             if unit_type == "Creature" or unit_type == "Vehicle" then
                 local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
-                self:Print(format("[%s] is a creature with NPC ID %d", name, npc_id))
+                --self:Print(format("[%s] is a creature with NPC ID %d", name, npc_id))
                 if isEnemy and self:IsInstanceBoss(instance_id, npc_id) then
                     self:ShowNote(instanceID, npc_id, nil)
                 end
             elseif unit_type == "Player" then
                 local _, server_id, player_id = strsplit("-", guid)
-                self:Print(format("[%s] is a player with ID %s", name, player_id))
+                --self:Print(format("[%s] is a player with ID %s", name, player_id))
             end
 	    end
         
@@ -120,8 +121,8 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
         self:Print("Instance Type: ", instanceType)
         self:Print("Difficulty: ", difficultyName)
         self:Print("Instance ID: ", instanceID)
-        self:Print("Map ID", mapId)
-        self:Print("Lfg Dungeon ID: ", LfgDungeonID)
+        --self:Print("Map ID", mapId)
+        --self:Print("Lfg Dungeon ID: ", LfgDungeonID)
 
         self:InitializeBossDropdown(instanceID)
         self:ShowNote(instanceID, nil, nil) -- show first boss
@@ -135,8 +136,8 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     else 
         self:Print('Not in instance')
         --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
-        self:InitializeBossDropdown(36)
-        self:ShowNote(36, nil, nil) -- show first boss
+        self:InitializeBossDropdown(725)
+        self:ShowNote(725, nil, nil) -- show first boss
     end
 end
 
@@ -167,16 +168,21 @@ function gz:ShowNote(instanceID, npcID, encounterID)
     local title = ""
     local selectedBossNpcID = nil
     local noteItems = { "" }
-
+    local instanceData = addonTable.data[instanceID]
+    
+    if not instanceData then
+        return
+    end
+    
     -- Grab first boss if not specified
     if not npcID and not encounterID then
-        title = addonTable.data[instanceID][1].bossName
-        selectedBossNpcID = addonTable.data[instanceID][1].npcID
-        for _2, item2 in ipairs(addonTable.data[instanceID][1].notes) do
+        title = instanceData[1].bossName
+        selectedBossNpcID = instanceData[1].npcID
+        for _2, item2 in ipairs(instanceData[1].notes) do
             table.insert(noteItems, item2)
         end
     else
-        for _, item in ipairs(addonTable.data[instanceID]) do
+        for _, item in ipairs(instanceData) do
             if (tonumber(npcID) == item.npcID) or (tonumber(encounterID) == item.encounterID) then
                 selectedBossNpcID = item.npcID
                 title = item.bossName
