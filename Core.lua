@@ -10,6 +10,7 @@ addonTable.data = {}
 --TODO pull out instance data from table and only use that. dont scan all instances every time
 --TODO hide not when not in instance
 --TODO tanking for noobs, use image? contact them?
+--TODO add debug flag for print statements
 
 function gz:OnInitialize()
     -- code that you want to run when the addon is first loaded goes here.
