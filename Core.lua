@@ -4,6 +4,7 @@ local gz = addonTable.GeezerAddon
 --gz = LibStub("AceAddon-3.0"):NewAddon("Geezer", "AceConsole-3.0", "AceEvent-3.0")
 local ace_config = LibStub("AceConfig-3.0")
 local ace_config_dialog = LibStub("AceConfigDialog-3.0")
+local currentInstanceID
 addonTable.data = {}
 
 
@@ -45,7 +46,6 @@ end
 
 function gz:OnEnable()
     self.Print('Geezer', 'OnEnable')
-    self:RegisterEvent("ZONE_CHANGED")
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("UNIT_TARGET")
@@ -116,16 +116,28 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     if IsInInstance() then
         mapId = C_Map.GetBestMapForUnit("player") 
         name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceID, instanceGroupSize, LfgDungeonID = GetInstanceInfo()
+        self.currentInstanceID = instanceID
 
         self:Print("Name: ", name)
         self:Print("Instance Type: ", instanceType)
         self:Print("Difficulty: ", difficultyName)
         self:Print("Instance ID: ", instanceID)
-        --self:Print("Map ID", mapId)
-        --self:Print("Lfg Dungeon ID: ", LfgDungeonID)
+        self:Print("Map ID", mapId)
+        self:Print("Lfg Dungeon ID: ", LfgDungeonID)
 
-        self:InitializeBossDropdown(instanceID)
-        self:ShowNote(instanceID, nil, nil) -- show first boss
+        name, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, toggleDifficultyID = GetDifficultyInfo(difficultyID)
+
+        self:Print("----------------------------")
+        self:Print("Name: ", name)
+        self:Print("Group Type: ", groupType)
+        self:Print("isHeroic: ", isHeroic)
+        self:Print("isChallengeMode: ", isChallengeMode)
+        self:Print("displayHeroic: ", displayHeroic)
+        self:Print("displayMythic: ", displayMythic)
+        self:Print("toggleDifficultyID: ", toggleDifficultyID)
+        
+        self:InitializeBossDropdown(self.currentInstanceID)
+        self:ShowNote(self.currentInstanceID, nil, nil) -- show first boss
         
         -- GetDifficultyInfo() - Returns information about a difficulty.
         -- GetDungeonDifficultyID() - Returns the selected dungeon difficulty.
@@ -136,35 +148,19 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     else 
         self:Print('Not in instance')
         --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
-        self:InitializeBossDropdown(657)
-        self:ShowNote(657, nil, nil) -- show first boss
+        self:InitializeBossDropdown(643)
+        self:ShowNote(643, nil, nil) -- show first boss
     end
-end
-
-function gz:ZONE_CHANGED()
-	local subzone = GetSubZoneText()
-	self:Print("You have changed zones!", GetZoneText(), subzone)
-	if GetBindLocation() == subzone then
-		self:Print("Welcome Home!")
-	end
-end
-
-function gz:CALENDAR_OPEN_EVENT()
-	local subzone = GetSubZoneText()
-	self:Print("You have changed zones!", GetZoneText(), subzone)
-    self:Print("GetBindLocation", GetBindLocation())
-	if GetBindLocation() == subzone then
-		self:Print("Welcome Home!")
-	end
 end
 
 function gz:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
     self:Print("E:ENCOUNTER_START")
     self:Print(encounterID, encounterName, difficultyID, groupSize)
-    self:ShowNote(instanceID, nil, encounterID)
+    self:ShowNote(self.currentInstanceID, nil, encounterID)
 end
 
 function gz:ShowNote(instanceID, npcID, encounterID)
+    print('ShowNote: ', instanceID, encounterID)
     local title = ""
     local selectedBossNpcID = nil
     local noteItems = { "" }
@@ -190,17 +186,20 @@ function gz:ShowNote(instanceID, npcID, encounterID)
                     table.insert(noteItems, item2)
                 end
                 --TODO: show text that no data is found and to contribute
-                
             end
         end
+    end
+
+    if title == "" then
+        title = "Geezer - Boss Not Found"
     end
 
     addonTable.titleText:SetText(title)
 
     if table.getn(noteItems) == 1 then
-        addonTable.notesText:SetText("\n\nNotes have not been added. Let us know if you would like to contribute!")
+        addonTable.notesText:SetText(addonTable.MISSING_NOTE_TEXT)
     else
-    addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
+        addonTable.notesText:SetText(table.concat(noteItems, "\n\n"))
     end
     
     UIDropDownMenu_SetSelectedValue(addonTable.bossDropDown, selectedBossNpcID)

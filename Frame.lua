@@ -1,6 +1,8 @@
 local addonName, addonTable = ...
 local gz = addonTable.GeezerAddon
 
+addonTable.MISSING_NOTE_TEXT = "\n\nNotes have not been added. Let us know if you would like to contribute!"
+
 function gz:BuildFrame()
 
     local frame = CreateFrame("Frame", addonName, UIParent, BackdropTemplateMixin and "BackdropTemplate")
@@ -20,7 +22,7 @@ function gz:BuildFrame()
     titleText:SetFontObject("GameFontNormalLarge")
     titleText:SetJustifyV("TOP")
     titleText:SetJustifyH("LEFT")
-    titleText:SetText("Title")
+    titleText:SetText("Geezer Boss Notes")
     addonTable.titleText = titleText
 
     local notesText = frame:CreateFontString(nil, "BACKGROUND")
@@ -28,7 +30,7 @@ function gz:BuildFrame()
     notesText:SetJustifyV("TOP")
     notesText:SetJustifyH("LEFT")
     notesText:SetTextColor(1, 1, 1)
-    notesText:SetText("Notes asdfasdfsafsaf asdfasdfdaf aasdfasfasdf")
+    notesText:SetText(MISSING_NOTE_TEXT)
     addonTable.notesText = notesText
 
     local collapseButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")

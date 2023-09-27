@@ -146,28 +146,51 @@ function gz:CataclysmInitializeData()
                 npcID = 40586,
                 encounterID = 1045, 
                 bossName= "Lady Naz'jar",
-                notes = {}
+                notes = {
+                    S(75722).." will summon a geyser under a player that erupts after 5 secs, move away.",
+                    "Throws "..S(76001).." at a player dealing ticking nature damage, other players move away. ",
+                    "Interrupt "..S(76008),
+                    "When the boss casts "..S(75683).." avoid the swirling water & focus kill adds."
+                }
             },
             
             {
-                npcID = 999999,
+                npcID = 40765,
                 encounterID = 1044, 
                 bossName= "Commander Ulthok, the Festering Prince",
-                notes = {}
+                notes = {
+                    S(76026).." a player dealing shadow damage & stuns.",
+                    "Stay away from boss when smashes & avoid "..S(76047).." that pop out ground (purple circles).",
+                    "Casts "..S(76094).." on a player reducing movement & attack speeds by 50%",
+                    "Boss will "..S(184361),
+
+                }
             },
             
             {
                 npcID = 40788,
                 encounterID = 1046, 
                 bossName= "Mindbender Ghur'sha",
-                notes = {}
+                notes = {
+                    "Avoid "..S(76170).." frontal cone",
+                    "Interrupt "..S(76171),
+                    S(84931).." move towards a location, avoid this.",
+                    "During "..S(76307).." don't use spell damage.",
+                    "Move out of "..S(76234),
+                    "Boss leaps on a players head - "..S(76207).." - bring their health to 50% to free them.",
+                }
             },
             
             {
                 npcID = 44566,
                 encounterID = 1047, 
                 bossName= "Ozumat",
-                notes = {}
+                notes = {
+                    "STAGE 1: Defend Neptulon by killing adds.",
+                    "Interrupt Vicious Mindlasher's "..S(83914).." & "..S(83915),
+                    "STAGE 2: Kill all 3 Faceless Sapper.",
+                    "STAGE 3: Nuke Ozumat to less than 10% health until he retreats.",
+                }
             },
             
         }
@@ -239,7 +262,7 @@ function gz:CataclysmInitializeData()
                     "Clear the room of all trash or be overwhelmed – "..S(82137),
                     "Move out of the dust clouds",
                     "Tank pick up adds spawning from dust clouds. DPS kill adds",
-                    "|cffff0000(!)|r When he puts the group in "..S(75539)..", focus kill the chains and then run away before he does his AOE cleave – "..S(75543)
+                    "|cffff0000(!)|r When he puts the group in "..S(75539)..", focus kill the chains and then run away before he does his AOE cleave - "..S(75543)
                 }
             },
             
@@ -249,7 +272,7 @@ function gz:CataclysmInitializeData()
                 bossName= "Corla, Herald of Twilight",
                 notes = {
                     "|cffff0000(!)|r DPS stand in beam for 80 stacks, move out, let debuff fall off, and move back in for 80. Rinse repeat - "..S(75697),
-                    "Interrupt her fear – "..S(75823),
+                    "Interrupt her fear - "..S(75823),
                     "Interrupt Twilight Zealots",
                     "If Twiglight Zealots are kneeling don't attack - "..S(75608),
                     "Players w/ 100 "..S(75697).." turn into Twilight Drakonid (BAD)",
@@ -262,7 +285,7 @@ function gz:CataclysmInitializeData()
                 encounterID = 1039, 
                 bossName= "Karsh Steelbender",
                 notes = {
-                    "Drag the boss into the lava, make sure he always has a 1 stack of "..S(75846).." so he won’t spawn adds and can be damaged.",
+                    "Drag the boss into the lava, make sure he always has a 1 stack of "..S(75846).." so he won't spawn adds and can be damaged.",
                     "Boss cannot be damagd when "..S(75842).." is active",
                     "Attack boss from ranged to avoid "..S(63677),
                     "Avoid frontal - "..S(845),
@@ -271,7 +294,7 @@ function gz:CataclysmInitializeData()
             },
             
             {
-                npcID = 999999,
+                npcID = 39700,
                 encounterID = 1037, 
                 bossName= "Beauty",
                 notes = {
@@ -308,9 +331,10 @@ function gz:CataclysmInitializeData()
                 bossName= "Grand Vizier Ertan",
                 notes = {
                     "Careful of moving cyclones, avoid when they move to boss.",
-                    "Move back within the circle of cyclones, don’t stay on outside - "..S(86309),
+                    "Move back within the circle of cyclones, don't stay on outside - "..S(86309),
                     "Interrupt "..S(188196),
                     "|cffff0000(!)|r [H] "..S(413151).." will only attack players with "..S(411001).." if no one is looking at them.",
+                    "[M] Avoid "..S(413158)
                 }
             },
             
@@ -323,19 +347,20 @@ function gz:CataclysmInitializeData()
                     "Random player hit with frontal cone "..S(88308)..", others avoid.",
                     "(Heal) "..S(413331)..", ticking damage every 3s",
                     "[H] "..S(88314).." fills the platform with twisters, avoid them, they deal damage & knock you in air.",
+                    "[M] When "..S(413296).." is being cast, use nearest "..S(88314).." to knock yourself up in the air. If you can't move away has 9 yd range."
                 }
             },
             
             {
-                npcID = 999999,
+                npcID = 43875,
                 encounterID = 1042, 
                 bossName= "Asaad, Caliph of Zephyrs",
                 notes = {
                 "All players get inside the lightning triangle to avoid damage - "..S(86911),
-                "|cffff0000(!)|r Lightning storm – "..S(86715).." – deals nature damage to all players on platform.",
+                "|cffff0000(!)|r Lightning storm - "..S(86715).." - deals nature damage to all players on platform.",
                 "Uses "..S(87622).." hitting other nearby players. ",
                 "DPS focus kill "..S(413263),
-                "[H] "..S(87618).." creates a static field on ground, any player touching this is stunned for 18 seconds.",
+                "[H/TW] "..S(87618).." creates a static field on ground, any player touching this is stunned for 18 seconds.",
                 }
             },
             
@@ -739,8 +764,8 @@ function gz:CataclysmInitializeData()
                     "Don't stand near the boss in the purple pool - "..S(102414).." . Slows casting by 50%",
                     "Interrupt "..S(102173),
                     "Avoid "..S(102149)..", this travels along the ground (magic)",
-                    "Avoid the adds that circle around the boss – "..S(102606),
-                    "Avoid or Dispel the arcane balls, they silence you – "..S(102183).." (magic)"
+                    "Avoid the adds that circle around the boss - "..S(102606),
+                    "Avoid or Dispel the arcane balls, they silence you - "..S(102183).." (magic)"
                 }
             },
 
@@ -752,7 +777,7 @@ function gz:CataclysmInitializeData()
                     "Stay spread out for this fight, lots of AOE",
                     "A wall of Risen Ghouls will be summoned during "..S(100686)..", focus kill one and move through",
                     "Avoid the purple shadow clouds",
-                    "Move out of the purple circle – "..S(101401)
+                    "Move out of the purple circle - "..S(101401)
                 }
             },
             
@@ -763,7 +788,7 @@ function gz:CataclysmInitializeData()
                 notes = {
                     "Boss blinks around. Keep her away from mobs",
                     "A DPS needs to run over the "..S(101927)..", that player has 10 seconds to do so or they explode",
-                    "Avoid the ice frontal – "..S(101339),
+                    "Avoid the ice frontal - "..S(101339),
                     "Interrupt "..S(101810)
                 }
             },
@@ -775,7 +800,7 @@ function gz:CataclysmInitializeData()
                 notes = {
                     "Boss will smash the ground and "..S(101626).." the platform you’re on, move to another one",
                     "Avoid tanking the boss in magma or he will be buffed by "..S(101836),
-                    "You can buff yourself by briefly touching magma – "..S(101866),
+                    "You can buff yourself by briefly touching magma - "..S(101866),
                     "Baine will throw his Totem at players, throw it back - "..S(101614)
                 }
             },

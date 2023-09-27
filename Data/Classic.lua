@@ -83,42 +83,69 @@ function gz:ClassicInitializeData()
             npcID = 47162,
             encounterID = 1064, 
             bossName= "Glubtok",
-            notes = {}
+            notes = {
+                "Boss will Blink teleporting to a new location.",
+                "Avoid blossoms launched around room.",
+                "[H] Fire & Frost Blossoms summon mobs when land.",
+                "[H] Avoid rotating Fire Wall."
+            }
         },
         
         {
             npcID = 47296,
             encounterID = 1065, 
             bossName= "Helix Gearbreaker",
-            notes = {}
+            notes = {
+                "Kill the Oaf mount, then the boss.",
+                "Watch out for "..S(88352)..", avoid these on ground.",
+                "[H] Stay spread out for Chest Bomb",
+                "[H] Way more Chest Bomb",
+            }
         },
         
         {
             npcID = 43778,
             encounterID = 1063, 
             bossName= "Foe Reaper 5000",
-            notes = {}
+            notes = {
+                "To activate boss kill all the other foe reapers.",
+                "Face the boss away from the party to avoid "..S(88521).." cleave.",
+                "Simple Tank & Spank",
+                "[H] Activating boss summons adds, DPS should adds by piloting a reaper.",
+            }
         },
         
         {
             npcID = 47626,
             encounterID = 1062, 
             bossName= "Admiral Ripsnarl",
-            notes = {}
+            notes = {
+                "Face the boss away from the party to avoid "..S(88839).." cleave.",
+                "Boss will charge players with "..S(88836)..", knocking them down.",
+                "During Fog kill the adds.",
+                "Taunt the boss when he reappears."
+            }
         },
         
         {
             npcID = 47739,
             encounterID = 1060, 
             bossName= "Captain Cookie",
-            notes = {}
+            notes = {
+                "Attack when boss is inside the cauldron.",
+                "Avoid green foods"
+            }
         },
         
         {
             npcID = 49541,
             encounterID = 1081, 
             bossName= "Vanessa VanCleef",
-            notes = {}
+            notes = {
+                "You will be transported into waves of nightmares to fight your way through.",
+                "When she casts Fiery Blaze to detonate explosives around ship run to a rope & swing to safety (ropes by edge of ship on floor).",
+                "Calls Defias mobs to aid her.",
+            }
         },
         
     }
@@ -131,21 +158,31 @@ function gz:ClassicInitializeData()
             npcID = 3671,
             encounterID = 585, 
             bossName= "Lady Anacondra",
-            notes = {}
+            notes = {
+                S(8040).." puts a party member to sleep",
+                "Interrupt "..S(23381)
+            }
         },
         
         {
             npcID = 3669,
             encounterID = 586, 
             bossName= "Lord Cobrahn",
-            notes = {}
+            notes = {
+                S(8040).." puts a party member to sleep",
+                "Interrupt "..S(23381),
+                "Can turn into a snake with "..S(7965)
+            }
         },
         
         {
             npcID = 3670,
             encounterID = 588, 
             bossName= "Lord Pythas",
-            notes = {}
+            notes = {
+                S(8040).." puts a party member to sleep",
+                "Interrupt "..S(23381)
+            }
         },
         
         {
@@ -153,7 +190,7 @@ function gz:ClassicInitializeData()
             encounterID = 587, 
             bossName= "Kresh",
             notes = {
-                "test"
+                S(80362).." reduce target's armor."
             }
         },
         
@@ -161,28 +198,38 @@ function gz:ClassicInitializeData()
             npcID = 3674,
             encounterID = 589, 
             bossName= "Skum",
-            notes = {}
+            notes = {
+                "Tank & Spank"
+            }
         },
         
         {
             npcID = 3673,
             encounterID = 590, 
             bossName= "Lord Serpentis",
-            notes = {}
+            notes = {
+                S(8040).." puts a party member to sleep",
+                "Interrupt "..S(23381)
+            }
         },
         
         {
             npcID = 5775,
             encounterID = 591, 
             bossName= "Verdan the Everliving",
-            notes = {}
+            notes = {
+                S(8142).." will knock you down and immobilize you for 5 seconds."
+            }
         },
         
         {
             npcID = 3654,
             encounterID = 592, 
             bossName= "Mutanus the Devourer",
-            notes = {}
+            notes = {
+                "Kill the waves of adds, then boss will appear.",
+                "The boss can put players to sleep, stun them and fear them.",
+            }
         },
         
     }
@@ -236,56 +283,82 @@ function gz:ClassicInitializeData()
             npcID = 999999,
             encounterID = 1667, 
             bossName= "Ghamoo-Ra",
-            notes = {}
+            notes = {
+                "Move out way of lightning pool on ground, spins around then charges forward - "..S(149865),
+                "Hits random targets with "..S(151681).." during fight."
+            }
         },
         
         {
             npcID = 74565,
             encounterID = 1669, 
             bossName= "Subjugator Kor'ul",
-            notes = {}
+            notes = {
+                "Grabs a player with "..S(150634),
+                S(151159).." summons tentacles to hit ground (move out of the crumbling floor)."
+            }
         },
         
         {
             npcID = 164266,
             encounterID = 1668, 
             bossName= "Domina",
-            notes = {}
+            notes = {
+                "Avoid frontal cone "..S(149893).." (purple line on floor).",
+                "Run away from "..S(149886).." (green bolts)."
+            }
         },
         
         {
             npcID = 74728,
             encounterID = 1671, 
             bossName= "Twilight Lord Bathiel",
-            notes = {}
+            notes = {
+                S(150020).." summons adds then boss absorbs them to heal, kill what you can.",
+                "Run away from "..S(151813)..", ice shards fall & follow enemies.",
+            }
         },
         
         {
             npcID = 75408,
             encounterID = 1672, 
             bossName= "Aku'mai",
-            notes = {}
+            notes = {
+                "Move around to avoid damage from falling rocks.",
+                S(151303).." summons tentacles that hit the ground (move out of the crumbling floor).",
+            }
         },
         
         {
             npcID = 75410,
             encounterID = 1676, 
             bossName= "Guardian of the Deep",
-            notes = {}
+            notes = {
+                "Does aoe damage with "..S(149916).." (circle echoes out).",
+                S(152753).." summons adds.",
+                "Heals himself when eats a Blue Shale Crawler - "..S(149920),
+            }
         },
         
         {
             npcID = 74988,
             encounterID = 1670, 
             bossName= "Executioner Gore",
-            notes = {}
+            notes = {
+                "Move out of purple line/frontal cone - "..S(149943),
+                "Avoid standing in the purple circles left on ground.",
+                "Interrupt "..S(149955)..", grabs a player draining their health."
+            }
         },
         
         {
             npcID = 74505,
             encounterID = 1675, 
             bossName= "Thruk",
-            notes = {}
+            notes = {
+                S(149908).." pulls in & roots a player in a fishing net.",
+                S(149913).." smashes the ground around him, move away 10 yds."
+            }
         },
         
     }
