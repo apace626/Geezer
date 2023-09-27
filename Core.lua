@@ -1,22 +1,15 @@
 local addonName, addonTable = ...
 local gz = addonTable.GeezerAddon
 
---gz = LibStub("AceAddon-3.0"):NewAddon("Geezer", "AceConsole-3.0", "AceEvent-3.0")
 local ace_config = LibStub("AceConfig-3.0")
 local ace_config_dialog = LibStub("AceConfigDialog-3.0")
 local currentInstanceID
 local currentDifficulty
 addonTable.data = {}
 
-
-
 --TODO pull out instance data from table and only use that. dont scan all instances every time
 --TODO hide not when not in instance
 --TODO tanking for noobs, use image? contact them?
-
-
-
-
 
 function gz:OnInitialize()
     -- code that you want to run when the addon is first loaded goes here.
@@ -46,7 +39,7 @@ function gz:OnInitialize()
 end
 
 function gz:OnEnable()
-    self.Print('Geezer', 'OnEnable')
+    --self.Print('Geezer', 'OnEnable')
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("UNIT_TARGET")
@@ -116,7 +109,7 @@ end
 function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     self:Print("E:PLAYER_ENTERING_WORLD")
     if IsInInstance() then
-        RequestRaidInfo()
+        RequestRaidInfo() -- will trigger UPDATE_INSTANCE_INFO event
     else 
         self:Print('Not in instance')
         --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
