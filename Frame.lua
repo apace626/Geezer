@@ -109,14 +109,20 @@ function gz:BuildFrame()
 
 end
 
-function gz:InitializeBossDropdown(instanceID)
+function gz:InitializeBossDropdown(instanceID, difficultyName)
     local instanceData = addonTable.data[instanceID]
     if instanceData then
 
         UIDropDownMenu_Initialize(addonTable.bossDropDown, function(self, level, menuList)
             local titleInfo = UIDropDownMenu_CreateInfo()
             titleInfo.isTitle = true
-            titleInfo.text = instanceData.name
+
+            if not difficultyName or difficultyName == '' then
+                titleInfo.text = instanceData.name
+            else
+                titleInfo.text = instanceData.name.." ("..difficultyName..")"
+            end
+
             UIDropDownMenu_AddButton(titleInfo) 
             
             UIDropDownMenu_AddSeparator()

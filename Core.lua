@@ -5,6 +5,7 @@ local gz = addonTable.GeezerAddon
 local ace_config = LibStub("AceConfig-3.0")
 local ace_config_dialog = LibStub("AceConfigDialog-3.0")
 local currentInstanceID
+local currentDifficulty
 addonTable.data = {}
 
 
@@ -49,6 +50,7 @@ function gz:OnEnable()
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("UNIT_TARGET")
+    self:RegisterEvent("UPDATE_INSTANCE_INFO")
 end
 
 function gz:OnDisable()
@@ -114,37 +116,7 @@ end
 function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     self:Print("E:PLAYER_ENTERING_WORLD")
     if IsInInstance() then
-        mapId = C_Map.GetBestMapForUnit("player") 
-        name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceID, instanceGroupSize, LfgDungeonID = GetInstanceInfo()
-        self.currentInstanceID = instanceID
-
-        self:Print("Name: ", name)
-        self:Print("Instance Type: ", instanceType)
-        self:Print("Difficulty: ", difficultyName)
-        self:Print("Instance ID: ", instanceID)
-        self:Print("Map ID", mapId)
-        self:Print("Lfg Dungeon ID: ", LfgDungeonID)
-
-        name, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, toggleDifficultyID = GetDifficultyInfo(difficultyID)
-
-        self:Print("----------------------------")
-        self:Print("Name: ", name)
-        self:Print("Group Type: ", groupType)
-        self:Print("isHeroic: ", isHeroic)
-        self:Print("isChallengeMode: ", isChallengeMode)
-        self:Print("displayHeroic: ", displayHeroic)
-        self:Print("displayMythic: ", displayMythic)
-        self:Print("toggleDifficultyID: ", toggleDifficultyID)
-        
-        self:InitializeBossDropdown(self.currentInstanceID)
-        self:ShowNote(self.currentInstanceID, nil, nil) -- show first boss
-        
-        -- GetDifficultyInfo() - Returns information about a difficulty.
-        -- GetDungeonDifficultyID() - Returns the selected dungeon difficulty.
-        -- GetInstanceBootTimeRemaining() - Gets the time in seconds after which the player will be ejected from an instance.
-        -- GetInstanceInfo() - Returns info for the map instance the character is currently in.
-        -- GetLegacyRaidDifficultyID()
-        -- GetRaidDifficultyID() - Returns the player's currently selected raid difficulty.
+        RequestRaidInfo()
     else 
         self:Print('Not in instance')
         --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
@@ -153,14 +125,41 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     end
 end
 
-function gz:ENCOUNTER_START(encounterID, encounterName, difficultyID, groupSize)
+function gz:ENCOUNTER_START(event, encounterID, encounterName, difficultyID, groupSize)
     self:Print("E:ENCOUNTER_START")
     self:Print(encounterID, encounterName, difficultyID, groupSize)
     self:ShowNote(self.currentInstanceID, nil, encounterID)
 end
 
+function gz:UPDATE_INSTANCE_INFO(event)
+    name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceID, instanceGroupSize, LfgDungeonID = GetInstanceInfo()
+    self.currentInstanceID = instanceID
+    self.currentDifficulty = difficultyName
+
+    -- self:Print("Name: ", name)
+    -- self:Print("Instance Type: ", instanceType)
+    -- self:Print("Difficulty: ", difficultyName)
+    -- self:Print("Difficulty ID: ", difficultyID)
+    -- self:Print("Instance ID: ", instanceID)
+    -- self:Print("Map ID", mapId)
+    -- self:Print("Lfg Dungeon ID: ", LfgDungeonID)
+
+    -- name, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, toggleDifficultyID = GetDifficultyInfo(difficultyID)
+
+    -- self:Print("----------------------------")
+    -- self:Print("Name: ", name)
+    -- self:Print("Group Type: ", groupType)
+    -- self:Print("isHeroic: ", isHeroic)
+    -- self:Print("isChallengeMode: ", isChallengeMode)
+    -- self:Print("displayHeroic: ", displayHeroic)
+    -- self:Print("displayMythic: ", displayMythic)
+    -- self:Print("toggleDifficultyID: ", toggleDifficultyID)
+
+    self:InitializeBossDropdown(self.currentInstanceID, difficultyName)
+    self:ShowNote(self.currentInstanceID, nil, nil) -- show first boss
+end
+
 function gz:ShowNote(instanceID, npcID, encounterID)
-    print('ShowNote: ', instanceID, encounterID)
     local title = ""
     local selectedBossNpcID = nil
     local noteItems = { "" }
@@ -175,7 +174,7 @@ function gz:ShowNote(instanceID, npcID, encounterID)
         title = instanceData[1].bossName
         selectedBossNpcID = instanceData[1].npcID
         for _2, item2 in ipairs(instanceData[1].notes) do
-            table.insert(noteItems, item2)
+            self:InsertNote(noteItems, item2)
         end
     else
         for _, item in ipairs(instanceData) do
@@ -183,7 +182,7 @@ function gz:ShowNote(instanceID, npcID, encounterID)
                 selectedBossNpcID = item.npcID
                 title = item.bossName
                 for _2, item2 in ipairs(item.notes) do
-                    table.insert(noteItems, item2)
+                    self:InsertNote(noteItems, item2)
                 end
                 --TODO: show text that no data is found and to contribute
             end
@@ -218,6 +217,31 @@ function gz:IsInstanceBoss(instanceID, npcID)
     end
     
     return false
+end
+
+function gz:InsertNote(noteTable, note)
+
+    local timewalking = '[H/TW]'
+    local heroic = '[H]'
+    local mythic = '[M]'
+
+    if self.currentDifficulty == 'Timewalking' then
+        if not string.find(note, mythic, 1, true) and not string.find(note, heroic, 1, true) then
+            table.insert(noteTable, note)        
+        end
+    elseif self.currentDifficulty == 'Heroic' then
+        if not string.find(note, mythic, 1, true) then
+            table.insert(noteTable, note)        
+        end
+    elseif self.currentDifficulty == 'Mythic' then
+        if not string.find(note, heroic, 1, true) and not string.find(note, timewalking, 1, true) then
+            table.insert(noteTable, note)        
+        end
+    else
+        if not string.find(note, heroic, 1, true) and not string.find(note, timewalking, 1, true) and not string.find(note, mythic, 1, true) then
+            table.insert(noteTable, note)        
+        end
+    end
 end
 
 
