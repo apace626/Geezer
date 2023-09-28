@@ -27,11 +27,12 @@ function gz:OnInitialize()
 	-- ace_config_dialog:AddToBlizOptions("Geezer_Profiles", "Profiles", "Geezer")
 
     -- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
-	self:RegisterChatCommand("gz", "SlashCommand2")
-    self:RegisterChatCommand("geezer", "SlashCommand2")
+	self:RegisterChatCommand("gz", "SlashCommand")
+    self:RegisterChatCommand("geezer", "SlashCommand")
 
     self:ClassicInitializeData()
     self:CataclysmInitializeData()
+    self:ShadowlandsInitializeData()
     self:BuildFrame()
 end
 
@@ -47,33 +48,13 @@ function gz:OnDisable()
 end
 
 function gz:SlashCommand(input, editbox)
-	if input == "enable" then
-		self:Enable()
-		self:LogDebug("Enabled.")
-	elseif input == "disable" then
-		-- unregisters all events and calls HelloAce:OnDisable() if you defined that
-		self:Disable()
-		self:LogDebug("Disabled.")
-	elseif input == "message" then
-		self:Print("this is our saved message:", self.db.profile.someInput)
-	else
-		-- https://github.com/Stanzilla/WoWUIBugs/issues/89
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-		--[[ or as a standalone window
-		if ACD.OpenFrames["HelloAce_Options"] then
-			ACD:Close("HelloAce_Options")
-		else
-			ACD:Open("HelloAce_Options")
-		end
-		]]
-	end
-end
-
-function gz:SlashCommand2(input, editbox)
     local _, _, cmd, args = string.find(input, "%s?(%w+)%s?(.*)")
-    if cmd == "search" or cmd == "show" then
+    if cmd == "search" and args ~= '' then
         self:SearchNotes(args)
+    elseif cmd == "hide" or cmd == "close" then
+        self:HideFrame()
+    elseif cmd == "open" or cmd == "show" then
+        self:ShowFrame()
     else
 		--self:Print("Some useful help message.")
 		-- https://github.com/Stanzilla/WoWUIBugs/issues/89
@@ -124,8 +105,8 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
     else 
         self:LogDebug('Not in instance')
         --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
-        self:InitializeBossDropdown(643)
-        self:ShowNote(643, nil, nil) -- show first boss
+        --self:InitializeBossDropdown(643)
+        --self:ShowNote(643, nil, nil) -- show first boss
     end
 end
 
@@ -197,6 +178,7 @@ function gz:ShowNote(instanceID, npcID, encounterID)
     
     UIDropDownMenu_SetSelectedValue(addonTable.bossDropDown, selectedBossNpcID)
 
+    self:ShowFrame()
     --self:FitToContents()
 end
 

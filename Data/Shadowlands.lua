@@ -16,7 +16,12 @@ function gz:ShadowlandsInitializeData()
             npcID = 162100,
             encounterID = 2360, 
             bossName= "Kryxis the Voracious",
-            notes = {}
+            notes = {
+                "Do not face the boss toward the edge because knockback - "..S(319650),
+                "Interrupt "..S(319654),
+                S(319713).." - Move between the targeted player and the boss to split the damage",
+                "At full energy boss casts "..S(319685)..", everyone should be on the same side of the boss. The smash will cause knockback and spawn orbs. Soak the orbs before they get to the boss.",
+            }
         },
         
         {

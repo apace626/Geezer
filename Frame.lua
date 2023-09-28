@@ -2,10 +2,11 @@ local addonName, addonTable = ...
 local gz = addonTable.GeezerAddon
 
 addonTable.MISSING_NOTE_TEXT = "\n\nNotes have not been added. Let us know if you would like to contribute!"
+local frame
 
 function gz:BuildFrame()
 
-    local frame = CreateFrame("Frame", addonName, UIParent, BackdropTemplateMixin and "BackdropTemplate")
+    frame = CreateFrame("Frame", addonName, UIParent, BackdropTemplateMixin and "BackdropTemplate")
 
     --------------------------------------------------------
     -- build frame
@@ -30,7 +31,7 @@ function gz:BuildFrame()
     notesText:SetJustifyV("TOP")
     notesText:SetJustifyH("LEFT")
     notesText:SetTextColor(1, 1, 1)
-    notesText:SetText(MISSING_NOTE_TEXT)
+    notesText:SetText("\n\nNotes will appear when you are in an instance.")
     addonTable.notesText = notesText
 
     local collapseButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
@@ -107,6 +108,8 @@ function gz:BuildFrame()
         frame:SetHeight(titleHeight + notesText:GetHeight() + (inset * 2))
     end
 
+    self:HideFrame()
+
 end
 
 function gz:InitializeBossDropdown(instanceID, difficultyName)
@@ -147,13 +150,36 @@ function gz:InitializeBossDropdown(instanceID, difficultyName)
 
         
     else
-        self:Print("No instance data found.")
+        --self:Print("No instance data found.")
+        self:HideFrame()
     end
 end
 
 function gz:SetValue(newValue, instanceID)
     gz:ShowNote(instanceID, newValue)
     CloseDropDownMenus()
+end
+
+function gz:HideFrame()
+    frame:Hide()
+end
+
+function gz:ShowFrame()
+    frame:Show()
+end
+
+function gz:ToggleRandom()
+    if frame:IsShown() then
+        frame:Hide()
+    else
+        -- Choose random note
+        local instances = {}
+        for key, value in pairs(addonTable.data) do
+            table.insert(instances, key)
+        end
+        local instance = instances[math.random(#instances)]
+        self:ShowNote(instance)
+    end
 end
 
 
