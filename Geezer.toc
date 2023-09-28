@@ -14,7 +14,7 @@ Data\Cataclysm.lua
 #Data\Shadowlands.lua
 #Data\Dragonflight.lua
 
-
+Utils.lua
 Options.lua
 Frame.lua
 Core.lua

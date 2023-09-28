@@ -13,9 +13,6 @@ addonTable.data = {}
 --TODO add debug flag for print statements
 
 function gz:OnInitialize()
-    -- code that you want to run when the addon is first loaded goes here.
-    self.Print('Geezer', 'OnInitialize')
-    
     -- uses the "Default" profile instead of character-specific profiles
     -- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
     self.db = LibStub("AceDB-3.0"):New("GeezerDB", addonTable.defaults, true)
@@ -40,7 +37,6 @@ function gz:OnInitialize()
 end
 
 function gz:OnEnable()
-    --self.Print('Geezer', 'OnEnable')
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("UNIT_TARGET")
@@ -48,19 +44,19 @@ function gz:OnEnable()
 end
 
 function gz:OnDisable()
-    self.Print('Geezer', 'OnDisable')
+    self:LogDebug('Geezer', 'OnDisable')
 end
 
 function gz:SlashCommand(input, editbox)
 	if input == "enable" then
 		self:Enable()
-		self:Print("Enabled.")
+		self:LogDebug("Enabled.")
 	elseif input == "disable" then
 		-- unregisters all events and calls HelloAce:OnDisable() if you defined that
 		self:Disable()
-		self:Print("Disabled.")
+		self:LogDebug("Disabled.")
 	elseif input == "message" then
-		print("this is our saved message:", self.db.profile.someInput)
+		self:Print("this is our saved message:", self.db.profile.someInput)
 	else
 		self:Print("Some useful help message.")
 		-- https://github.com/Stanzilla/WoWUIBugs/issues/89
@@ -84,22 +80,19 @@ function gz:UNIT_TARGET(unitTarget)
         local name = UnitName("target") 
         local class = UnitClass("unit")
         local isEnemy = UnitIsEnemy("player","target")
-        -- self:Print("Name: ", name)   
-        -- self:Print("GUID: ", guid) 
-        -- self:Print("Is Enemy: ", isEnemy)
 
         if guid then
             --local link = unitLink:format(guid, name) -- clickable link
             local unit_type = strsplit("-", guid)
             if unit_type == "Creature" or unit_type == "Vehicle" then
                 local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
-                --self:Print(format("[%s] is a creature with NPC ID %d", name, npc_id))
+                --self:LogDebug(format("[%s] is a creature with NPC ID %d", name, npc_id))
                 if isEnemy and self:IsInstanceBoss(instance_id, npc_id) then
                     self:ShowNote(instanceID, npc_id, nil)
                 end
             elseif unit_type == "Player" then
                 local _, server_id, player_id = strsplit("-", guid)
-                --self:Print(format("[%s] is a player with ID %s", name, player_id))
+                --self:LogDebug(format("[%s] is a player with ID %s", name, player_id))
             end
 	    end
         
@@ -108,11 +101,11 @@ end
 
 
 function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
-    self:Print("E:PLAYER_ENTERING_WORLD")
+    self:LogDebug("E:PLAYER_ENTERING_WORLD")
     if IsInInstance() then
         RequestRaidInfo() -- will trigger UPDATE_INSTANCE_INFO event
     else 
-        self:Print('Not in instance')
+        self:LogDebug('Not in instance')
         --TODO REMOVE THIS, need to hide frame, but give user ability to vewi frames from map icon and settings.
         self:InitializeBossDropdown(643)
         self:ShowNote(643, nil, nil) -- show first boss
@@ -120,34 +113,24 @@ function gz:PLAYER_ENTERING_WORLD(isInitialLogin, isReloadingUi)
 end
 
 function gz:ENCOUNTER_START(event, encounterID, encounterName, difficultyID, groupSize)
-    self:Print("E:ENCOUNTER_START")
-    self:Print(encounterID, encounterName, difficultyID, groupSize)
+    self:LogDebug("E:ENCOUNTER_START")
+    self:LogDebug(encounterID, encounterName, difficultyID, groupSize)
     self:ShowNote(self.currentInstanceID, nil, encounterID)
 end
 
 function gz:UPDATE_INSTANCE_INFO(event)
     name, instanceType, difficultyID, difficultyName, maxPlayers, dynamicDifficulty, isDynamic, instanceID, instanceGroupSize, LfgDungeonID = GetInstanceInfo()
+
     self.currentInstanceID = instanceID
     self.currentDifficulty = difficultyName
 
-    -- self:Print("Name: ", name)
-    -- self:Print("Instance Type: ", instanceType)
-    -- self:Print("Difficulty: ", difficultyName)
-    -- self:Print("Difficulty ID: ", difficultyID)
-    -- self:Print("Instance ID: ", instanceID)
-    -- self:Print("Map ID", mapId)
-    -- self:Print("Lfg Dungeon ID: ", LfgDungeonID)
-
-    -- name, groupType, isHeroic, isChallengeMode, displayHeroic, displayMythic, toggleDifficultyID = GetDifficultyInfo(difficultyID)
-
-    -- self:Print("----------------------------")
-    -- self:Print("Name: ", name)
-    -- self:Print("Group Type: ", groupType)
-    -- self:Print("isHeroic: ", isHeroic)
-    -- self:Print("isChallengeMode: ", isChallengeMode)
-    -- self:Print("displayHeroic: ", displayHeroic)
-    -- self:Print("displayMythic: ", displayMythic)
-    -- self:Print("toggleDifficultyID: ", toggleDifficultyID)
+    -- self:LogDebug("Name: ", name)
+    -- self:LogDebug("Instance Type: ", instanceType)
+    -- self:LogDebug("Difficulty: ", difficultyName)
+    -- self:LogDebug("Difficulty ID: ", difficultyID)
+    -- self:LogDebug("Instance ID: ", instanceID)
+    -- self:LogDebug("Map ID", mapId)
+    -- self:LogDebug("Lfg Dungeon ID: ", LfgDungeonID)
 
     self:InitializeBossDropdown(self.currentInstanceID, difficultyName)
     self:ShowNote(self.currentInstanceID, nil, nil) -- show first boss
@@ -237,6 +220,8 @@ function gz:InsertNote(noteTable, note)
         end
     end
 end
+
+
 
 
 
