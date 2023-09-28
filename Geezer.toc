@@ -11,8 +11,8 @@ Geezer.lua
 
 Data\Classic.lua
 Data\Cataclysm.lua
-#Data\Shadowlands.lua
-#Data\Dragonflight.lua
+Data\Shadowlands.lua
+Data\Dragonflight.lua
 
 Utils.lua
 Options.lua

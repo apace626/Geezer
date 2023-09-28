@@ -6,7 +6,7 @@ local function S(id)
     return string.format("|T%s:0|t|cff71d5ff%s|r", icon, name)
 end
 
-function gz:ClassicInitializeData()
+function gz:DragonflightInitializeData()
     addonTable.data = {}
      
         -- Uldaman: Legacy of Tyr

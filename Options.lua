@@ -7,7 +7,8 @@ addonTable.defaults = {
 		someToggle = true,
 		someRange = 7,
 		someInput = "Hello World",
-		someSelect = 2, -- Banana
+		someSelect = 2, -- Banana,
+		minimizeNotes = false
 	},
 }
 
