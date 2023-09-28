@@ -259,7 +259,7 @@ function gz:CataclysmInitializeData()
                 encounterID = 1040, 
                 bossName= "Rom'ogg Bonecrusher",
                 notes = {
-                    "Clear the room of all trash or be overwhelmed – "..S(82137),
+                    "Clear the room of all trash or be overwhelmed - "..S(82137),
                     "Move out of the dust clouds",
                     "Tank pick up adds spawning from dust clouds. DPS kill adds",
                     "|cffff0000(!)|r When he puts the group in "..S(75539)..", focus kill the chains and then run away before he does his AOE cleave - "..S(75543)
@@ -662,7 +662,7 @@ function gz:CataclysmInitializeData()
                     "STAGE ONE",
                     "Move out of "..S(88814),
                     "At 50% HP the boss will force you to kneel and rips everyone's soul - "..S(81947),
-                    "[H] Phoenix add – "..S(95248).." – cannot die permanently, avoid fire patches the bird leaves behind",
+                    "[H] Phoenix add - "..S(95248).." - cannot die permanently, avoid fire patches the bird leaves behind",
                     "STAGE TWO",
                     "Focus kill Soul Fragments and Harbinger of Darkness",
                     "Return to your body to continue the fight"
@@ -798,7 +798,7 @@ function gz:CataclysmInitializeData()
                 encounterID = 1881, 
                 bossName= "Echo of Baine",
                 notes = {
-                    "Boss will smash the ground and "..S(101626).." the platform you’re on, move to another one",
+                    "Boss will smash the ground and "..S(101626).." the platform you're on, move to another one",
                     "Avoid tanking the boss in magma or he will be buffed by "..S(101836),
                     "You can buff yourself by briefly touching magma - "..S(101866),
                     "Baine will throw his Totem at players, throw it back - "..S(101614)
@@ -811,7 +811,7 @@ function gz:CataclysmInitializeData()
                 bossName= "Murozond",
                 notes = {
                     "Hourglass of Time can be used 5 times during fight, rewinds everything to start of fight - "..S(101591),
-                    "Don’t stand near boss for "..S(102381).." every 15s",
+                    "Don't stand near boss for "..S(102381).." every 15s",
                     "Avoid standing in "..S(101983).." that land",
                     "Face boss away for "..S(102569)
                 }

@@ -15,80 +15,40 @@ addonTable.defaults = {
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables
 addonTable.options = {
 	type = "group",
-	name = "Geezer (label 2)",
+	name = "Geezer",
 	handler = gz,
 	args = {
-		someToggle = {
-			type = "toggle",
+		someSearch = {
+			type = "input",
+			name = "",
 			order = 1,
-			name = "a checkbox",
-			desc = "some description",
-			-- inline getter/setter example
-			get = function(info) return gz.db.profile.someToggle end,
-			set = function(info, value) gz.db.profile.someToggle = value end,
+			width = "full",
+		 	set = "SetSearchValue",
 		},
-		someRange = {
-			type = "range",
-			order = 2,
-			name = "a slider",
-			-- this will look for a getter/setter on our handler object
-			get = "GetSomeRange",
-			set = "SetSomeRange",
-			min = 1, max = 10, step = 1,
-		},
-		someKeybinding = {
-			type = "keybinding",
+		someDescription = {
+			type = "description",
+			name = "Search for a dungeon, raid, or boss name. If note(s) are found the FIRST result will show on the main screen.\n\n\n\n",
 			order = 3,
-			name = "a keybinding",
-			get = "GetValue",
-			set = "SetValue",
+			fontSize = "medium"
 		},
-		group1 = {
-			type = "group",
+
+		someDescription2 = {
+			type = "description",
+			name = "Slash Commands\n\n",
 			order = 4,
-			name = "a group",
-			inline = true,
-			-- getters/setters can be inherited through the table tree
-			get = "GetValue",
-			set = "SetValue",
-			args = {
-				someInput = {
-					type = "input",
-					order = 1,
-					name = "an input box",
-					width = "double",
-				},
-				someDescription = {
-					type = "description",
-					order = 2,
-					name = function() return format("The current time is: |cff71d5ff%s|r", date("%X")) end,
-					fontSize = "large",
-				},
-				someSelect = {
-					type = "select",
-					order = 3,
-					name = "a dropdown",
-					values = {"Apple", "Banana", "Strawberry"},
-				},
-			},
+			fontSize = "large"
+		},
+
+		someDescription3 = {
+			type = "description",
+			name = "/gz search [your search text]",
+			order = 5,
+			fontSize = "medium"
 		},
 	},
 }
 
-function gz:GetSomeRange(info)
-	return self.db.profile.someRange
+function gz:SetSearchValue(info, value)
+	self:SearchNotes(value)
 end
 
-function gz:SetSomeRange(info, value)
-	self.db.profile.someRange = value
-end
-
--- for documentation on the info table
--- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
-function gz:GetValue(info)
-	return self.db.profile[info[#info]]
-end
-
-function gz:SetValue(info, value)
-	self.db.profile[info[#info]] = value
-end

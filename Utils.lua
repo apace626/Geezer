@@ -6,3 +6,10 @@ function gz:LogDebug(message)
         self:Print(message)
     end
 end
+
+function is_numeric(x)
+    if tonumber(x) ~= nil then
+        return true
+    end
+    return false
+end

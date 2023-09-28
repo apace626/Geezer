@@ -9,7 +9,6 @@ addonTable.data = {}
 
 --TODO pull out instance data from table and only use that. dont scan all instances every time
 --TODO hide not when not in instance
---TODO tanking for noobs, use image? contact them?
 --TODO add debug flag for print statements
 
 function gz:OnInitialize()
@@ -23,14 +22,13 @@ function gz:OnInitialize()
 	self.optionsFrame = ace_config_dialog:AddToBlizOptions("Geezer", "Geezer")
 
     -- adds a child options table, in this case our profiles panel
-    local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
-	ace_config:RegisterOptionsTable("Geezer_Profiles", profiles)
-	ace_config_dialog:AddToBlizOptions("Geezer_Profiles", "Profiles", "Geezer")
+    -- local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+	-- ace_config:RegisterOptionsTable("Geezer_Profiles", profiles)
+	-- ace_config_dialog:AddToBlizOptions("Geezer_Profiles", "Profiles", "Geezer")
 
     -- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
 	self:RegisterChatCommand("gz", "SlashCommand2")
     self:RegisterChatCommand("geezer", "SlashCommand2")
-    --self:RegisterChatCommand("gzsearch", "SlashCommand2")
 
     self:ClassicInitializeData()
     self:CataclysmInitializeData()
@@ -59,7 +57,6 @@ function gz:SlashCommand(input, editbox)
 	elseif input == "message" then
 		self:Print("this is our saved message:", self.db.profile.someInput)
 	else
-		self:Print("Some useful help message.")
 		-- https://github.com/Stanzilla/WoWUIBugs/issues/89
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
@@ -75,10 +72,21 @@ end
 
 function gz:SlashCommand2(input, editbox)
     local _, _, cmd, args = string.find(input, "%s?(%w+)%s?(.*)")
-    if cmd == "show" then
-        self:InitializeBossDropdown(args)
-        self:ShowNote(args, nil, nil)
-    end
+    if cmd == "search" or cmd == "show" then
+        self:SearchNotes(args)
+    else
+		--self:Print("Some useful help message.")
+		-- https://github.com/Stanzilla/WoWUIBugs/issues/89
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+		--[[ or as a standalone window
+		if ACD.OpenFrames["HelloAce_Options"] then
+			ACD:Close("HelloAce_Options")
+		else
+			ACD:Open("HelloAce_Options")
+		end
+		]]
+	end
 end
 
 function gz:UNIT_TARGET(unitTarget)
@@ -227,6 +235,53 @@ function gz:InsertNote(noteTable, note)
         if not string.find(note, heroic, 1, true) and not string.find(note, timewalking, 1, true) and not string.find(note, mythic, 1, true) then
             table.insert(noteTable, note)        
         end
+    end
+end
+
+function gz:SearchNotes(query)
+    -- if a numebr then search for instance Id
+    if is_numeric(query) then
+        local instanceData = addonTable.data[tonumber(query)]
+        if instanceData then
+            self:InitializeBossDropdown(query)
+            self:ShowNote(query, nil, nil)
+        else
+            gz:Print("0 notes found")
+        end
+    elseif string.len(query) < 3 then
+        gz:Print("The search has a 3 character minimum, please type more.")
+    else
+        counter = 0
+        local instanceData = addonTable.data
+        local firstRowFound
+        
+        -- instance name search
+        for key, item in pairs(instanceData) do
+            if not firstRowFound and string.find(string.upper(instanceData[key].name), string.upper(query)) then
+                firstRowFound = key
+            end
+           counter = counter + 1
+        end
+
+        if firstRowFound then
+            self:InitializeBossDropdown(firstRowFound)
+            self:ShowNote(firstRowFound, nil, nil)
+        else
+            -- boss name search
+            for key, item in pairs(instanceData) do
+                for key2, item2 in pairs(instanceData[key]) do
+                    if item2.bossName then
+                        if string.find(string.upper(item2.bossName), string.upper(query)) then
+                            self:InitializeBossDropdown(key)
+                            self:ShowNote(key, item2.npcID, nil)
+                            return
+                        end
+                    end
+                end
+            end
+        end
+       
+        self:Print(counter, "instances searched")
     end
 end
 
