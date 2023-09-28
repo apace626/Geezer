@@ -18,33 +18,36 @@ addonTable.options = {
 	name = "Geezer",
 	handler = gz,
 	args = {
-		someSearch = {
+		
+		searchInput = {
 			type = "input",
 			name = "",
 			order = 1,
 			width = "full",
 		 	set = "SetSearchValue",
 		},
-		someDescription = {
+
+		searchText = {
 			type = "description",
 			name = "Search for a dungeon, raid, or boss name. If note(s) are found the FIRST result will show on the main screen.\n\n\n\n",
 			order = 3,
 			fontSize = "medium"
 		},
 
-		someDescription2 = {
+		slashCommandsText = {
 			type = "description",
 			name = "Slash Commands\n\n",
 			order = 4,
 			fontSize = "large"
 		},
 
-		someDescription3 = {
+		slashCommands = {
 			type = "description",
-			name = "/gz search [your search text]",
+			name = "/gz search [your search text here]",
 			order = 5,
 			fontSize = "medium"
 		},
+
 	},
 }
 

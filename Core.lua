@@ -257,7 +257,7 @@ function gz:SearchNotes(query)
         
         -- instance name search
         for key, item in pairs(instanceData) do
-            if not firstRowFound and string.find(string.upper(instanceData[key].name), string.upper(query)) then
+            if not firstRowFound and string.find(string.upper(instanceData[key].name, 1, true), string.upper(query)) then
                 firstRowFound = key
             end
            counter = counter + 1
@@ -271,7 +271,7 @@ function gz:SearchNotes(query)
             for key, item in pairs(instanceData) do
                 for key2, item2 in pairs(instanceData[key]) do
                     if item2.bossName then
-                        if string.find(string.upper(item2.bossName), string.upper(query)) then
+                        if string.find(string.upper(item2.bossName), string.upper(query), 1, true) then
                             self:InitializeBossDropdown(key)
                             self:ShowNote(key, item2.npcID, nil)
                             return
