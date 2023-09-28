@@ -28,12 +28,13 @@ function gz:OnInitialize()
 	ace_config_dialog:AddToBlizOptions("Geezer_Profiles", "Profiles", "Geezer")
 
     -- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
-	self:RegisterChatCommand("gz", "SlashCommand")
-    self:RegisterChatCommand("geezer", "SlashCommand")
+	self:RegisterChatCommand("gz", "SlashCommand2")
+    self:RegisterChatCommand("geezer", "SlashCommand2")
+    --self:RegisterChatCommand("gzsearch", "SlashCommand2")
 
-    gz:ClassicInitializeData()
-    gz:CataclysmInitializeData()
-    gz:BuildFrame()
+    self:ClassicInitializeData()
+    self:CataclysmInitializeData()
+    self:BuildFrame()
 end
 
 function gz:OnEnable()
@@ -70,6 +71,14 @@ function gz:SlashCommand(input, editbox)
 		end
 		]]
 	end
+end
+
+function gz:SlashCommand2(input, editbox)
+    local _, _, cmd, args = string.find(input, "%s?(%w+)%s?(.*)")
+    if cmd == "show" then
+        self:InitializeBossDropdown(args)
+        self:ShowNote(args, nil, nil)
+    end
 end
 
 function gz:UNIT_TARGET(unitTarget)
@@ -140,7 +149,7 @@ function gz:ShowNote(instanceID, npcID, encounterID)
     local title = ""
     local selectedBossNpcID = nil
     local noteItems = { "" }
-    local instanceData = addonTable.data[instanceID]
+    local instanceData = addonTable.data[tonumber(instanceID)]
     
     if not instanceData then
         return

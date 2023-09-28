@@ -228,7 +228,7 @@ function gz:ClassicInitializeData()
             bossName= "Mutanus the Devourer",
             notes = {
                 "Kill the waves of adds, then boss will appear.",
-                "The boss can put players to sleep, stun them and fear them.",
+                "The boss can sleep, stun and fear players.",
             }
         },
         
@@ -280,7 +280,7 @@ function gz:ClassicInitializeData()
         name = "Blackfathom Deeps",
         
         {
-            npcID = 999999,
+            npcID = 4887,
             encounterID = 1667, 
             bossName= "Ghamoo-Ra",
             notes = {

@@ -110,7 +110,7 @@ function gz:BuildFrame()
 end
 
 function gz:InitializeBossDropdown(instanceID, difficultyName)
-    local instanceData = addonTable.data[instanceID]
+    local instanceData = addonTable.data[tonumber(instanceID)]
     if instanceData then
 
         UIDropDownMenu_Initialize(addonTable.bossDropDown, function(self, level, menuList)
@@ -127,7 +127,7 @@ function gz:InitializeBossDropdown(instanceID, difficultyName)
             
             UIDropDownMenu_AddSeparator()
             
-            for _, item in ipairs(addonTable.data[instanceID]) do
+            for _, item in ipairs(instanceData) do
                 local bossButton = UIDropDownMenu_CreateInfo()
                 bossButton.func = gz.SetValue
                 bossButton.text = item.bossName
