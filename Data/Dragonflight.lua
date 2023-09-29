@@ -7,7 +7,6 @@ local function S(id)
 end
 
 function gz:DragonflightInitializeData()
-    addonTable.data = {}
      
         -- Uldaman: Legacy of Tyr
         addonTable.data[2451] = {
@@ -55,23 +54,35 @@ function gz:DragonflightInitializeData()
             name = "The Azure Vault",
             
             {
-                npcID = 199614,
-                encounterID = 2583, 
-                bossName= "Telash Greywing",
-                notes = {}
-            },
-            
-            {
                 npcID = 186644,
                 encounterID = 2582, 
                 bossName= "Leymor",
-                notes = {}
+                notes = {
+                    "The boss will spawn "..S(374364)..", you should tank the boss near these sprouts as you and the group needs to destroy these.",
+                    S(386660).." is a frontal cone, aim this towards sprouts to destroy them.",
+                    S(374567).." will knock everyone back, players with a circle should stand on top of sprouts to destroy them.",
+                    "The final boss ability "..S(374720).." does damage based on the amount of sprouts present. So the less sprouts, the less damage.",
+                }
             },
-            
+
             {
                 npcID = 186739,
                 encounterID = 2585, 
                 bossName= "Azureblade",
+                notes = {
+                    "Face the boss away from group for "..S(372222),
+                    S(384223).." summons a Draconic Image add, focus kill. Interrupt "..S(373932),
+                    "[M] After defeating the Draconic Image "..S(389855).." will need to be side-stepped",
+                    "Dodge "..S(385578)..", a giant white beam.",
+                    "During "..S(384132)..", the boss will move to the middle of the arena and spawn four Draconic Illusions, focus kill them while dodging white beams shooting out of the orbs.",
+                    "[M] Focus kill Draoonic Illusions and sidestep "..S(389855),
+                }
+            },
+
+            {
+                npcID = 199614,
+                encounterID = 2583, 
+                bossName= "Telash Greywing",
                 notes = {}
             },
             

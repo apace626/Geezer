@@ -36,7 +36,7 @@ addonTable.options = {
 
 		randomButton = {
 			type = "execute",
-			name = "Toggle Random Note",
+			name = "Show/Hide Random Note",
 			desc = "Test",
 			order = 4,
 			func = "ToggleRandom"

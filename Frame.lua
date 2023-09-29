@@ -42,7 +42,7 @@ function gz:BuildFrame()
     collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-CollapseButton-Up")
     collapseButton:SetPoint("TOPRIGHT", 16, -13)
     collapseButton:SetScript("OnClick", function(self, button, down)
-        if notesHidden then
+        if not notesText:IsShown() then
             notesText:Show()
             collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-CollapseButton-Up")
         else 
@@ -50,7 +50,7 @@ function gz:BuildFrame()
             collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-ExpandButton-Up")
         end
 
-        notesHidden = not notesHidden
+        --notesHidden = not notesHidden
     end)
 
     local searchButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")

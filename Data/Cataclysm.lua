@@ -761,6 +761,8 @@ function gz:CataclysmInitializeData()
                 encounterID = 1884, 
                 bossName= "Echo of Tyrande",
                 notes = {
+                    "Map - Emerald Dragonshrine - Pick up adds and drag them into the pool of Moonlight",
+                    "",
                     "Don't stand near the boss in the purple pool - "..S(102414).." . Slows casting by 50%",
                     "Interrupt "..S(102173),
                     "Avoid "..S(102149)..", this travels along the ground (magic)",
@@ -774,6 +776,8 @@ function gz:CataclysmInitializeData()
                 encounterID = 1882, 
                 bossName= "Echo of Sylvanas",
                 notes = {
+                    "Map - Azure Dragonshine",
+                    "",
                     "Stay spread out for this fight, lots of AOE",
                     "A wall of Risen Ghouls will be summoned during "..S(100686)..", focus kill one and move through",
                     "Avoid the purple shadow clouds",
@@ -786,6 +790,8 @@ function gz:CataclysmInitializeData()
                 encounterID = 1883, 
                 bossName= "Echo of Jaina",
                 notes = {
+                    "Map - Ruby Dragonshine - Collect 16 fragments to acivate boss",
+                    "",
                     "Boss blinks around. Keep her away from mobs",
                     "A DPS needs to run over the "..S(101927)..", that player has 10 seconds to do so or they explode",
                     "Avoid the ice frontal - "..S(101339),
@@ -798,6 +804,8 @@ function gz:CataclysmInitializeData()
                 encounterID = 1881, 
                 bossName= "Echo of Baine",
                 notes = {
+                    "Map - Obsidian Dragonshine",
+                    "",
                     "Boss will smash the ground and "..S(101626).." the platform you're on, move to another one",
                     "Avoid tanking the boss in magma or he will be buffed by "..S(101836),
                     "You can buff yourself by briefly touching magma - "..S(101866),
@@ -810,6 +818,8 @@ function gz:CataclysmInitializeData()
                 encounterID = 1271, 
                 bossName= "Murozond",
                 notes = {
+                    "Map - Bronze Dragonshine - Kill all adds to activate boss",
+                    "",
                     "Hourglass of Time can be used 5 times during fight, rewinds everything to start of fight - "..S(101591),
                     "Don't stand near boss for "..S(102381).." every 15s",
                     "Avoid standing in "..S(101983).." that land",

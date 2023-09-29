@@ -10,6 +10,7 @@ addonTable.data = {}
 --TODO pull out instance data from table and only use that. dont scan all instances every time
 --TODO hide not when not in instance
 --TODO add debug flag for print statements
+--TODO override difficulty level to show all difficulites for search???
 
 function gz:OnInitialize()
     -- uses the "Default" profile instead of character-specific profiles
@@ -33,6 +34,7 @@ function gz:OnInitialize()
     self:ClassicInitializeData()
     self:CataclysmInitializeData()
     self:ShadowlandsInitializeData()
+    self:DragonflightInitializeData()
     self:BuildFrame()
 end
 
@@ -200,6 +202,8 @@ function gz:InsertNote(noteTable, note)
     local timewalking = '[H/TW]'
     local heroic = '[H]'
     local mythic = '[M]'
+
+    --self.currentDifficulty = 'Mythic'
 
     if self.currentDifficulty == 'Timewalking' then
         if not string.find(note, mythic, 1, true) and not string.find(note, heroic, 1, true) then
