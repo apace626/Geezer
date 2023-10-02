@@ -497,7 +497,22 @@ function gz:CataclysmInitializeData()
                 npcID = 52498,
                 encounterID = 1197, 
                 bossName= "Beth'tilac",
-                notes = {}
+                notes = {
+                    "PHASE ONE",
+                    "Boss will be stationary on top of her web. A few raid members will need to climb up and deal damage to her. Tank/Healer first then DPS.",
+                    "To reach boss, you will need to make use of the web filaments left behind after Cinderweb Spinners are killed. Mount like any vehicle, and be transported boss's level.",
+                    "10 Man - 1 Tank, 2 Healers, 3 Ranged DPS (if possible). 25 man - double it, maybe more.",
+                    "Rest of raid will need to defeat adds. Cinderweb Drones, Cinderweb Spiders, and Cinderweb Spiderlings.",
+                    "If there is no one at her level, she will damage the entire raid with "..S(99333)..". She will cast this ability when pulled until at least one player has climbed up to her level.",
+                    "|cffff0000(!)|r When boss reaches 0 fire energy, she will cast "..S(99052).." on her level, jump down through center hole in web to avoid.",
+                    "Avoid "..S(99076).." patches on ground",
+                    "Phase complete after "..S(99052).." is cast 3 times.",
+                    "PHASE TWO",
+                    "Boss will descend from web, make sure all adds are dead. The goal is to have boss at low HP to avoid enrage effect.",
+                    "Heals/DPS stack up behind boss",
+                    "Tanks swap when other gets "..(99506),
+                    S(99859).." will cuase a lot of damage at end, use cooldowns"
+                }
             },
             
             {

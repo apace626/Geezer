@@ -757,35 +757,67 @@ function gz:TBCnitializeData()
             npcID = 22887,
             encounterID = 601, 
             bossName= "High Warlord Naj'entus",
-            notes = {}
+            notes = {
+                "Click on the Spine to free a player from "..S(39837),
+                "Use the Spine collected from freeing a player from "..S(39837).." to break "..S(39872),
+                "Ranged DPS and healers should stay spread to avoid unnecessary damage from "..S(39835),
+                "Melee DPS should avoid going in front of the boss to avoid being damage by "..S(39836)
+            }
         },
         
         {
             npcID = 22898,
             encounterID = 602, 
             bossName= "Supremus",
-            notes = {}
+            notes = {
+                "PHASE ONE",
+                "Don't stand in patches of "..S(40265),
+                "Melee should avoid staying at full health due to "..S(41926)..". You can stand on "..S(40265).." to drop your health.",
+                "PHASE TWO",
+                "Stay away from "..S(42055),
+                "If targeted by "..S(41951)..", run away from the boss.",
+            }
+            
         },
         
         {
             npcID = 22841,
             encounterID = 603, 
             bossName= "Shade of Akama",
-            notes = {}
+            notes = {
+                "PHASE ONE",
+                "Prioritize killing Ashtongue Sorcerer and Ashtongue Channeler first, since they hinder Shade of Akama's speed, delaying Phase 2.",
+                "Interrupt the adds as much as possible, specially Ashtongue Spiritbinder, since they will heal their allies.",
+                "PHASE TWO",
+                "Kill Shade of Akama before it kills Akama."
+            }
         },
         
         {
             npcID = 22871,
             encounterID = 604, 
             bossName= "Teron Gorefiend",
-            notes = {}
+            notes = {
+                "Dispell "..S(40239),
+                "If targeted with "..S(40251)..", deal as much damage as possible in the next 55 seconds.",
+                "If transformed into Vengeful Spirit, your job is to prevent Shadowy Construct from wiping your group. In order to do that, make sure to use all your new spells to kill them, while slowing them to have enough time to do so.",
+            }
         },
         
         {
             npcID = 92146,
             encounterID = 605, 
             bossName= "Gurtogg Bloodboil",
-            notes = {}
+            notes = {
+                "STAGE ONE",
+                "Alternate the furthest targets from the boss to prevent high stacks of "..S(42005),
+                "Have the other tank taunt right after "..S(40491).." happens.",
+                "Make sure no one is in front of the boss with the tank to prevent "..S(40457).." cleaves.",
+                "STAGE TWO",
+                "Focus heal the target from "..S(40604),
+                S(40604).." may turn the boss around, make sure to turn it back if you're targeted with it so "..S(40508).." and "..S(40599).." don't hit the group.",
+                "Melee should try to stay at max range from the "..S(42005).." target to avoid getting hit by "..S(40569),
+            }
         },
         
         {

@@ -15,35 +15,51 @@ function gz:ClassicInitializeData()
             npcID = 46962,
             encounterID = 1069, 
             bossName= "Baron Ashbury",
-            notes = {}
+            notes = {
+                "(Heals) "..S(93423)..", players health is reduced dramatically.",
+                "After "..S(93423)..", "..S(93468).." will heal players to 50% of max health.",
+                "Interrupt "..S(93581)
+            }
         },
         
         {
             npcID = 3887,
             encounterID = 1070, 
             bossName= "Baron Silverlaine",
-            notes = {}
+            notes = {
+                "Curses his targets with "..S(23224).." reducing healing.",
+                S(93857).." - tank should taunt but dps focus on boss."
+            }
         },
         
         {
             npcID = 4278,
             encounterID = 1071, 
             bossName= "Commander Springvale",
-            notes = {}
+            notes = {
+                "Avoid frontal cone (purple flame) - "..S(93722),
+                "Move out of "..S(93687)..", a green circle."
+            }
         },
         
         {
             npcID = 46963,
             encounterID = 1073, 
             bossName= "Lord Walden",
-            notes = {}
+            notes = {
+                "Move around to avoid "..S(93527),
+                "Watch out for "..S(93697).." he throws it at a player location."
+            }
         },
         
         {
             npcID = 46964,
             encounterID = 1072, 
             bossName= "Lord Godfrey",
-            notes = {}
+            notes = {
+                "Interrupt "..S(93629),
+                "He summons ghouls, tank should taunt but dps focus on boss."
+            }
         },
         
     }
@@ -51,26 +67,35 @@ function gz:ClassicInitializeData()
     -- The Stockade
     addonTable.data[34] = {
         name = "The Stockade",
+
+        {
+            npcID = 46383,
+            encounterID = 1146, 
+            bossName= "Randolph Moloch",
+            notes = {
+                "Boss will "..S(55964).." and pop up elsewhere.",
+                "Face the boss away from the party to avoid cleave from "..S(86729)
+            }
+        },
         
         {
             npcID = 46254,
             encounterID = 1144, 
             bossName= "Hogger",
-            notes = {}
+            notes = {
+                "At 30% the boss will "..S(86736),
+                "Interrupt "..S(86620),
+            }
         },
         
         {
             npcID = 46264,
             encounterID = 1145, 
             bossName= "Lord Overheat",
-            notes = {}
-        },
-        
-        {
-            npcID = 46383,
-            encounterID = 1146, 
-            bossName= "Randolph Moloch",
-            notes = {}
+            notes = {
+                "Move out of "..S(86636),
+                "Tank & Spank"
+            }
         },
         
     }
@@ -242,35 +267,54 @@ function gz:ClassicInitializeData()
             npcID = 74948,
             encounterID = 438, 
             bossName= "Roogug",
-            notes = {}
+            notes = {
+                "Avoid standing in "..S(153525).." and "..S(153528).." (green & yellow circles on floor).",
+                "Interrupt "..S(150774)
+            }
         },
         
         {
             npcID = 75001,
             encounterID = 1656, 
             bossName= "Hunter Bonetusk",
-            notes = {}
+            notes = {
+                S(150904).." - Move out of the circle of arrows.",
+                "At 50% HP the boss will call "..S(150917)..", avoid all the boars."
+            }
         },
         
         {
             npcID = 74462,
             encounterID = 1659, 
             bossName= "Warlord Ramtusk",
-            notes = {}
+            notes = {
+                "Boss cannot leave circle",
+                "Tank pickup adds"
+            }
         },
         
         {
             npcID = 999999,
             encounterID = 1660, 
             bossName= "Groyat, the Blind Hunter",
-            notes = {}
+            notes = {
+                "Move away from "..S(128381).." (circle on ground).",
+                "Move out of the circles of "..S(153214),
+                S(43417).." bites a target inflicting damage & leeching health."
+            }
         },
         
         {
             npcID = 4421,
             encounterID = 1661, 
             bossName= "Charlga Razorflank",
-            notes = {}
+            notes = {
+                S(151534).." - This allows the boss to summon two totems, outlined below.",
+                "Run away to avoid being pulled in by the blue crystal.",
+                "Green crystal spawns ooze mobs, avoid standing near the green puddles.",
+                "Red crystal inflicts fire damage to anyone hit by the lines.",
+                S(151583).." will root you in place.",
+            }
         },
         
     }
@@ -433,35 +477,48 @@ function gz:ClassicInitializeData()
             npcID = 6229,
             encounterID = 381, 
             bossName= "Crowd Pummeler 9-60",
-            notes = {}
+            notes = {
+                "Avoid the frontal "..S(8374)
+            }
         },
         
         {
             npcID = 7361,
             encounterID = 379, 
             bossName= "Grubbis",
-            notes = {}
+            notes = {
+                "Start fight by talking to Blastmaster Emi Shortfuse at back of room.",
+                "Defeat waves of adds before the boss appears."
+            }
         },
         
         {
             npcID = 7079,
             encounterID = 378, 
             bossName= "Viscous Fallout",
-            notes = {}
+            notes = {
+                "Careful of mobs nearby before pulling boss. Group gets poison ticks on them."
+            }
         },
         
         {
             npcID = 6235,
             encounterID = 380, 
             bossName= "Electrocutioner 6000",
-            notes = {}
+            notes = {
+                "Interrupt "..S(11082)..", if not dodge.",
+                "Interrupt "..S(11085)
+            }
         },
         
         {
             npcID = 7800,
             encounterID = 382, 
             bossName= "Mekgineer Thermaplugg",
-            notes = {}
+            notes = {
+                "Interrupt "..S(93655)..", this knocks back.",
+                "Keep moving to avoid Walking Bombs."
+            }
         },
         
     }
@@ -542,42 +599,70 @@ function gz:ClassicInitializeData()
             npcID = 7273,
             encounterID = 594, 
             bossName= "Gahz'rilla",
-            notes = {}
+            notes = {
+                S(11131).." will slow you down",
+                S(11836).." is a stun ability.",
+                "Move away from "..S(11902)..", this is a knockback."
+            }
         },
         
         {
             npcID = 8127,
             encounterID = 595, 
             bossName= "Antu'sul",
-            notes = {}
+            notes = {
+                "Kill the adds first.",
+                "Kill the Greater Healing Ward & "..S(8376),
+                "Boss uses variety of shaman spells, interrupt the heals.",
+                "At 75% & 25% summons "..S(11894).." to fight, kill them quickly.",
+            }
         },
         
         {
             npcID = 7272,
             encounterID = 596, 
             bossName= "Theka the Martyr",
-            notes = {}
+            notes = {
+                "The scarabs will attack when you pull the boss",
+                "Interrupt "..S(8600),
+                "At 30% the boss transforms making him immune to physical attacks and shadow magic"
+            }
         },
         
         {
             npcID = 7271,
             encounterID = 597, 
             bossName= "Witch Doctor Zum'rah",
-            notes = {}
+            notes = {
+                "Raises zombies from nearby graves.",
+                "Kill the "..S(11086).." totem before it summons adds.",
+                "Interrupt "..S(12491),
+                "Interrupt "..S(12739),
+                "Interrupt "..S(15245),
+            }
         },
         
         {
             npcID = 7796,
             encounterID = 598, 
             bossName= "Nekrum & Sezz'ziz",
-            notes = {}
+            notes = {
+                "The prisoners help you fight the trolls & bosses.",
+                "Nekrum: Interrupt "..S(8600),
+                "Sezz'ziz: Interrupt "..S(12739)..", "..S(8362).."  & "..S(12039),
+                S(8269).." will fear you.",
+            }
         },
         
         {
             npcID = 7267,
             encounterID = 600, 
             bossName= "Chief Ukorz Sandscalp",
-            notes = {}
+            notes = {
+                "Ruuzlu will aid the boss in this fight.",
+                "Face the boss away from the party to avoid "..S(15496).." and "..S(11837).."",
+                "Boss will "..S(12739),
+            }
         },
         
     }
@@ -1663,4 +1748,6 @@ function gz:ClassicInitializeData()
         },
         
     }
+
+    
 end
