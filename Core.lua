@@ -32,6 +32,7 @@ function gz:OnInitialize()
     self:RegisterChatCommand("geezer", "SlashCommand")
 
     self:ClassicInitializeData()
+    self:TBCnitializeData()
     self:CataclysmInitializeData()
     self:ShadowlandsInitializeData()
     self:DragonflightInitializeData()

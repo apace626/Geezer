@@ -6,7 +6,7 @@ local function S(id)
     return string.format("|T%s:0|t|cff71d5ff%s|r", icon, name)
 end
 
-function gz:ClassicInitializeData()
+function gz:TBCnitializeData()
      
     -- The Black Morass
     addonTable.data[269] = {
@@ -167,28 +167,41 @@ function gz:ClassicInitializeData()
             npcID = 16807,
             encounterID = 1936, 
             bossName= "Grand Warlock Nethekurse",
-            notes = {}
+            notes = {
+                "Avoid red stuff/purple beam – "..S(30496),
+                "Keep the boss facing away from the party to prevent cleave - "..S(35953),
+                "Spins at 25% causing big shadow damage - "..S(30508),
+            }
         },
         
         {
             npcID = 16809,
             encounterID = 1937, 
             bossName= "Warbringer O'mrogg",
-            notes = {}
+            notes = {
+                S(30618)..", makes tank lose all threat.",
+                "The boss will periodically "..S(30584)
+            }
         },
         
         {
             npcID = 16808,
             encounterID = 1938, 
             bossName= "Warchief Kargath Bladefist",
-            notes = {}
+            notes = {
+                "Tank the boss near where you entered the arena as this is where the adds spawn.",
+                "Tank pick up adds, focus kill."
+            }
         },
         
         {
             npcID = 20923,
             encounterID = 1935, 
             bossName= "Blood Guard Porung",
-            notes = {}
+            notes = {
+                "Uses Cleave inflicting physical damage to a player & all nearby. Face boss away.",
+                "Focus kill the two archers"
+            }
         },
         
     }
@@ -201,21 +214,35 @@ function gz:ClassicInitializeData()
             npcID = 17381,
             encounterID = 1922, 
             bossName= "The Maker",
-            notes = {}
+            notes = {
+                S(30923).." - The Maker takes control of a player, causing them to fight their allies for 10 sec.",
+                S(30925).." - The Maker throws a beaker at a player, inflicting 58 Nature damage to all players within 8 yards of the target, knocking them up."
+
+            }
         },
         
         {
             npcID = 17380,
             encounterID = 1924, 
             bossName= "Broggok",
-            notes = {}
+            notes = {
+                "Open cells with the lever & kill the waves of orcs.",
+                "Broggok damages all in front of him with "..S(38458).." avoid this.",
+                S(30916).." leaves a green circle under boss & grows in size, keep away.",
+                S(38459).." Poison Bolt shoots ticking poison at a player."
+            }
         },
         
         {
             npcID = 17377,
             encounterID = 1923, 
             bossName= "Keli'dan the Breaker",
-            notes = {}
+            notes = {
+                "Kill the Shadowmoon Channelers.",
+                "Boss deals shadow damage spells.",
+                "All nearby players will be hit with fire damage during "..S(30940)..", boss is also immune from damage during this cast.",
+                "[H] Shadow Wrath inflicts shadow damage to a player."
+            }
         },
         
     }
@@ -295,28 +322,45 @@ function gz:ClassicInitializeData()
             npcID = 17770,
             encounterID = 1946, 
             bossName= "Hungarfen",
-            notes = {}
+            notes = {
+                "Mushrooms spawn in random locations & explode after 20 sec.",
+                S(34168).." covers an area dealing nauture damage.",
+                "When boss at 20% "..S(31673).." steals health from all nearby players.",
+            }
         },
         
         {
             npcID = 18105,
             encounterID = 1945, 
             bossName= "Ghaz'an",
-            notes = {}
+            notes = {
+                S(34268).." breathes acid on all players in front of him dealing nature damage.",
+                S(38737).." hits any players standing behind him & knocks back.",
+                S(34290).." spits acid at a player, does nature damage."
+            }
         },
         
         {
             npcID = 17826,
             encounterID = 1947, 
             bossName= "Swamplord Musel'ek",
-            notes = {}
+            notes = {
+                S(18813).." knocks players back.",
+                S(34974).." fires arrows at players & can hit up to 3 allies.",
+                "His pet Claw will inflict physical damage & Echoing Roar will reduce nearby players armor by 50%.",
+            }
         },
         
         {
             npcID = 17882,
             encounterID = 1948, 
             bossName= "The Black Stalker",
-            notes = {}
+            notes = {
+                "Boss will "..S(31704).." a player in the air.",
+                S(31715).." inflicts ticking nature damage.",
+                "Uses "..S(31717),
+                "[H] Summons adds to attack you."
+            }
         },
         
     }
@@ -472,35 +516,54 @@ function gz:ClassicInitializeData()
             npcID = 17976,
             encounterID = 1925, 
             bossName= "Commander Sarannis",
-            notes = {}
+            notes = {
+                "Deals arcane damage to players.",
+                "Summons Bloodwarder adds at 55%. Kill the Mender first and interrupt "..S(8092).." & "..S(87779),
+            }
         },
         
         {
             npcID = 17975,
             encounterID = 1926, 
             bossName= "High Botanist Freywinn",
-            notes = {}
+            notes = {
+                "Plants seedlings that slow, stun & damage you.",
+                "Boss turns into a tree with "..S(34551)..", healing nearby allies & immune for 45 sec.",
+                "Kill the Frayer Protectors to kill boss quicker.",
+            }
         },
         
         {
             npcID = 17978,
             encounterID = 1928, 
             bossName= "Thorngrin the Tender",
-            notes = {}
+            notes = {
+                S(34661).." teleports a player to him that stuns, steals health & damages.",
+                S(1949).." sets floor under him on fire damaging himself & players nearby.",
+                "|cffff0000(!)|r Uses "..S(184361)..", increasing his attack speed by 75% and his Physical damage dealt by 75% for 10 sec.",
+            }
         },
         
         {
             npcID = 17980,
             encounterID = 1927, 
             bossName= "Laj",
-            notes = {}
+            notes = {
+                S(34697).." deals high damage & has chance to spread to nearest player.",
+                "Elemental Shift increases & decreases his resistance to elements.",
+                S(175979).." - Teleports to platform & summons thorn adds.",
+            }
         },
         
         {
             npcID = 17977,
             encounterID = 1929, 
             bossName= "Warp Splinter",
-            notes = {}
+            notes = {
+                S(34716).." deals damage & increases physical damage taken by 550.",
+                S(36705).." deals arcane damage to all players.",
+                "Summons 6 saplings that will heal boss if they reach him, kill quickly."
+            }
         },
         
     }
@@ -601,28 +664,40 @@ function gz:ClassicInitializeData()
             npcID = 18341,
             encounterID = 1900, 
             bossName= "Pandemonius",
-            notes = {}
+            notes = {
+                "Put your back against a wall while tanking Pandemonius, to avoid "..S(38760).." knockback",
+                "When Pandemonius casts "..S(38759)..", stop attacking, or use a cooldown to mitigate the Shadow damage from attacking",
+            }
         },
         
         {
             npcID = 18343,
             encounterID = 1901, 
             bossName= "Tavarok",
-            notes = {}
+            notes = {
+                "Face Tavarok away from other party members, so they do not take "..S(38761).." damage"
+            }
         },
         
         {
             npcID = 55312,
             encounterID = 250, 
             bossName= "Yor",
-            notes = {}
+            notes = {
+                S(12612).." damages & knocks back all nearby players.",
+                "Damages all in front with "..S(41437)..", avoid this."
+            }
         },
         
         {
             npcID = 18344,
             encounterID = 1899, 
             bossName= "Nexus-Prince Shaffar",
-            notes = {}
+            notes = {
+                "Taunt and tank any Ethereal Apprentice adds that spawn",
+                "Taunt Nexus-Prince Shaffar after he Blinks away",
+                "Interrupt Ethereal Apprentice's Fireball & Frostbolt"
+            }
         },
         
     }
@@ -867,28 +942,49 @@ function gz:ClassicInitializeData()
             npcID = 24723,
             encounterID = 1897, 
             bossName= "Selin Fireheart",
-            notes = {}
+            notes = {
+                "Drag the boss to one of the large green crystals and tank him there.",
+                "Interrupt "..S(46155),
+                "When he starts to channel the crystal, focus kill the crystal, then drag him to the next one.",
+            }
         },
         
         {
             npcID = 24744,
             encounterID = 1898, 
             bossName= "Vexallus",
-            notes = {}
+            notes = {
+                "Uses "..S(44318),
+                S(44319).." deals ticking damage.",
+                "At 20% "..S(44353).." deals arcane damage & increases your damage taken.",
+                "Boss summons adds, when they die do more arcane damage."
+            }
         },
         
         {
             npcID = 24560,
             encounterID = 1895, 
             bossName= "Priestess Delrissa",
-            notes = {}
+            notes = {
+                "Inflicts ticking shadow damage with "..S(15653),
+                "Heals allies with "..S(41456),
+                "Protects herself with "..S(46193).." absorbing damage.",
+                "Interrupt "..S(344425),
+                "Different adds will join fight, kill them quickly."
+            }
         },
         
         {
             npcID = 165759,
             encounterID = 1894, 
             bossName= "Kael'thas Sunstrider",
-            notes = {}
+            notes = {
+                "Interrupt "..S(133),
+                "When Phoenix dies, kill eggs fast, do not let them hatch.",
+                "At 50% casts "..S(44226).." allowing you to fly.",
+                "Move from "..S(170355).." they damage anyone they touch.",
+                "[H] Boss is protected with "..S(36815)..", absorbing damage & immune to interrupts. |cffff0000(!)|r After Shock Barrier interrupt "..S(11366),
+            }
         },
         
     }
