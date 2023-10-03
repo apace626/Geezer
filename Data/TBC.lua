@@ -821,31 +821,96 @@ function gz:TBCnitializeData()
         },
         
         {
-            npcID = 999999,
+            npcID = 23418,
             encounterID = 606, 
             bossName= "Reliquary of Souls",
-            notes = {}
+            notes = {
+                "INTERMISSIONS",
+                "Between every two phases there will be a downtime when a bunch of Enslaved Soul will spawn. When they die they cause "..S(41542).." which restores mana.",
+                "STAGE ONE: Essence of Suffering",
+                "There is no healing on this phase due to "..S(41292).." make sure to use defensive cooldown when tanking the boss via "..S(41294),
+                "Dispel "..S(41303),
+                "Avoid frontal - "..S(40457),
+                "STAGE TWO: Essence of Desire",
+                "All damage done will damage you back, avoid doing high bursts of damage.",
+                "The phase is a race on the healers mana, which decreases over time due to "..S(41350),
+                "Interrupt "..S(41410),
+                "Tank swap on "..S(41426),
+                "Instantly dispell "..S(41431).." from the boss.",
+                "STATE THREE: Essence of Suffering",
+                "The longer you stay on phase three, more damage you will take and deal due to "..S(41337),
+                S(41520).." will increase your threat generation, take care to not pull from the tanks!",
+                "Mana users can't stand in from of the boss otherwise they'll have their mana drain to "..S(41545),
+                "Use personal and external defensive cooldowns on "..S(41376).." targets."
+            }
         },
         
         {
             npcID = 22947,
             encounterID = 607, 
             bossName= "Mother Shahraz",
-            notes = {}
+            notes = {
+                "If affected by "..S(41001)..", make sure to run a different direction from other players affected.",
+                "The fight requires either three tanks for "..S(40810).." or some melee DPS that can take those hits.",
+                "Ranged DPS and Healers should stay at least 18 yards away from the boss to avoid getting hit by "..S(40823),
+                "Ranged DPS and Healers should stay spread out to minimize the amount of targets that "..S(207544).." will jump to.",
+            }
         },
         
         {
-            npcID = 999999,
+            npcID = 23426,
             encounterID = 608, 
             bossName= "The Illidari Council",
-            notes = {}
+            notes = {
+                "DPS must switch targets if their current one is immune to their damage type via "..S(41450).." or "..S(41451),
+                "Gathios the Shatterer must be tanked apart from the rest of the Council due to "..S(41452),
+                "Move Gathios the Shatterer from "..S(41541),
+                "Dispell "..S(41468).." from Gathios the Shatterer's tank.",
+                "Dedicate heals to targets of "..S(41485).." and "..S(41487),
+                "Stay away from High Nethermancer Zerevor due to "..S(41524),
+                "Uncertain if it will be needed for the Timewalk version, but groups might need a Mage in the group to Spellsteal High Nethermancer Zerevor's "..S(41478)..". Which will be used so the mage can tank High Nethermancer Zerevor.",
+                "Move away from "..S(41482).." and "..S(41481),
+                "Interrupt "..S(41455)..". Be aware that she might be immune to Magic and Physical interrupts at a time due to "..S(41450).." or "..S(41451),
+                "Switch to Lady Malande to break "..S(41475).." as fast as possible. Don't do it if you are affected by "..S(41487)..", "..S(41481).." or "..S(41482).." during it, or it might kill you.",
+            }
         },
         
         {
             npcID = 22917,
             encounterID = 609, 
             bossName= "Illidan Stormrage",
-            notes = {}
+            notes = {
+                "STAGE ONE: You Are Not Prepared",
+                "Tanks must have an active mitigation up for Shear.",
+                "Only tanks can stand in front of the boss due to Draw Soul.",
+                "Move out of Flame Crash.",
+                "Heal targets from Parasitic Shadowfiend.",
+                "STAGE TWO: Flames of Azzinoth",
+                "Stay spread out to minimize damage from Fireball.",
+                "Move out of Dark Barrage.",
+                "Melee must stand at maximum melee range to avoid being damage by Flame of Azzinoth's Blaze.",
+                "Only tanks can stand in front of Flame of Azzinoth, due to Flame Blast.",
+                "Make sure Flame of Azzinoth never get away from their Original Warglaive, or Uncaged Wrath might wipe you",
+                "STAGE THREE: The Demon Within",
+                "Tanks must have an active mitigation up for Shear.",
+                "Only tanks can stand in front of the boss due to Draw Soul.",
+                "Move out of Flame Crash.",
+                "Heal targets from Parasitic Shadowfiend.",
+                "Stay spread for Agonizing Flames.",
+                "Swap to and quickly kill Summon Shadow Demons.",
+                "Stay away from Shadow Blast's target.",
+                "Melee should prefer to attack other targets during Demon Form, due to Aura of Dread and Flame Burst.",
+                "STAGE FOUR: The Long Hunt",
+                "Tanks must have an active mitigation up for Shear.",
+                "Only tanks can stand in front of the boss due to Draw Soul.",
+                "Move out of Flame Crash.",
+                "Heal targets from Parasitic Shadowfiend.",
+                "Stay spread for Agonizing Flames.",
+                "Swap to and quickly kill Summon Shadow Demons.",
+                "Stay away from Shadow Blast's target.",
+                "Melee should prefer to attack other targets during Demon Form, due to Aura of Dread and Flame Burst.",
+                "Move Illidan into Cage Trap during Frenzy.",
+            }
         },
         
     }
