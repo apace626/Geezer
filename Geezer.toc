@@ -9,11 +9,11 @@ embeds.xml
 
 Geezer.lua
 
-Data\Classic.lua
+Data\Classic2.lua
 Data\TBC.lua
 Data\Cataclysm.lua
 Data\Shadowlands.lua
-Data\Dragonflight.lua
+Data\Dragonflight2.lua
 
 Utils.lua
 Options.lua
