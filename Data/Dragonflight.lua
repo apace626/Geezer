@@ -200,26 +200,43 @@ function gz:DragonflightInitializeData()
         -- Ruby Life Pools
         addonTable.data[2521] = {
             name = "Ruby Life Pools",
+
+            {
+                npcID = 188252,
+                encounterID = 2609, 
+                bossName= "Melidrussa Chillworn",
+                notes = {
+                    "Don't step in the center of "..S(372851).." or on icicles left over from "..S(384022),
+                    "Once the boss casts "..S(373046)..", be ready to deal AoE damage to quickly defeat Infused Whelps",
+                    "(Heal) Dispel "..S(372682).." on cooldown. 8 stacks will freeze you.",
+                    "[M] After "..S(373046)..", she will gain an "..S(372988)..", dealing heavy AOE damage until the ice shield is broken."
+                }
+            },
             
             {
                 npcID = 189232,
                 encounterID = 2606, 
                 bossName= "Kokia Blazehoof",
-                notes = {}
+                notes = {
+                    "Tank use a cooldown for every cast of "..S(372858),
+                    "Avoid the giant boulder from "..S(372811)..", if you fail to do so, you will be stunned for 3s.",
+                    "Focus kill the add spawned by "..S(372863)..", tank the boss on top of the add for cleave, interrupt "..S(373017)..", move away from it when it dies, it goes boom!",
+                    "[M] When the add dies it will leave behind a fire zone on the floor. Boulders will leave a fire trail behind.",
+                }
             },
             
             {
-                npcID = 188252,
-                encounterID = 2609, 
-                bossName= "Melidrussa Chillworn",
-                notes = {}
-            },
-            
-            {
-                npcID = 999999,
+                npcID = 199790,
                 encounterID = 2623, 
                 bossName= "Kyrakka and Erkhart Stormvein",
-                notes = {}
+                notes = {
+                    "Avoid the dragon's breath - "..S(381525).." so you won't be afflicted with "..S(381862)..", a fire DoT.",
+                    "When "..S(381862).." expires players will drop a fire zone that needs to be avoided.",
+                    "Use mitigation and rotate defensive cooldowns for "..S(381514)..", it hurts, but can be dispelled by healers.",
+                    "Be mindful of where the flame zones are so you can avoid them when the wind from "..S(381517).." blows them to you.",
+                    "[M] Stepping in fire zones, will re-aply the "..S(381862).." DoT",
+                    "[M] Erkhart will interrupt spellcasting with "..S(381516)..", make sure you stop pressing buttons when the cast goes off.",
+                }
             },
             
         }

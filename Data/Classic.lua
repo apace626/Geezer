@@ -294,7 +294,7 @@ function gz:ClassicInitializeData()
         },
         
         {
-            npcID = 999999,
+            npcID = 75247,
             encounterID = 1660, 
             bossName= "Groyat, the Blind Hunter",
             notes = {
@@ -415,56 +415,85 @@ function gz:ClassicInitializeData()
             npcID = 6910,
             encounterID = 547, 
             bossName= "Revelosh",
-            notes = {}
+            notes = {
+                "Tank & Spank",
+                "Interrupt "..S(16006),
+                "Interrupt "..S(15801),
+            }
         },
         
         {
-            npcID = 999999,
+            npcID = 6906,
             encounterID = 548, 
             bossName= "The Lost Dwarves",
-            notes = {}
+            notes = {
+                "Try to keep them grouped up.",
+                "Eric will charge to players with "..S(6268)..", ignore otherwise",
+                "Olaf can stun you with "..S(8242)
+            }
         },
         
         {
             npcID = 7228,
             encounterID = 549, 
             bossName= "Ironaya",
-            notes = {}
+            notes = {
+                "Frontal Cone - "..S(8374),
+                S(11876).." will stun you",
+                S(110762).." will knock you away"
+            }
         },
         
         {
             npcID = 7206,
             encounterID = 551, 
             bossName= "Ancient Stone Keeper",
-            notes = {}
+            notes = {
+                "Clear the room of all adds before engaging.",
+                "Tank & Spank",
+            }
         },
         
         {
             npcID = 7291,
             encounterID = 552, 
             bossName= "Galgann Firehammer",
-            notes = {}
+            notes = {
+                "Tank & Spank",
+                "Adds are interruptible"
+            }
         },
         
         {
             npcID = 4854,
             encounterID = 553, 
             bossName= "Grimlok",
-            notes = {}
+            notes = {
+                "Interrupt "..S(8292),
+                "Interrupt "..S(12167),
+            }
         },
         
         {
             npcID = 2748,
             encounterID = 554, 
             bossName= "Archaedas",
-            notes = {}
+            notes = {
+                "The boss will summon a lot of adds during the fight.",
+                "When the boss reaches 66% HP he will "..S(10252),
+                "When the boss reaches 33% HP he will "..S(10258)..", they can stun you",
+                S(6524).." can stun you.",
+            }
         },
         
         {
             npcID = 7023,
             encounterID = 1887, 
             bossName= "Obsidian Sentinel",
-            notes = {}
+            notes = {
+                S(10072).." will make you weaker.",
+                "Stack the boss and adds together.",
+            }
         },
         
     }
@@ -531,21 +560,33 @@ function gz:ClassicInitializeData()
             npcID = 8443,
             encounterID = 492, 
             bossName= "Avatar of Hakkar",
-            notes = {}
+            notes = {
+                S(25852).." will stun you",
+                "Boss will give a player the "..S(188541).." debuff making them attack you",
+            }
         },
         
         {
             npcID = 5710,
             encounterID = 488, 
             bossName= "Jammal'an the Prophet",
-            notes = {}
+            notes = {
+                "Interrupt "..S(232670).." from Ogom",
+                "Avoid standing in fire patches.",
+                "Move away from the "..S(8376)..", it will root you",
+                S(12480).." will hex a player, they will attack the party.",
+            }
         },
         
         {
             npcID = 5709,
             encounterID = 493, 
             bossName= "Shade of Eranikus",
-            notes = {}
+            notes = {
+                "Face the dragons away from the party",
+                "Dodge the frontal "..S(163338).." damaging all in front.",
+                S(11019).." will knock you back."
+            }
         },
         
     }
@@ -558,35 +599,53 @@ function gz:ClassicInitializeData()
             npcID = 74347,
             encounterID = 1663, 
             bossName= "Mordresh Fire Eye",
-            notes = {}
+            notes = {
+                "Kill all adds.",
+                "Interrupt "..S(150001),
+                "Boss will "..S(150067)..", avoid the fire balls and never stand in between them",
+            }
         },
         
         {
             npcID = 74434,
             encounterID = 1666, 
             bossName= "Amnennar the Coldbringer",
-            notes = {}
+            notes = {
+                "Tank the boss near green circular pools of "..S(150664)..", you should stand in it as it will heal you.",
+                "Anyone affected by "..S(150679).." should run into the pool to stun the boss.",
+                "Move away from frost balls of "..S(151810),
+            }
         },
         
         {
             npcID = 74412,
             encounterID = 1662, 
             bossName= "Aarux",
-            notes = {}
+            notes = {
+                "When you get pulled to the boss by "..S(163338)..", Run Away.",
+                "Use a cooldown for "..S(150082).." to help the healer.",
+            }
         },
         
         {
             npcID = 74435,
             encounterID = 1664, 
             bossName= "Mushlump",
-            notes = {}
+            notes = {
+                "Avoid the green vomit frontal cone "..S(149851),
+                "Don't stand in vomit zones."
+            }
         },
         
         {
             npcID = 74875,
             encounterID = 1665, 
             bossName= "Death Speaker Blackthorn",
-            notes = {}
+            notes = {
+                "Avoid the frontal cone "..S(151962),
+                "Boss will "..S(150601)..". They interrupt spell casting & and will knock you back",
+                "Interrupt "..S(150616).." & "..S(150550).."",
+            }
         },
         
     }
