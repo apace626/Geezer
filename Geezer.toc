@@ -16,7 +16,8 @@ Data\Cataclysm2.lua
 Data\MoP2.lua
 Data\WoD2.lua
 Data\Legion2.lua
-#Data\Shadowlands.lua
+Data\BfA2.lua
+Data\Shadowlands2.lua
 Data\Dragonflight2.lua
 
 Utils.lua
