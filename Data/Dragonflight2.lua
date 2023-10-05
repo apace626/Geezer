@@ -66,7 +66,7 @@ function gz:DragonflightInitializeData()
             bossName= "Bromach",
             notes = {
                 "The boss will call adds with "..S(369605)..", get threat asap.",
-                "use LOS (Line-of-sight) or abilities to get the caster adds closer to you.",
+                "Use LOS (Line-of-sight) or abilities to get the caster adds closer to you.",
                 "Focus kill the totem - "..S(382303)..". the party takes heavy AOE damage when it is up. When the totem dies all adds will take 200% damage for 10 seconds.",
                 "Move out of the aoe from "..S(369703).."",
                 "[M] Tank the adds and boss on top of the totem, the damage taken debuff now has an 8 yard range.",
@@ -288,24 +288,38 @@ function gz:DragonflightInitializeData()
     addonTable.data[2521] = {
         name = "Ruby Life Pools",
         {
-            npcID = 189232,
-            encounterID = 2606, 
-            bossName= "Kokia Blazehoof",
-            notes = {
-            }
-        },
-        {
             npcID = 188252,
             encounterID = 2609, 
             bossName= "Melidrussa Chillworn",
             notes = {
+                "Don't step in the center of "..S(372851).." or on icicles left over from "..S(384022),
+                "Once the boss casts "..S(373046)..", be ready to deal AoE damage to quickly defeat Infused Whelps",
+                "(Heal) Dispel "..S(372682).." on cooldown. 8 stacks will freeze you.",
+                "[M] After "..S(373046)..", she will gain an "..S(372988)..", dealing heavy AOE damage until the ice shield is broken."
             }
         },
         {
-            npcID = 999999,
+            npcID = 189232,
+            encounterID = 2606, 
+            bossName= "Kokia Blazehoof",
+            notes = {
+                "Tank use a cooldown for every cast of "..S(372858),
+                "Avoid the giant boulder from "..S(372811)..", if you fail to do so, you will be stunned for 3s.",
+                "Focus kill the add spawned by "..S(372863)..", tank the boss on top of the add for cleave, interrupt "..S(373017)..", move away from it when it dies, it goes boom!",
+                "[M] When the add dies it will leave behind a fire zone on the floor. Boulders will leave a fire trail behind.",
+            }
+        },
+        {
+            npcID = 199790,
             encounterID = 2623, 
             bossName= "Kyrakka and Erkhart Stormvein",
             notes = {
+                "Avoid the dragon's breath - "..S(381525).." so you won't be afflicted with "..S(381862)..", a fire DoT.",
+                "When "..S(381862).." expires players will drop a fire zone that needs to be avoided.",
+                "Use mitigation and rotate defensive cooldowns for "..S(381514)..", it hurts, but can be dispelled by healers.",
+                "Be mindful of where the flame zones are so you can avoid them when the wind from "..S(381517).." blows them to you.",
+                "[M] Stepping in fire zones, will re-aply the "..S(381862).." DoT",
+                "[M] Erkhart will interrupt spellcasting with "..S(381516)..", make sure you stop pressing buttons when the cast goes off.",
             }
         },
     }
@@ -554,6 +568,9 @@ function gz:DragonflightInitializeData()
             encounterID = 2666, 
             bossName= "Chronikar",
             notes = {
+                "Use cooldowns/mitigation for every Chronoshear! It'll be a great help to your healer who's trying to cope with the Sheared Lifespan aftermath.",
+                "Position Sand Stomp strategically at the edge of the room. Don't stand in it!",
+                "At full energy Chronikar will cast Eon Shatter, dodge the circle and fragments, then quickly move back in to soak Eon Residue",
             }
         },
         {
@@ -561,6 +578,11 @@ function gz:DragonflightInitializeData()
             encounterID = 2670, 
             bossName= "Tyr, the Infinite Keeper",
             notes = {
+                "Aim Titanic Blow away from your party and take the hit with a cooldown/mitigation. Be careful of the platform edge as the boss will knock you back.",
+                "Don't stand in Consecrated Ground.",
+                "Help soak Dividing Strike, this ability needs to hit at least two players or the boss will be buffed by Titanic Empowerment",
+                "Dodge Infinite Annihilation , a frontal aimed at a random player.",
+                "During Siphon Oathstone you want to collect Temporal Essence orbs, this will buff you. Consider leaving them all for the dps players if your damage output is rather low, you can collect any leftovers.",
             }
         },
         {
@@ -568,6 +590,10 @@ function gz:DragonflightInitializeData()
             encounterID = 2667, 
             bossName= "Manifested Timeways",
             notes = {
+                "Try to stand in the Decaying Time zone to reduce damage taken by 20%.",
+                "Unwind is a frontal you have to look out for, if you stand in the Decaying Time zone the second hit will come a lot slower giving you time to react.",
+                "You should always be in melee range of the boss or your party will wipe due to Radiant",
+                "Dodge the missiles during Fragments of Time, they will be slowed by the Decaying Time zone",
             }
         },
         {
@@ -589,6 +615,12 @@ function gz:DragonflightInitializeData()
             encounterID = 2668, 
             bossName= "Blight of Galakrond",
             notes = {
+                "During P1 the boss will drop Blight Seep zones on the floor, do your best to minimize boss movement.",
+                "Avoid Corrosive Expulsion pools or be stunned.",
+                "Your party members should hand their Corrosion debuff stacks to you by touching you. You then need to move into the boss frontal – Blight Reclamation to remove it, this will hurt so definitely use a cooldown! Yes, you should get hit by the frontal 🙂",
+                "During P2 you still need to manage the Corrosion debuff while dodging tornadoes. Make liberal use of mitigation, externals and cooldowns.",
+                "During P3 try your best to keep the 2 bosses together for cleave damage.",
+                "During P2 you still need to manage the Corrosion debuff while avoiding the Incinerating Blightbreath frontal and help free the player frozen by Necrofrost",
             }
         },
         {
@@ -603,6 +635,12 @@ function gz:DragonflightInitializeData()
             encounterID = 2669, 
             bossName= "Iridikron the Stonescaled",
             notes = {
+                "One of your main tasks will be to pick up the Pulverizing Creations  adds.",
+                "During Stonecracker Barrage you should be soaking the small circle, while your party soaks the big one. Pop a cooldown for Stonecrack at the end of the soak.",
+                "The player targeted by Extinction Blast should run underneath Chromie’s Timeline Protection to avoid death.",
+                "Keep mitigation up during Earthsurge  and avoid spikes and ground stuff",
+                "Dodge Pulverizing Exhalation, a frontal cone. Try to loosely stack with your party as this ability spawns adds you need to pick up.",
+                "During Cataclysmic Obliteration, pop every cooldown you have left and stand under Chromie, this ends the boss fight",
             }
         },
         {

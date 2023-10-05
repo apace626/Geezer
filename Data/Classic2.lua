@@ -16,7 +16,7 @@ function gz:ClassicInitializeData()
             encounterID = 1069, 
             bossName= "Baron Ashbury",
             notes = {
-                "Hope your healer is ready for "..S(93423)..", players health is reduced dramatically. ",
+                "(Healer) Be ready for "..S(93423)..", players health is reduced dramatically.",
                 "After "..S(93423)..", "..S(93468).." will heal players to 50% of max health.",
                 "Interrupt "..S(93581).."",
             }
@@ -26,7 +26,7 @@ function gz:ClassicInitializeData()
             encounterID = 1070, 
             bossName= "Baron Silverlaine",
             notes = {
-                "Curses his targets with "..S(23224).." reducing healing. ",
+                "Curses his targets with "..S(23224).." reducing healing.",
                 ""..S(93857).." - Taunt but focus dps on boss.",
             }
         },
@@ -35,7 +35,7 @@ function gz:ClassicInitializeData()
             encounterID = 1071, 
             bossName= "Commander Springvale",
             notes = {
-                "Avoid frontal cone (purple flame). ",
+                "Avoid frontal cone (purple flame).",
                 "Move out of "..S(93687)..", a green circle.",
             }
         },
@@ -44,7 +44,7 @@ function gz:ClassicInitializeData()
             encounterID = 1073, 
             bossName= "Lord Walden",
             notes = {
-                "Move around to avoid "..S(93527)..". ",
+                "Move around to avoid "..S(93527)..".",
                 "Watch out for "..S(93697).." he throws it at a player location.",
             }
         },
@@ -99,9 +99,9 @@ function gz:ClassicInitializeData()
             encounterID = 1064, 
             bossName= "Glubtok",
             notes = {
-                "Boss will Blink teleporting to a new location. ",
+                "Boss will Blink teleporting to a new location.",
                 "Avoid blossoms launched around room.",
-                "[H] Fire & Frost Blossoms summon mobs when land. ",
+                "[H] Fire & Frost Blossoms summon mobs when land.",
                 "[H] Avoid rotating Fire Wall.",
             }
         },
@@ -110,7 +110,7 @@ function gz:ClassicInitializeData()
             encounterID = 1065, 
             bossName= "Helix Gearbreaker",
             notes = {
-                "Kill the Oaf mount, then the boss. ",
+                "Kill the Oaf mount, then the boss.",
                 "Watch out for "..S(88352)..", avoid these on ground.",
                 "[H] Stay spread out for "..S(88352).."",
                 "[H] Way more "..S(88352).."",
@@ -121,7 +121,7 @@ function gz:ClassicInitializeData()
             encounterID = 1063, 
             bossName= "Foe Reaper 5000",
             notes = {
-                "To activate boss kill all the other foe reapers. ",
+                "To activate boss kill all the other foe reapers.",
                 "Face the boss away from the party to avoid "..S(88521).." cleave.",
                 "Simple Tank'n'Spank ",
                 "[H] activating boss summons adds, DPS should adds by piloting a reaper.",
@@ -134,7 +134,7 @@ function gz:ClassicInitializeData()
             notes = {
                 "Face the boss away from the party to avoid "..S(88839).." cleave.",
                 "Boss will charge players with "..S(88836)..", knocking them down.",
-                "During Fog kill the adds. ",
+                "During Fog kill the adds.",
                 "Taunt the boss when he reappears.",
                 "[H] more adds.",
             }
@@ -155,8 +155,8 @@ function gz:ClassicInitializeData()
             encounterID = 1081, 
             bossName= "Vanessa VanCleef [H]",
             notes = {
-                "You will be transported into waves of nightmares to fight your way through. ",
-                "When she casts Fiery Blaze to detonate explosives around ship run to a rope & swing to safety (ropes by edge of ship on floor). ",
+                "You will be transported into waves of nightmares to fight your way through.",
+                "When she casts Fiery Blaze to detonate explosives around ship run to a rope & swing to safety (ropes by edge of ship on floor).",
                 "Calls Defias mobs to aid her.",
             }
         },
@@ -171,7 +171,7 @@ function gz:ClassicInitializeData()
             bossName= "Lady Anacondra",
             notes = {
                 ""..S(8040).." puts a party member to sleep",
-                "Will spam"..S(20295).." on you. ",
+                "Will spam"..S(20295).." on you.",
                 "Interrupt "..S(23381)..".",
             }
         },
@@ -181,7 +181,7 @@ function gz:ClassicInitializeData()
             bossName= "Lord Cobrahn",
             notes = {
                 ""..S(8040).." puts a party member to sleep",
-                "Will spam"..S(20295).." on you. ",
+                "Will spam"..S(20295).." on you.",
                 "Interrupt "..S(23381)..".",
                 "Can turn  into a snake with "..S(7965).."",
             }
@@ -192,7 +192,7 @@ function gz:ClassicInitializeData()
             bossName= "Lord Pythas",
             notes = {
                 ""..S(8040).." puts a party member to sleep",
-                "Will spam"..S(20295).." on you. ",
+                "Will spam"..S(20295).." on you.",
                 "Interrupt "..S(23381)..".",
             }
         },
@@ -219,8 +219,8 @@ function gz:ClassicInitializeData()
             notes = {
                 ""..S(8040).." puts a party member to sleep",
                 ""..S(8040).." puts a party member to sleep",
-                "Will spam"..S(20295).." on you. ",
-                "Will spam"..S(20295).." on you. ",
+                "Will spam"..S(20295).." on you.",
+                "Will spam"..S(20295).." on you.",
                 "Interrupt "..S(23381)..".",
                 "Interrupt "..S(23381)..".",
             }
@@ -252,7 +252,7 @@ function gz:ClassicInitializeData()
             encounterID = 438, 
             bossName= "Roogug",
             notes = {
-                "Avoid standing in "..S(153525).." and "..S(153528).." (green & yellow circles on floor). ",
+                "Avoid standing in "..S(153525).." and "..S(153528).." (green & yellow circles on floor).",
                 "Interrupt "..S(150774)..".",
             }
         },
@@ -261,7 +261,7 @@ function gz:ClassicInitializeData()
             encounterID = 1656, 
             bossName= "Hunter Bonetusk",
             notes = {
-                ""..S(150904).." - Move out of the circle of arrows. ",
+                ""..S(150904).." - Move out of the circle of arrows.",
                 "At 50% HP the boss will call "..S(150917)..", avoid all the boars.",
             }
         },
@@ -270,17 +270,17 @@ function gz:ClassicInitializeData()
             encounterID = 1659, 
             bossName= "Warlord Ramtusk",
             notes = {
-                "You cannot leave the circle. ",
-                "Pick up all adds. ",
+                "You cannot leave the circle.",
+                "Pick up all adds.",
             }
         },
         {
-            npcID = 999999,
+            npcID = 75247,
             encounterID = 1660, 
             bossName= "Groyat, the Blind Hunter",
             notes = {
-                "Move away from "..S(128381).." (circle on ground). ",
-                "Move out of the circles of "..S(153214)..". ",
+                "Move away from "..S(128381).." (circle on ground).",
+                "Move out of the circles of "..S(153214)..".",
                 ""..S(43417).." bites a target inflicting damage & leeching health.",
             }
         },
@@ -290,9 +290,9 @@ function gz:ClassicInitializeData()
             bossName= "Charlga Razorflank",
             notes = {
                 ""..S(151534).." - This allows the boss to summon two totems, outlined below.",
-                "Run away to avoid being pulled in by the blue crystal. ",
-                "Green crystal spawns ooze mobs, avoid standing near the green puddles. ",
-                "Red crystal inflicts fire damage to anyone hit by the lines. ",
+                "Run away to avoid being pulled in by the blue crystal.",
+                "Green crystal spawns ooze mobs, avoid standing near the green puddles.",
+                "Red crystal inflicts fire damage to anyone hit by the lines.",
                 ""..S(151583).." will root you in place.",
             }
         },
@@ -302,11 +302,11 @@ function gz:ClassicInitializeData()
     addonTable.data[48] = {
         name = "Blackfathom Deeps",
         {
-            npcID = 999999,
+            npcID = 4887,
             encounterID = 1667, 
             bossName= "Ghamoo-Ra",
             notes = {
-                "Move out way of lightning pool on ground, spins around then charges forward. ",
+                "Move out way of lightning pool on ground, spins around then charges forward.",
                 "Hits random targets with static during fight.",
             }
         },
@@ -315,7 +315,7 @@ function gz:ClassicInitializeData()
             encounterID = 1669, 
             bossName= "Subjugator Kor'ul",
             notes = {
-                "Grabs a player with "..S(150634)..". ",
+                "Grabs a player with "..S(150634)..".",
                 ""..S(151159).." summons tentacles to hit ground (move out of the crumbling floor).",
             }
         },
@@ -324,7 +324,7 @@ function gz:ClassicInitializeData()
             encounterID = 1668, 
             bossName= "Domina",
             notes = {
-                "Avoid standing in "..S(149893).." (purple line on floor). ",
+                "Avoid standing in "..S(149893).." (purple line on floor).",
                 "Run away from "..S(149886).." (green bolts).",
             }
         },
@@ -333,7 +333,7 @@ function gz:ClassicInitializeData()
             encounterID = 1671, 
             bossName= "Twilight Lord Bathiel",
             notes = {
-                ""..S(150020).." summons adds then boss absorbs them to heal, kill what you can. ",
+                ""..S(150020).." summons adds then boss absorbs them to heal, kill what you can.",
                 "Run away from "..S(151813)..", ice shards fall & follow enemies.",
             }
         },
@@ -342,7 +342,7 @@ function gz:ClassicInitializeData()
             encounterID = 1672, 
             bossName= "Aku'mai",
             notes = {
-                "Move around to avoid damage from falling rocks. ",
+                "Move around to avoid damage from falling rocks.",
                 ""..S(151303).." summons tentacles that hit the ground (move out of the crumbling floor).",
             }
         },
@@ -351,8 +351,8 @@ function gz:ClassicInitializeData()
             encounterID = 1676, 
             bossName= "Guardian of the Deep",
             notes = {
-                "Does aoe damage with Shattering Song (circle echoes out). ",
-                "Spore Cloud summons adds. ",
+                "Does aoe damage with Shattering Song (circle echoes out).",
+                "Spore Cloud summons adds.",
                 "Heals himself when eats a Blue Shale Crawler.",
             }
         },
@@ -361,8 +361,8 @@ function gz:ClassicInitializeData()
             encounterID = 1670, 
             bossName= "Executioner Gore",
             notes = {
-                "Strikes the floor, move out of purple line. ",
-                "Avoid standing in the purple circles left on ground. ",
+                "Strikes the floor, move out of purple line.",
+                "Avoid standing in the purple circles left on ground.",
                 "Devouring Blackness grabs a player draining their health, interrupt this.",
             }
         },
@@ -371,7 +371,7 @@ function gz:ClassicInitializeData()
             encounterID = 1675, 
             bossName= "Thruk",
             notes = {
-                ""..S(149908).." pulls in & roots a player in a fishing net. ",
+                ""..S(149908).." pulls in & roots a player in a fishing net.",
                 ""..S(149913).." smashes the ground around him, move away.",
             }
         },
@@ -391,7 +391,7 @@ function gz:ClassicInitializeData()
             }
         },
         {
-            npcID = 999999,
+            npcID = 6906,
             encounterID = 548, 
             bossName= "The Lost Dwarves",
             notes = {
@@ -477,8 +477,8 @@ function gz:ClassicInitializeData()
             encounterID = 379, 
             bossName= "Grubbis",
             notes = {
-                "Start fight by talking to the Gnome at back of room. ",
-                "Defeat waves of adds before the boss appears. ",
+                "Start fight by talking to the Gnome at back of room.",
+                "Defeat waves of adds before the boss appears.",
                 "Grubbis is a simple tank and spank fight.",
             }
         },
@@ -529,7 +529,7 @@ function gz:ClassicInitializeData()
             bossName= "Jammal'an the Prophet",
             notes = {
                 "Interrupt "..S(232670).." from Ogom",
-                "Avoid standing in fire patches. ",
+                "Avoid standing in fire patches.",
                 "Move away from the "..S(8376)..", it will root you",
                 ""..S(12480).." will hex a player, they will attack the party.",
             }
@@ -555,8 +555,8 @@ function gz:ClassicInitializeData()
             encounterID = 1663, 
             bossName= "Mordresh Fire Eye",
             notes = {
-                "Kill all adds. ",
-                "Interrupt "..S(150001)..". ",
+                "Kill all adds.",
+                "Interrupt "..S(150001)..".",
                 "Boss will "..S(150067).."s, avoid the fire balls and never stand in between them",
             }
         },
@@ -594,7 +594,7 @@ function gz:ClassicInitializeData()
             encounterID = 1665, 
             bossName= "Death Speaker Blackthorn",
             notes = {
-                "Avoid the frontal cone "..S(151962)..". ",
+                "Avoid the frontal cone "..S(151962)..".",
                 "Boss will "..S(150601)..". They interrupt spell casting & and will knock you back",
                 "Interrupt "..S(150616).." & "..S(150550)..".",
             }
@@ -610,7 +610,7 @@ function gz:ClassicInitializeData()
             bossName= "Gahz'rilla",
             notes = {
                 ""..S(11131).." will slow you down",
-                ""..S(11836).." is a stun ability. ",
+                ""..S(11836).." is a stun ability.",
                 "Move away from "..S(11902)..", this is a knockback.",
             }
         },
@@ -619,8 +619,8 @@ function gz:ClassicInitializeData()
             encounterID = 595, 
             bossName= "Antu'sul",
             notes = {
-                "Kill the adds first. ",
-                "Kill the Greater Healing Ward & "..S(8376).."s. ",
+                "Kill the adds first.",
+                "Kill the Greater Healing Ward & "..S(8376).."s.",
                 "Boss uses variety of shaman spells, interrupt the heals.",
                 "At 75% & 25% summons "..S(11894).." to fight, kill them quickly.",
             }
@@ -640,8 +640,8 @@ function gz:ClassicInitializeData()
             encounterID = 597, 
             bossName= "Witch Doctor Zum'rah",
             notes = {
-                "Raises zombies from nearby graves. ",
-                "Kill the "..S(11086).." totem before it summons adds. ",
+                "Raises zombies from nearby graves.",
+                "Kill the "..S(11086).." totem before it summons adds.",
                 "Interrupt "..S(12491).."",
                 "Interrupt "..S(12739).."",
                 "Interrupt "..S(15245).."",
@@ -652,9 +652,9 @@ function gz:ClassicInitializeData()
             encounterID = 598, 
             bossName= "Nekrum & Sezz'ziz",
             notes = {
-                "The prisoners help you fight the trolls & bosses. ",
-                "Nekrum: Interrupt "..S(8600)..". ",
-                "Sezz'ziz: Interrupt "..S(12739)..", "..S(8362).." & "..S(12039)..". ",
+                "The prisoners help you fight the trolls & bosses.",
+                "Nekrum: Interrupt "..S(8600)..".",
+                "Sezz'ziz: Interrupt "..S(12739)..", "..S(8362).." & "..S(12039)..".",
                 ""..S(13704).." will fear you.",
             }
         },
@@ -678,7 +678,7 @@ function gz:ClassicInitializeData()
             encounterID = 267, 
             bossName= "Highlord Omokk",
             notes = {
-                ""..S(110762).." will knock you back. ",
+                ""..S(110762).." will knock you back.",
                 "At 50% HP the boss will "..S(8269).."",
             }
         },
@@ -687,7 +687,7 @@ function gz:ClassicInitializeData()
             encounterID = 268, 
             bossName= "Shadow Hunter Vosh'gajin",
             notes = {
-                "Interrupt "..S(16098)..", if not, use a cooldown to help the healer. ",
+                "Interrupt "..S(16098)..", if not, use a cooldown to help the healer.",
                 "The boss will turn someone in a frog with "..S(16097)..", be ready if it's the healer.",
             }
         },
@@ -716,7 +716,7 @@ function gz:ClassicInitializeData()
             encounterID = 271, 
             bossName= "Urok Doomhowl",
             notes = {
-                "Kill waves of ogres until boss spawns. ",
+                "Kill waves of ogres until boss spawns.",
                 ""..S(16508).." will fear you.",
             }
         },
@@ -766,7 +766,7 @@ function gz:ClassicInitializeData()
             encounterID = 239, 
             bossName= "Phalanx",
             notes = {
-                "Will attack you when you kill Plugger Spazzring. ",
+                "Will attack you when you kill Plugger Spazzring.",
                 ""..S(14099).." will knock you back.",
                 ""..S(15588).." will slow you down.",
             }
@@ -776,7 +776,7 @@ function gz:ClassicInitializeData()
             encounterID = 227, 
             bossName= "High Interrogator Gerstahn",
             notes = {
-                "Interrupt "..S(14033)..". ",
+                "Interrupt "..S(14033)..".",
                 ""..S(13704).." will fear you.",
             }
         },
@@ -794,13 +794,13 @@ function gz:ClassicInitializeData()
             encounterID = 229, 
             bossName= "Houndmaster Grebmar",
             notes = {
-                ""..S(171402).." will make you weaker. ",
+                ""..S(171402).." will make you weaker.",
                 "Boss can use "..S(21049).." ",
                 "Boss will flee at 15% health.",
             }
         },
         {
-            npcID = 999999,
+            npcID = 10096,
             encounterID = 230, 
             bossName= "Ring of Law",
             notes = {
@@ -822,8 +822,8 @@ function gz:ClassicInitializeData()
             encounterID = 232, 
             bossName= "Lord Incendius",
             notes = {
-                "Move out of fire zones from "..S(13900).." and "..S(13899)..". ",
-                ""..S(14099).." will knock you back. ",
+                "Move out of fire zones from "..S(13900).." and "..S(13899)..".",
+                ""..S(14099).." will knock you back.",
                 ""..S(26977).." will make you weaker to fire damage, so save cooldowns for this.",
             }
         },
@@ -840,7 +840,7 @@ function gz:ClassicInitializeData()
             bossName= "Fineous Darkvire",
             notes = {
                 ""..S(8258).." makes the boss less prone to physical damage.",
-                "Interrupt "..S(15493)..". ",
+                "Interrupt "..S(15493)..".",
                 "Do NOT hit an ",
                 "enemy buffed with SEAL, or you will heal them back up.",
             }
@@ -878,7 +878,7 @@ function gz:ClassicInitializeData()
             bossName= "Hurley Blackbreath",
             notes = {
                 "Smash the 3 Thunderbrew Lager Kegs in the empty left room to summon the boss .",
-                "Face the boss away from the party and avoid the frontal cone "..S(9573)..". ",
+                "Face the boss away from the party and avoid the frontal cone "..S(9573)..".",
                 "The boss will enter a "..S(14872).."",
             }
         },
@@ -901,7 +901,7 @@ function gz:ClassicInitializeData()
             }
         },
         {
-            npcID = 999999,
+            npcID = 9035,
             encounterID = 243, 
             bossName= "The Seven",
             notes = {
@@ -986,7 +986,7 @@ function gz:ClassicInitializeData()
             encounterID = 473, 
             bossName= "Hearthsinger Forresten",
             notes = {
-                "Interrupt "..S(16798)..", or someone will fall asleep. ",
+                "Interrupt "..S(16798)..", or someone will fall asleep.",
                 "Spread out for "..S(14443).."",
             }
         },
@@ -995,7 +995,7 @@ function gz:ClassicInitializeData()
             encounterID = 474, 
             bossName= "Timmy the Cruel",
             notes = {
-                "Use mitigation for "..S(17470).." it heals the boss. ",
+                "Use mitigation for "..S(17470).." it heals the boss.",
                 "At 50% HP the boss "..S(8599).."s.",
             }
         },
@@ -1005,7 +1005,7 @@ function gz:ClassicInitializeData()
             bossName= "Willey Hopebreaker",
             notes = {
                 "The boss will "..S(17279)..", pick them up and focus kill them.  ",
-                "DPS can pick up Cannonballs to fire the Cannons at the adds. ",
+                "DPS can pick up Cannonballs to fire the Cannons at the adds.",
                 ""..S(110762).." will knock you back",
             }
         },
@@ -1023,7 +1023,7 @@ function gz:ClassicInitializeData()
             encounterID = 478, 
             bossName= "Balnazzar",
             notes = {
-                "The boss will take control of a player with "..S(17405).." . ",
+                "The boss will take control of a player with "..S(17405).." .",
                 ""..S(13704).." will fear you.",
                 ""..S(66290).." will put you asleep.",
             }
@@ -1131,7 +1131,7 @@ function gz:ClassicInitializeData()
             encounterID = 427, 
             bossName= "Tinkerer Gizlock",
             notes = {
-                "Watch out for the "..S(9143).."s and "..S(29419).."s thrown at a random player, move the boss away from the blast zones. ",
+                "Watch out for the "..S(9143).."s and "..S(29419).."s thrown at a random player, move the boss away from the blast zones.",
                 "Face the boss away from the party and dodge the frontal cone "..S(21833).." .",
             }
         },
@@ -1142,7 +1142,7 @@ function gz:ClassicInitializeData()
             notes = {
                 "Focus kill the Shadowstalker guards adds.",
                 "Move away from the player targeted"..S(7964)..", this stuns.",
-                "Spread out for "..S(21390)..", this cleaves. ",
+                "Spread out for "..S(21390)..", this cleaves.",
             }
         },
         {
@@ -1150,7 +1150,7 @@ function gz:ClassicInitializeData()
             encounterID = 425, 
             bossName= "Celebras the Cursed",
             notes = {
-                "Pick up the "..S(21968).." adds but focus kill the boss. ",
+                "Pick up the "..S(21968).." adds but focus kill the boss.",
                 "Move out of "..S(21793).."",
                 "Interrupt "..S(21807).." & "..S(12747).."",
             }
@@ -1180,7 +1180,7 @@ function gz:ClassicInitializeData()
             notes = {
                 ""..S(21869).." will fear you.",
                 ""..S(21832).." and "..S(22592).." will stun you.",
-                "Move out of "..S(21909).." or you'll be knocked back. ",
+                "Move out of "..S(21909).." or you'll be knocked back.",
                 "Don't stand near an edge that you could be knocked off.",
             }
         },
@@ -1194,7 +1194,7 @@ function gz:ClassicInitializeData()
             encounterID = 1443, 
             bossName= "Adarogg",
             notes = {
-                "Move out of the way of "..S(119405)..". ",
+                "Move out of the way of "..S(119405)..".",
                 "Take not of the frontal cone "..S(119420)..".",
             }
         },
@@ -1203,7 +1203,7 @@ function gz:ClassicInitializeData()
             encounterID = 1444, 
             bossName= "Dark Shaman Koranthal",
             notes = {
-                "Interrupt "..S(119300)..". ",
+                "Interrupt "..S(119300)..".",
                 "Avoid the purple swirls during "..S(119971)..".",
             }
         },
@@ -1337,10 +1337,10 @@ function gz:ClassicInitializeData()
             encounterID = 346, 
             bossName= "Alzzin the Wildshaper",
             notes = {
-                "Kill all Lashers before engaging the boss. ",
-                "When the boss is in "..S(22688).." he will "..S(22691).." & knock you back with "..S(10101)..". ",
+                "Kill all Lashers before engaging the boss.",
+                "When the boss is in "..S(22688).." he will "..S(22691).." & knock you back with "..S(10101)..".",
                 "During "..S(22660).." he will slow you.",
-                "Below 50% HP the boss summons Imps. ",
+                "Below 50% HP the boss summons Imps.",
             }
         },
         {
@@ -1348,7 +1348,7 @@ function gz:ClassicInitializeData()
             encounterID = 350, 
             bossName= "Tendris Warpwood",
             notes = {
-                "Summons all Ironbark Protector tree minions when attacked (unless you killed them beforehand). ",
+                "Summons all Ironbark Protector tree minions when attacked (unless you killed them beforehand).",
                 ""..S(22994).." will root you.",
                 ""..S(22924).." will knock you back.  ",
                 "Move away to avoid "..S(5568)..".",
@@ -1370,7 +1370,7 @@ function gz:ClassicInitializeData()
             encounterID = 348, 
             bossName= "Magister Kalendris",
             notes = {
-                "The boss will control a player with "..S(7645).." you can ignore this. ",
+                "The boss will control a player with "..S(7645).." you can ignore this.",
                 "At 50% HP the boss uses "..S(22917)..". Rotate your cooldowns, if any, during this period.",
             }
         },
@@ -1380,7 +1380,7 @@ function gz:ClassicInitializeData()
             bossName= "Immol'thar",
             notes = {
                 "Move away to avoid "..S(5568)..".",
-                "Prepare for "..S(16128)..", this increases your damage taken. ",
+                "Prepare for "..S(16128)..", this increases your damage taken.",
                 "Boss will "..S(8269).."",
                 "Focus kill any "..S(22899).." adds.",
             }
@@ -1390,7 +1390,7 @@ function gz:ClassicInitializeData()
             encounterID = 361, 
             bossName= "Prince Tortheldrin",
             notes = {
-                ""..S(22920).." will knock you back. ",
+                ""..S(22920).." will knock you back.",
                 "If Healer gets nature locked (can't heal) use cooldowns to survive.",
             }
         },
@@ -1400,7 +1400,7 @@ function gz:ClassicInitializeData()
             bossName= "Guard Mol'dar",
             notes = {
                 "TANK'N'SPANK",
-                "Be ready to pick up any adds that join the fight. ",
+                "Be ready to pick up any adds that join the fight.",
                 "Goes into "..S(8269)..".",
             }
         },
@@ -1409,7 +1409,7 @@ function gz:ClassicInitializeData()
             encounterID = 363, 
             bossName= "Stomper Kreeg",
             notes = {
-                "Will Knock you back with "..S(16740)..". ",
+                "Will Knock you back with "..S(16740)..".",
                 "Avoid the frontal cone - "..S(22833)..".",
                 "Goes into "..S(8269)..".",
             }
@@ -1421,7 +1421,7 @@ function gz:ClassicInitializeData()
             notes = {
                 "TANK'N'SPANK",
                 "Clear an area to fight in and",
-                "be ready to pick up any adds that join the fight. ",
+                "be ready to pick up any adds that join the fight.",
                 "Goes into "..S(8269)..".",
             }
         },
@@ -1448,7 +1448,7 @@ function gz:ClassicInitializeData()
             encounterID = 367, 
             bossName= "Cho'Rush the Observer",
             notes = {
-                "He will randomly choose a class, he will either be a priest, shaman, or mage. ",
+                "He will randomly choose a class, he will either be a priest, shaman, or mage.",
                 "If he is a priest: "..S(22884).." will fear you, interrupt "..S(38209).."",
                 "If he's a shaman: drag him away from the "..S(8376).." and interrupt "..S(15982).."",
                 "If he's a mage: "..S(15531).." can freeze you.",
@@ -1800,7 +1800,7 @@ function gz:ClassicInitializeData()
             encounterID = 1424, 
             bossName= "Brother Korloff",
             notes = {
-                "Move away from "..S(113764)..". ",
+                "Move away from "..S(113764)..".",
                 "Face the boss away from the party for "..S(114807).."",
                 "Below 50% HP the boss will cast "..S(114460)..", avoid the fire on the floor.",
             }
@@ -1810,9 +1810,9 @@ function gz:ClassicInitializeData()
             encounterID = 1425, 
             bossName= "High Inquisitor Whitemane",
             notes = {
-                "First you will fight Durand, dodge "..S(115739)..". ",
-                "When he is defeated Whitemane will join fight. ",
-                "Interrupt "..S(114848).." & "..S(9232)..". ",
+                "First you will fight Durand, dodge "..S(115739)..".",
+                "When he is defeated Whitemane will join fight.",
+                "Interrupt "..S(114848).." & "..S(9232)..".",
                 "During the fight she will resurrect Commander Durand.",
             }
         },
@@ -1847,7 +1847,7 @@ function gz:ClassicInitializeData()
             encounterID = 1427, 
             bossName= "Jandice Barov",
             notes = {
-                "Face boss away from the party and avoid the frontal cone, "..S(114062)..". ",
+                "Face boss away from the party and avoid the frontal cone, "..S(114062)..".",
                 "At 33% & 66% boss will hide behind an illusion, you should avoid killing the wrong illusion, but just kill them all for fast results.",
             }
         },
@@ -1856,8 +1856,8 @@ function gz:ClassicInitializeData()
             encounterID = 1428, 
             bossName= "Rattlegore",
             notes = {
-                "Pick up "..S(113996).." (click the piles of bones on floor), these absorb one "..S(113999)..", helps the healer out. ",
-                "Avoid blue flame patches. ",
+                "Pick up "..S(113996).." (click the piles of bones on floor), these absorb one "..S(113999)..", helps the healer out.",
+                "Avoid blue flame patches.",
                 "You will be hit with "..S(113765)..", this makes you slower with each stack, you can kite the boss to drop these stacks.",
             }
         },
@@ -1867,7 +1867,7 @@ function gz:ClassicInitializeData()
             bossName= "Lilian Voss",
             notes = {
                 "Place the purple zones that drop underneath you during "..S(111585).." on the edges of the room.",
-                "She can pull you towards her with "..S(111570).." which is a nice shortcut for you. ",
+                "She can pull you towards her with "..S(111570).." which is a nice shortcut for you.",
             }
         },
         {

@@ -32,9 +32,9 @@ function gz:OnInitialize()
     self:RegisterChatCommand("geezer", "SlashCommand")
 
     self:ClassicInitializeData()
-    self:TBCnitializeData()
-    self:CataclysmInitializeData()
-    self:ShadowlandsInitializeData()
+    self:TBCInitializeData()
+    --self:CataclysmInitializeData()
+    --self:ShadowlandsInitializeData()
     self:DragonflightInitializeData()
     self:BuildFrame()
 end
@@ -241,6 +241,7 @@ function gz:SearchNotes(query)
         counter = 0
         local instanceData = addonTable.data
         local firstRowFound
+        local matchFound
         
         -- instance name search
         for key, item in pairs(instanceData) do
@@ -253,6 +254,7 @@ function gz:SearchNotes(query)
         if firstRowFound then
             self:InitializeBossDropdown(firstRowFound)
             self:ShowNote(firstRowFound, nil, nil)
+            matchFound = true
         else
             -- boss name search
             for key, item in pairs(instanceData) do
@@ -261,6 +263,7 @@ function gz:SearchNotes(query)
                         if string.find(string.upper(item2.bossName), string.upper(query), 1, true) then
                             self:InitializeBossDropdown(key)
                             self:ShowNote(key, item2.npcID, nil)
+                            matchFound = true
                             return
                         end
                     end
@@ -269,6 +272,10 @@ function gz:SearchNotes(query)
         end
        
         self:Print(counter, "instances searched")
+
+        if not matchFound then
+            self:Print("0 results found")
+        end
     end
 end
 
