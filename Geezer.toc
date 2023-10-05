@@ -12,7 +12,10 @@ Geezer.lua
 Data\Classic2.lua
 Data\TBC2.lua
 Data\Wrath2.lua
-#Data\Cataclysm.lua
+Data\Cataclysm2.lua
+Data\MoP2.lua
+Data\WoD2.lua
+Data\Legion2.lua
 #Data\Shadowlands.lua
 Data\Dragonflight2.lua
 
