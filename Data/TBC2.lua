@@ -818,62 +818,158 @@ function gz:TBCInitializeData()
             encounterID = 601, 
             bossName= "High Warlord Naj'entus",
             notes = {
+                "Click on the Spine to free a player from "..S(39837),
+                "Use the Spine collected from freeing a player from "..S(39837).." to break "..S(39872),
+                "Ranged DPS and healers should stay spread to avoid unnecessary damage from "..S(39835),
+                "Melee DPS should avoid going in front of the boss to avoid being damage by "..S(39836)
             }
         },
+        
         {
             npcID = 22898,
             encounterID = 602, 
             bossName= "Supremus",
             notes = {
+                "PHASE ONE",
+                "Don't stand in patches of "..S(40265),
+                "Melee should avoid staying at full health due to "..S(41926)..". You can stand on "..S(40265).." to drop your health.",
+                "PHASE TWO",
+                "Stay away from "..S(42055),
+                "If targeted by "..S(41951)..", run away from the boss.",
             }
+            
         },
+        
         {
             npcID = 22841,
             encounterID = 603, 
             bossName= "Shade of Akama",
             notes = {
+                "PHASE ONE",
+                "Prioritize killing Ashtongue Sorcerer and Ashtongue Channeler first, since they hinder Shade of Akama's speed, delaying Phase 2.",
+                "Interrupt the adds as much as possible, specially Ashtongue Spiritbinder, since they will heal their allies.",
+                "PHASE TWO",
+                "Kill Shade of Akama before it kills Akama."
             }
         },
+        
         {
             npcID = 22871,
             encounterID = 604, 
             bossName= "Teron Gorefiend",
             notes = {
+                "Dispell "..S(40239),
+                "If targeted with "..S(40251)..", deal as much damage as possible in the next 55 seconds.",
+                "If transformed into Vengeful Spirit, your job is to prevent Shadowy Construct from wiping your group. In order to do that, make sure to use all your new spells to kill them, while slowing them to have enough time to do so.",
             }
         },
+        
         {
             npcID = 92146,
             encounterID = 605, 
             bossName= "Gurtogg Bloodboil",
             notes = {
+                "STAGE ONE",
+                "Alternate the furthest targets from the boss to prevent high stacks of "..S(42005),
+                "Have the other tank taunt right after "..S(40491).." happens.",
+                "Make sure no one is in front of the boss with the tank to prevent "..S(40457).." cleaves.",
+                "STAGE TWO",
+                "Focus heal the target from "..S(40604),
+                S(40604).." may turn the boss around, make sure to turn it back if you're targeted with it so "..S(40508).." and "..S(40599).." don't hit the group.",
+                "Melee should try to stay at max range from the "..S(42005).." target to avoid getting hit by "..S(40569),
             }
         },
+        
         {
-            npcID = 999999,
+            npcID = 23418,
             encounterID = 606, 
             bossName= "Reliquary of Souls",
             notes = {
+                "INTERMISSIONS",
+                "Between every two phases there will be a downtime when a bunch of Enslaved Soul will spawn. When they die they cause "..S(41542).." which restores mana.",
+                "STAGE ONE: Essence of Suffering",
+                "There is no healing on this phase due to "..S(41292).." make sure to use defensive cooldown when tanking the boss via "..S(41294),
+                "Dispel "..S(41303),
+                "Avoid frontal - "..S(40457),
+                "STAGE TWO: Essence of Desire",
+                "All damage done will damage you back, avoid doing high bursts of damage.",
+                "The phase is a race on the healers mana, which decreases over time due to "..S(41350),
+                "Interrupt "..S(41410),
+                "Tank swap on "..S(41426),
+                "Instantly dispell "..S(41431).." from the boss.",
+                "STATE THREE: Essence of Suffering",
+                "The longer you stay on phase three, more damage you will take and deal due to "..S(41337),
+                S(41520).." will increase your threat generation, take care to not pull from the tanks!",
+                "Mana users can't stand in from of the boss otherwise they'll have their mana drain to "..S(41545),
+                "Use personal and external defensive cooldowns on "..S(41376).." targets."
             }
         },
+        
         {
             npcID = 22947,
             encounterID = 607, 
             bossName= "Mother Shahraz",
             notes = {
+                "If affected by "..S(41001)..", make sure to run a different direction from other players affected.",
+                "The fight requires either three tanks for "..S(40810).." or some melee DPS that can take those hits.",
+                "Ranged DPS and Healers should stay at least 18 yards away from the boss to avoid getting hit by "..S(40823),
+                "Ranged DPS and Healers should stay spread out to minimize the amount of targets that "..S(207544).." will jump to.",
             }
         },
+        
         {
-            npcID = 999999,
+            npcID = 23426,
             encounterID = 608, 
             bossName= "The Illidari Council",
             notes = {
+                "DPS must switch targets if their current one is immune to their damage type via "..S(41450).." or "..S(41451),
+                "Gathios the Shatterer must be tanked apart from the rest of the Council due to "..S(41452),
+                "Move Gathios the Shatterer from "..S(41541),
+                "Dispell "..S(41468).." from Gathios the Shatterer's tank.",
+                "Dedicate heals to targets of "..S(41485).." and "..S(41487),
+                "Stay away from High Nethermancer Zerevor due to "..S(41524),
+                "Uncertain if it will be needed for the Timewalk version, but groups might need a Mage in the group to Spellsteal High Nethermancer Zerevor's "..S(41478)..". Which will be used so the mage can tank High Nethermancer Zerevor.",
+                "Move away from "..S(41482).." and "..S(41481),
+                "Interrupt "..S(41455)..". Be aware that she might be immune to Magic and Physical interrupts at a time due to "..S(41450).." or "..S(41451),
+                "Switch to Lady Malande to break "..S(41475).." as fast as possible. Don't do it if you are affected by "..S(41487)..", "..S(41481).." or "..S(41482).." during it, or it might kill you.",
             }
         },
+        
         {
             npcID = 22917,
             encounterID = 609, 
             bossName= "Illidan Stormrage",
             notes = {
+                "STAGE ONE: You Are Not Prepared",
+                "Tanks must have an active mitigation up for Shear.",
+                "Only tanks can stand in front of the boss due to Draw Soul.",
+                "Move out of Flame Crash.",
+                "Heal targets from Parasitic Shadowfiend.",
+                "STAGE TWO: Flames of Azzinoth",
+                "Stay spread out to minimize damage from Fireball.",
+                "Move out of Dark Barrage.",
+                "Melee must stand at maximum melee range to avoid being damage by Flame of Azzinoth's Blaze.",
+                "Only tanks can stand in front of Flame of Azzinoth, due to Flame Blast.",
+                "Make sure Flame of Azzinoth never get away from their Original Warglaive, or Uncaged Wrath might wipe you",
+                "STAGE THREE: The Demon Within",
+                "Tanks must have an active mitigation up for Shear.",
+                "Only tanks can stand in front of the boss due to Draw Soul.",
+                "Move out of Flame Crash.",
+                "Heal targets from Parasitic Shadowfiend.",
+                "Stay spread for Agonizing Flames.",
+                "Swap to and quickly kill Summon Shadow Demons.",
+                "Stay away from Shadow Blast's target.",
+                "Melee should prefer to attack other targets during Demon Form, due to Aura of Dread and Flame Burst.",
+                "STAGE FOUR: The Long Hunt",
+                "Tanks must have an active mitigation up for Shear.",
+                "Only tanks can stand in front of the boss due to Draw Soul.",
+                "Move out of Flame Crash.",
+                "Heal targets from Parasitic Shadowfiend.",
+                "Stay spread for Agonizing Flames.",
+                "Swap to and quickly kill Summon Shadow Demons.",
+                "Stay away from Shadow Blast's target.",
+                "Melee should prefer to attack other targets during Demon Form, due to Aura of Dread and Flame Burst.",
+                "Move Illidan into Cage Trap during Frenzy.",
             }
         },
     }

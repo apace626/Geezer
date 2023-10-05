@@ -33,6 +33,7 @@ function gz:OnInitialize()
 
     self:ClassicInitializeData()
     self:TBCInitializeData()
+    self:WrathInitializeData()
     --self:CataclysmInitializeData()
     --self:ShadowlandsInitializeData()
     self:DragonflightInitializeData()
