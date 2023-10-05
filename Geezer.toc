@@ -9,16 +9,16 @@ embeds.xml
 
 Geezer.lua
 
-Data\Classic2.lua
-Data\TBC2.lua
-Data\Wrath2.lua
-Data\Cataclysm2.lua
-Data\MoP2.lua
-Data\WoD2.lua
-Data\Legion2.lua
-Data\BfA2.lua
-Data\Shadowlands2.lua
-Data\Dragonflight2.lua
+Data\Classic.lua
+Data\TBC.lua
+Data\Wrath.lua
+Data\Cataclysm.lua
+Data\MoP.lua
+Data\WoD.lua
+Data\Legion.lua
+Data\BfA.lua
+Data\Shadowlands.lua
+Data\Dragonflight.lua
 
 Utils.lua
 Options.lua
