@@ -1441,6 +1441,10 @@ function gz:ClassicInitializeData()
             encounterID = 366, 
             bossName= "Captain Kromcrush",
             notes = {
+                "Stop attacking the boss during "..S(22857).."",
+                "Make sure to save your cooldowns for "..S(22859).." as you will be difficult to heal",
+                ""..S(29544).." will Fear you.",
+                "At 50% HP health the boss will "..S(22860).." to help him fight.",
             }
         },
         {
