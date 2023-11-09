@@ -1,8 +1,8 @@
 local addonName, addonTable = ...
 local gz = addonTable.GeezerAddon
 
-local ace_config = LibStub("AceConfig-3.0")
-local ace_config_dialog = LibStub("AceConfigDialog-3.0")
+-- local ace_config = LibStub("AceConfig-3.0")
+-- local ace_config_dialog = LibStub("AceConfigDialog-3.0")
 local currentInstanceID
 local currentDifficulty
 addonTable.data = {}
@@ -13,14 +13,15 @@ addonTable.data = {}
 --TODO override difficulty level to show all difficulites for search???
 
 function gz:OnInitialize()
+    print('ON ONIT')
     -- uses the "Default" profile instead of character-specific profiles
     -- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
-    self.db = LibStub("AceDB-3.0"):New("GeezerDB", addonTable.defaults, true)
+    --self.db = LibStub("AceDB-3.0"):New("GeezerDB", addonTable.defaults, true)
 
     -- registers an options table and adds it to the Blizzard options window
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-config-3-0
-    ace_config:RegisterOptionsTable("Geezer", addonTable.options)
-	self.optionsFrame = ace_config_dialog:AddToBlizOptions("Geezer", "Geezer")
+    -- ace_config:RegisterOptionsTable("Geezer", addonTable.options)
+	-- self.optionsFrame = ace_config_dialog:AddToBlizOptions("Geezer", "Geezer")
 
     -- adds a child options table, in this case our profiles panel
     -- local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
@@ -31,20 +32,21 @@ function gz:OnInitialize()
 	self:RegisterChatCommand("gz", "SlashCommand")
     self:RegisterChatCommand("geezer", "SlashCommand")
 
-    self:ClassicInitializeData()
-    self:TBCInitializeData()
-    self:WrathInitializeData()
-    self:CataclysmInitializeData()
-    self:MoPInitializeData()
-    self:WoDInitializeData()
-    self:LegionInitializeData()
-    self:BfAInitializeData()
-    self:ShadowlandsInitializeData()
-    self:DragonflightInitializeData()
-    self:BuildFrame()
+    --self:ClassicInitializeData()
+    -- self:TBCInitializeData()
+    -- self:WrathInitializeData()
+    -- self:CataclysmInitializeData()
+    -- self:MoPInitializeData()
+    -- self:WoDInitializeData()
+    -- self:LegionInitializeData()
+    -- self:BfAInitializeData()
+    -- self:ShadowlandsInitializeData()
+    -- self:DragonflightInitializeData()
+    -- self:BuildFrame()
 end
 
 function gz:OnEnable()
+    print('ON ONENABLE')
     self:RegisterEvent("PLAYER_ENTERING_WORLD")
     self:RegisterEvent("ENCOUNTER_START")
     self:RegisterEvent("UNIT_TARGET")
