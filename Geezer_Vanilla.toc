@@ -1,0 +1,21 @@
+## Interface: 11404
+## Version: 1.0.0
+## Title: Geezer
+## Notes: Simple notes for encounters
+## Author: Rodenbach
+## SavedVariables: GeezerDB
+
+embeds.xml
+
+Vanilla\Data\Classic.lua
+Vanilla\Events.lua
+Frame.lua
+Geezer.lua
+Vanilla\Init.lua
+
+
+
+
+
+
+

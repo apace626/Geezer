@@ -8,7 +8,7 @@
 <!--@no-lib-strip@-->
 <!-- <Include file="Libs\AceComm-3.0\AceComm-3.0.xml"/> -->
 <!-- <Include file="Libs\AceSerializer-3.0\AceSerializer-3.0.xml"/> -->
-<Include file="Libs\LibDBIcon-1.0\lib.xml"/>
+<!-- <Include file="Libs\LibDBIcon-1.0\lib.xml"/> -->
 <!-- <Include file="Libs\LibSharedMedia-3.0\lib.xml"/> -->
 <!--@end-no-lib-strip@-->
 </Ui>

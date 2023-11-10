@@ -1,10 +1,30 @@
-local addonName, addonTable = ...
-local gz = addonTable.GeezerAddon
+local addonName, ns = ...
 
-addonTable.MISSING_NOTE_TEXT = "\n\nNotes have not been added. Let us know if you would like to contribute!"
+ns.MISSING_NOTE_TEXT = "\n\nNotes have not been added. Let us know if you would like to contribute!"
 local frame
 
-function gz:BuildFrame()
+-- local LDB = LibStub("LibDataBroker-1.1", true)
+-- local LDBIcon = LDB and LibStub("LibDBIcon-1.0", true)
+-- if LDB then
+--     local Geezer_MinimapBtn = LDB:NewDataObject("Geezer", {
+--         type = "launcher",
+--         text = "Geezer",
+--         --icon = "Interface\\AddOns\\PoisonCharges\\media\\PoisonCharges_Icon",
+--         icon = "Interface\\Icons\\INV_Chest_Cloth_17",
+--         OnClick = function(_, button)
+--             InterfaceOptionsFrame_OpenToCategory(addonName)
+--         end,
+--         OnTooltipShow = function(tt)
+--             tt:AddLine("Geezer")
+--             tt:AddLine("|cffffff00Click|r to open the Geezer settings window.")
+--         end,
+--     })
+--     if LDBIcon then
+--         LDBIcon:Register("Geezer", Geezer_MinimapBtn, SavedVariable_HERE) -- PC_MinimapPos is a SavedVariable which is set to 90 as default
+--     end
+-- end
+
+function ns:BuildFrame()
 
     frame = CreateFrame("Frame", addonName, UIParent, BackdropTemplateMixin and "BackdropTemplate")
 
@@ -12,19 +32,21 @@ function gz:BuildFrame()
     -- build frame
     frame:SetMovable(true)
     frame:EnableMouse(true)
+    frame:SetUserPlaced(true)
     frame:RegisterForDrag("LeftButton")
     frame:SetScript("OnDragStart", frame.StartMoving)
     frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
     frame:SetFrameStrata("BACKGROUND")
     frame:SetWidth(300)
     frame:SetHeight(100)
+    frame:SetScale(.85)
 
     local titleText = frame:CreateFontString(nil, "BACKGROUND")
     titleText:SetFontObject("GameFontNormalLarge")
     titleText:SetJustifyV("TOP")
     titleText:SetJustifyH("LEFT")
     titleText:SetText("Geezer Boss Notes")
-    addonTable.titleText = titleText
+    ns.titleText = titleText
 
     local notesText = frame:CreateFontString(nil, "BACKGROUND")
     notesText:SetFontObject("GameFontNormal")
@@ -32,7 +54,7 @@ function gz:BuildFrame()
     notesText:SetJustifyH("LEFT")
     notesText:SetTextColor(1, 1, 1)
     notesText:SetText("\n\nNotes will appear when you are in an instance.")
-    addonTable.notesText = notesText
+    ns.notesText = notesText
 
     local collapseButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
     local notesHidden = false
@@ -49,8 +71,6 @@ function gz:BuildFrame()
             notesText:Hide()
             collapseButton:SetNormalTexture("Interface\\Buttons\\UI-Panel-ExpandButton-Up")
         end
-
-        --notesHidden = not notesHidden
     end)
 
     local searchButton = CreateFrame("Button", addon_name, frame, "UIPanelButtonTemplate")
@@ -61,7 +81,7 @@ function gz:BuildFrame()
     searchButton:SetText('+')
     searchButton:SetPoint("TOPLEFT", 16, -13)
     searchButton:SetScript("OnClick", function(self, button, down)
-        ToggleDropDownMenu(1, nil, addonTable.bossDropDown, "cursor", 3, -3)
+        ToggleDropDownMenu(1, nil, ns.bossDropDown, "cursor", 3, -3)
     end)
 
 
@@ -72,10 +92,27 @@ function gz:BuildFrame()
     bossDialog:SetHeight(100)
     bossDialog:SetPoint("TOPLEFT", 16, -13)
     bossDialog:SetBackdrop(BACKDROP_TUTORIAL_16_16)
-    addonTable.bossDialog = bossDialog
+    ns.bossDialog = bossDialog
     bossDialog:Hide()
 
-    addonTable.bossDropDown = CreateFrame("FRAME", "WPDemoDropDown", frame, "UIDropDownMenuTemplate")
+    ns.bossDropDown = CreateFrame("FRAME", "WPDemoDropDown", frame, "UIDropDownMenuTemplate")
+
+
+    -- Create minimap button
+ 
+    local minibtn = CreateFrame("Button", addon_name, Minimap)
+    minibtn:SetFrameLevel(8)
+    minibtn:SetSize(32,32)
+    minibtn:SetMovable(true)
+    
+    -- minibtn:SetNormalTexture("Interface/AddOns/AutoSell/Leatrix_Plus_Up.blp")
+    -- minibtn:SetPushedTexture("Interface/AddOns/AutoSell/Leatrix_Plus_Up.blp")
+    -- minibtn:SetHighlightTexture("Interface/AddOns/AutoSell/Leatrix_Plus_Up.blp")
+    
+    minibtn:SetNormalTexture("Interface/COMMON/Indicator-Yellow.png")
+    minibtn:SetPushedTexture("Interface/COMMON/Indicator-Yellow.png")
+    minibtn:SetHighlightTexture("Interface/COMMON/Indicator-Yellow.png")
+    minibtn:Show()
 
     ---------------------------------------------------------
     -- position frame
@@ -112,11 +149,110 @@ function gz:BuildFrame()
 
 end
 
-function gz:InitializeBossDropdown(instanceID, difficultyName)
-    local instanceData = addonTable.data[tonumber(instanceID)]
+function WPDropDownDemo_OnClick(self, arg1, arg2, checked)
+    ns:InitializeBossDropdown(arg1)
+    ns:ShowNote(arg1, nil, nil)
+end
+
+function WPDropDownDemo_Menu(frame, level, menuList)
+        local info = UIDropDownMenu_CreateInfo()
+        info.func = WPDropDownDemo_OnClick
+
+        local instanceData = ns.data
+        local dungeonsTable = { }
+        local raidsTable = { }
+        
+        for key, item in pairs(instanceData) do
+            if item.instanceType == 1 then
+                table.insert(dungeonsTable, { id = key, name = item.name })
+            else
+                table.insert(raidsTable, { id = key, name = item.name })
+            end
+        end
+
+        table.sort(dungeonsTable, sortbyName)
+        table.sort(raidsTable, sortbyName)
+
+        for key, item in ipairs(dungeonsTable) do
+            info.text, info.arg1 = item.name, item.id
+            UIDropDownMenu_AddButton(info)
+        end
+
+        UIDropDownMenu_AddSeparator()
+
+        for key, item in ipairs(raidsTable) do
+            info.text, info.arg1 = item.name, item.id
+            UIDropDownMenu_AddButton(info)
+        end
+
+end
+
+function sortbyName(a,b)
+    return a.name < b.name
+end
+
+function ns:BuildOptionsFrame()
+
+    local panel = CreateFrame("Frame")
+    panel.name = addonName               -- see panel fields
+    InterfaceOptions_AddCategory(panel)  -- see InterfaceOptions API
+
+    -- add widgets to the panel as desired
+    local title = panel:CreateFontString("ARTWORK", nil, "GameFontNormalLarge")
+    title:SetPoint("TOPLEFT")
+    title:SetText("Geezer")
+
+    local btn = CreateFrame("Button", nil, panel, "UIPanelButtonTemplate")
+	btn:SetPoint("TOPLEFT", 0, -40)
+	btn:SetText("Show/Hide")
+	btn:SetWidth(150)
+	btn:SetScript("OnClick", function()
+		ns:ToggleRandom()
+	end)
+
+    local dropDown = CreateFrame("Frame", "WPDemoDropDown", panel, "UIDropDownMenuTemplate")
+    dropDown:SetPoint("TOPLEFT", -20, -80)
+    UIDropDownMenu_SetWidth(dropDown, 200) -- Use in place of dropDown:SetWidth
+    -- Bind an initializer function to the dropdown; see previous sections for initializer function examples.
+    UIDropDownMenu_SetText(dropDown, "Select Classic Dungeon")
+    UIDropDownMenu_Initialize(dropDown, WPDropDownDemo_Menu)
+
+    local title = panel:CreateFontString("ARTWORK", nil, "GameFontNormalSmall")
+    title:SetPoint("TOPLEFT", 0, -130)
+    title:SetText("Slash Commands")
+    
+    local title = panel:CreateFontString("ARTWORK", nil, "GameTooltipTextSmall")
+    title:SetPoint("TOPLEFT", 0, -150)
+    title:SetText("/gz")
+
+    local title = panel:CreateFontString("ARTWORK", nil, "GameTooltipTextSmall")
+    title:SetPoint("TOPLEFT", 0, -160)
+    title:SetText("/geezer")
+
+    local title = panel:CreateFontString("ARTWORK", nil, "GameFontNormalSmall")
+    title:SetPoint("TOPLEFT", 0, -200)
+    title:SetText("If you would like to contribute by editing notes or reporting bugs. Please send an email to:")
+
+    local title = panel:CreateFontString("ARTWORK", nil, "GameTooltipTextSmall")
+    title:SetPoint("TOPLEFT", 0, -220)
+    title:SetText("wowaddongeezer@gmail.com")
+
+    -- local dropDown = CreateFrame("Frame", "WPDemoDropDown", panel, "UIDropDownMenuTemplate")
+    -- dropDown:SetPoint("TOPLEFT", 200, -40)
+    -- UIDropDownMenu_SetWidth(dropDown, 200) -- Use in place of dropDown:SetWidth
+    -- -- Bind an initializer function to the dropdown; see previous sections for initializer function examples.
+    -- UIDropDownMenu_SetText(dropDown, "WotLK")
+    -- UIDropDownMenu_Initialize(dropDown, WPDropDownDemo_Menu)
+
+
+end
+
+
+function ns:InitializeBossDropdown(instanceID, difficultyName)
+    local instanceData = ns.data[tonumber(instanceID)]
     if instanceData then
 
-        UIDropDownMenu_Initialize(addonTable.bossDropDown, function(self, level, menuList)
+        UIDropDownMenu_Initialize(ns.bossDropDown, function(self, level, menuList)
             local titleInfo = UIDropDownMenu_CreateInfo()
             titleInfo.isTitle = true
 
@@ -132,7 +268,7 @@ function gz:InitializeBossDropdown(instanceID, difficultyName)
             
             for _, item in ipairs(instanceData) do
                 local bossButton = UIDropDownMenu_CreateInfo()
-                bossButton.func = gz.SetValue
+                bossButton.func = ns.SetValue
                 bossButton.text = item.bossName
                 bossButton.value = item.npcID 
                 bossButton.arg1 = item.npcID
@@ -150,36 +286,26 @@ function gz:InitializeBossDropdown(instanceID, difficultyName)
 
         
     else
-        --self:Print("No instance data found.")
         self:HideFrame()
     end
 end
 
-function gz:SetValue(newValue, instanceID)
-    gz:ShowNote(instanceID, newValue)
+function ns:SetValue(newValue, instanceID)
+    ns:ShowNote(instanceID, newValue)
     CloseDropDownMenus()
 end
 
-function gz:HideFrame()
+function ns:HideFrame()
     frame:Hide()
 end
 
-function gz:ShowFrame()
+function ns:ShowFrame()
     frame:Show()
 end
 
-function gz:ToggleRandom()
-    if frame:IsShown() then
-        frame:Hide()
-    else
-        -- Choose random note
-        local instances = {}
-        for key, value in pairs(addonTable.data) do
-            table.insert(instances, key)
-        end
-        local instance = instances[math.random(#instances)]
-        self:ShowNote(instance)
-    end
+function ns:IsFrameShown()
+    return frame:IsShown()
 end
+
 
 
