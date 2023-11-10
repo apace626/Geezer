@@ -1,15 +1,18 @@
 ## Interface: 30403
 ## Version: 1.0.0
 ## Title: Geezer
-## Notes: Simple notes for encounters
+## Notes: Boss notes for dungeons and raids
 ## Author: Rodenbach
 ## SavedVariables: GeezerDB
+
+embeds.xml
 
 Vanilla\Data\Classic.lua
 Vanilla\Events.lua
 Frame.lua
 Geezer.lua
 Vanilla\Init.lua
+
 
 
 

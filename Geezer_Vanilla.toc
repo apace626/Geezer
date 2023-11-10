@@ -1,7 +1,7 @@
 ## Interface: 11404
 ## Version: 1.0.0
 ## Title: Geezer
-## Notes: Simple notes for encounters
+## Notes: Boss notes for dungeons and raids
 ## Author: Rodenbach
 ## SavedVariables: GeezerDB
 
