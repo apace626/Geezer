@@ -5,8 +5,6 @@
 ## Author: Rodenbach
 ## SavedVariables: GeezerDB
 
-embeds.xml
-
 Vanilla\Data\Classic.lua
 Vanilla\Events.lua
 Frame.lua

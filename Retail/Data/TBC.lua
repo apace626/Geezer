@@ -1,15 +1,14 @@
-local addonName, addonTable = ...
-local gz = addonTable.GeezerAddon
+local addonName, ns = ...
 
 local function S(id)
     local name, _, icon = GetSpellInfo(id)
     return string.format("|T%s:0|t|cff71d5ff%s|r", icon, name)
 end
 
-function gz:TBCInitializeData()
+function ns:TBCInitializeData()
      
     -- The Black Morass
-    addonTable.data[269] = {
+    ns.data[269] = {
         name = "The Black Morass",
         {
             npcID = 17881,
@@ -44,7 +43,7 @@ function gz:TBCInitializeData()
     }
     
     -- Karazhan
-    addonTable.data[532] = {
+    ns.data[532] = {
         name = "Karazhan",
         {
             npcID = 16152,
@@ -126,7 +125,7 @@ function gz:TBCInitializeData()
     }
     
     -- Hyjal Summit
-    addonTable.data[534] = {
+    ns.data[534] = {
         name = "Hyjal Summit",
         {
             npcID = 17767,
@@ -166,7 +165,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Shattered Halls
-    addonTable.data[540] = {
+    ns.data[540] = {
         name = "The Shattered Halls",
         {
             npcID = 16807,
@@ -209,7 +208,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Blood Furnace
-    addonTable.data[542] = {
+    ns.data[542] = {
         name = "The Blood Furnace",
         {
             npcID = 17381,
@@ -245,7 +244,7 @@ function gz:TBCInitializeData()
     }
     
     -- Hellfire Ramparts
-    addonTable.data[543] = {
+    ns.data[543] = {
         name = "Hellfire Ramparts",
         {
             npcID = 17306,
@@ -280,7 +279,7 @@ function gz:TBCInitializeData()
     }
     
     -- Magtheridon's Lair
-    addonTable.data[544] = {
+    ns.data[544] = {
         name = "Magtheridon's Lair",
         {
             npcID = 17257,
@@ -292,7 +291,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Steamvault
-    addonTable.data[545] = {
+    ns.data[545] = {
         name = "The Steamvault",
         {
             npcID = 17797,
@@ -324,7 +323,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Underbog
-    addonTable.data[546] = {
+    ns.data[546] = {
         name = "The Underbog",
         {
             npcID = 17770,
@@ -370,7 +369,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Slave Pens
-    addonTable.data[547] = {
+    ns.data[547] = {
         name = "The Slave Pens",
         {
             npcID = 17941,
@@ -402,7 +401,7 @@ function gz:TBCInitializeData()
     }
     
     -- Serpentshrine Cavern
-    addonTable.data[548] = {
+    ns.data[548] = {
         name = "Serpentshrine Cavern",
         {
             npcID = 21216,
@@ -449,7 +448,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Eye
-    addonTable.data[550] = {
+    ns.data[550] = {
         name = "The Eye",
         {
             npcID = 999999,
@@ -487,7 +486,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Arcatraz
-    addonTable.data[552] = {
+    ns.data[552] = {
         name = "The Arcatraz",
         {
             npcID = 20870,
@@ -532,7 +531,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Botanica
-    addonTable.data[553] = {
+    ns.data[553] = {
         name = "The Botanica",
         {
             npcID = 17976,
@@ -587,7 +586,7 @@ function gz:TBCInitializeData()
     }
     
     -- The Mechanar
-    addonTable.data[554] = {
+    ns.data[554] = {
         name = "The Mechanar",
         {
             npcID = 19219,
@@ -624,7 +623,7 @@ function gz:TBCInitializeData()
     }
     
     -- Shadow Labyrinth
-    addonTable.data[555] = {
+    ns.data[555] = {
         name = "Shadow Labyrinth",
         {
             npcID = 18731,
@@ -670,7 +669,7 @@ function gz:TBCInitializeData()
     }
     
     -- Sethekk Halls
-    addonTable.data[556] = {
+    ns.data[556] = {
         name = "Sethekk Halls",
         {
             npcID = 18472,
@@ -708,7 +707,7 @@ function gz:TBCInitializeData()
     }
     
     -- Mana-Tombs
-    addonTable.data[557] = {
+    ns.data[557] = {
         name = "Mana-Tombs",
         {
             npcID = 18341,
@@ -748,7 +747,7 @@ function gz:TBCInitializeData()
     }
     
     -- Auchenai Crypts
-    addonTable.data[558] = {
+    ns.data[558] = {
         name = "Auchenai Crypts",
         {
             npcID = 18371,
@@ -773,7 +772,7 @@ function gz:TBCInitializeData()
     }
     
     -- Old Hillsbrad Foothills
-    addonTable.data[560] = {
+    ns.data[560] = {
         name = "Old Hillsbrad Foothills",
         {
             npcID = 17848,
@@ -811,7 +810,7 @@ function gz:TBCInitializeData()
     }
     
     -- Black Temple
-    addonTable.data[564] = {
+    ns.data[564] = {
         name = "Black Temple",
         {
             npcID = 22887,
@@ -975,7 +974,7 @@ function gz:TBCInitializeData()
     }
     
     -- Gruul's Lair
-    addonTable.data[565] = {
+    ns.data[565] = {
         name = "Gruul's Lair",
         {
             npcID = 18831,
@@ -994,7 +993,7 @@ function gz:TBCInitializeData()
     }
     
     -- Zul'Aman
-    addonTable.data[568] = {
+    ns.data[568] = {
         name = "Zul'Aman",
         {
             npcID = 23574,
@@ -1041,7 +1040,7 @@ function gz:TBCInitializeData()
     }
     
     -- Sunwell Plateau
-    addonTable.data[580] = {
+    ns.data[580] = {
         name = "Sunwell Plateau",
         {
             npcID = 24850,
@@ -1088,7 +1087,7 @@ function gz:TBCInitializeData()
     }
     
     -- Magisters' Terrace
-    addonTable.data[585] = {
+    ns.data[585] = {
         name = "Magisters' Terrace",
         {
             npcID = 24723,

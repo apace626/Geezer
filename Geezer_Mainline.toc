@@ -1,18 +1,18 @@
-## Interface: 11404
+## Interface: 100200
 ## Version: 1.0.0
 ## Title: Geezer
 ## Notes: Boss notes for dungeons and raids
 ## Author: Rodenbach
 ## SavedVariables: GeezerDB
 
+Retail\Data\Classic.lua
+Retail\Data\TBC.lua
 
+Retail\Events.lua
+Frame.lua
+Geezer.lua
+Retail\Init.lua
 
-Data\Classic.lua
-
-Events.lua
-Frame2.lua
-
-Geezer2.lua
 
 
 
