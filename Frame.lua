@@ -39,7 +39,6 @@ function ns:BuildFrame()
     frame:SetFrameStrata("BACKGROUND")
     frame:SetWidth(300)
     frame:SetHeight(100)
-    frame:SetScale(.85)
 
     local titleText = frame:CreateFontString(nil, "BACKGROUND")
     titleText:SetFontObject("GameFontNormalLarge")
@@ -154,7 +153,7 @@ function WPDropDownDemo_OnClick(self, arg1, arg2, checked)
     ns:ShowNote(arg1, nil, nil)
 end
 
-function WPDropDownDemo_Menu(frame, level, menuList)
+function WPDropDownDemo_Menu_Classic(frame, level, menuList)
         local info = UIDropDownMenu_CreateInfo()
         info.func = WPDropDownDemo_OnClick
 
@@ -163,10 +162,12 @@ function WPDropDownDemo_Menu(frame, level, menuList)
         local raidsTable = { }
         
         for key, item in pairs(instanceData) do
-            if item.instanceType == 1 then
-                table.insert(dungeonsTable, { id = key, name = item.name })
-            else
-                table.insert(raidsTable, { id = key, name = item.name })
+            if item.version == 1 then
+                if item.instanceType == 1 then
+                    table.insert(dungeonsTable, { id = key, name = item.name })
+                else
+                    table.insert(raidsTable, { id = key, name = item.name })
+                end
             end
         end
 
@@ -184,6 +185,41 @@ function WPDropDownDemo_Menu(frame, level, menuList)
             info.text, info.arg1 = item.name, item.id
             UIDropDownMenu_AddButton(info)
         end
+
+end
+
+function WPDropDownDemo_Menu_TBC(frame, level, menuList)
+    local info = UIDropDownMenu_CreateInfo()
+    info.func = WPDropDownDemo_OnClick
+
+    local instanceData = ns.data
+    local dungeonsTable = { }
+    local raidsTable = { }
+    
+    for key, item in pairs(instanceData) do
+        if item.version == 2 then
+            if item.instanceType == 1 then
+                table.insert(dungeonsTable, { id = key, name = item.name })
+            else
+                table.insert(raidsTable, { id = key, name = item.name })
+            end
+        end
+    end
+
+    table.sort(dungeonsTable, sortbyName)
+    table.sort(raidsTable, sortbyName)
+
+    for key, item in ipairs(dungeonsTable) do
+        info.text, info.arg1 = item.name, item.id
+        UIDropDownMenu_AddButton(info)
+    end
+
+    UIDropDownMenu_AddSeparator()
+
+    for key, item in ipairs(raidsTable) do
+        info.text, info.arg1 = item.name, item.id
+        UIDropDownMenu_AddButton(info)
+    end
 
 end
 
@@ -215,7 +251,14 @@ function ns:BuildOptionsFrame()
     UIDropDownMenu_SetWidth(dropDown, 200) -- Use in place of dropDown:SetWidth
     -- Bind an initializer function to the dropdown; see previous sections for initializer function examples.
     UIDropDownMenu_SetText(dropDown, "Select Classic Dungeon")
-    UIDropDownMenu_Initialize(dropDown, WPDropDownDemo_Menu)
+    UIDropDownMenu_Initialize(dropDown, WPDropDownDemo_Menu_Classic)
+
+    local dropDown = CreateFrame("Frame", "WPDemoDropDown", panel, "UIDropDownMenuTemplate")
+    dropDown:SetPoint("TOPLEFT", 200, -80)
+    UIDropDownMenu_SetWidth(dropDown, 200) -- Use in place of dropDown:SetWidth
+    -- Bind an initializer function to the dropdown; see previous sections for initializer function examples.
+    UIDropDownMenu_SetText(dropDown, "Select TBC Dungeon")
+    UIDropDownMenu_Initialize(dropDown, WPDropDownDemo_Menu_TBC)
 
     local title = panel:CreateFontString("ARTWORK", nil, "GameFontNormalSmall")
     title:SetPoint("TOPLEFT", 0, -130)
@@ -288,6 +331,10 @@ function ns:InitializeBossDropdown(instanceID, difficultyName)
     else
         self:HideFrame()
     end
+end
+
+function ns:SetFrameScale(number)
+    frame:SetScale(number)
 end
 
 function ns:SetValue(newValue, instanceID)

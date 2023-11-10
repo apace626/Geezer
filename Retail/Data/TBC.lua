@@ -10,6 +10,8 @@ function ns:TBCInitializeData()
     -- The Black Morass
     ns.data[269] = {
         name = "The Black Morass",
+        instanceType = 1,
+        version = 2,
         {
             npcID = 17881,
             encounterID = 1919, 
@@ -45,6 +47,7 @@ function ns:TBCInitializeData()
     -- Karazhan
     ns.data[532] = {
         name = "Karazhan",
+        version = 2,
         {
             npcID = 16152,
             encounterID = 652, 
@@ -127,6 +130,7 @@ function ns:TBCInitializeData()
     -- Hyjal Summit
     ns.data[534] = {
         name = "Hyjal Summit",
+        version = 2,
         {
             npcID = 17767,
             encounterID = 618, 
@@ -167,6 +171,8 @@ function ns:TBCInitializeData()
     -- The Shattered Halls
     ns.data[540] = {
         name = "The Shattered Halls",
+        instanceType = 1,
+        version = 2,
         {
             npcID = 16807,
             encounterID = 1936, 
@@ -210,6 +216,7 @@ function ns:TBCInitializeData()
     -- The Blood Furnace
     ns.data[542] = {
         name = "The Blood Furnace",
+        version = 2,
         {
             npcID = 17381,
             encounterID = 1922, 
@@ -246,6 +253,7 @@ function ns:TBCInitializeData()
     -- Hellfire Ramparts
     ns.data[543] = {
         name = "Hellfire Ramparts",
+        version = 2,
         {
             npcID = 17306,
             encounterID = 1893, 
@@ -281,6 +289,7 @@ function ns:TBCInitializeData()
     -- Magtheridon's Lair
     ns.data[544] = {
         name = "Magtheridon's Lair",
+        version = 2,
         {
             npcID = 17257,
             encounterID = 651, 
@@ -293,6 +302,7 @@ function ns:TBCInitializeData()
     -- The Steamvault
     ns.data[545] = {
         name = "The Steamvault",
+        version = 2,
         {
             npcID = 17797,
             encounterID = 1942, 
@@ -325,6 +335,7 @@ function ns:TBCInitializeData()
     -- The Underbog
     ns.data[546] = {
         name = "The Underbog",
+        version = 2,
         {
             npcID = 17770,
             encounterID = 1946, 
@@ -371,6 +382,7 @@ function ns:TBCInitializeData()
     -- The Slave Pens
     ns.data[547] = {
         name = "The Slave Pens",
+        version = 2,
         {
             npcID = 17941,
             encounterID = 1939, 
@@ -403,6 +415,7 @@ function ns:TBCInitializeData()
     -- Serpentshrine Cavern
     ns.data[548] = {
         name = "Serpentshrine Cavern",
+        version = 2,
         {
             npcID = 21216,
             encounterID = 623, 
@@ -450,6 +463,7 @@ function ns:TBCInitializeData()
     -- The Eye
     ns.data[550] = {
         name = "The Eye",
+        version = 2,
         {
             npcID = 999999,
             encounterID = 730, 
@@ -488,6 +502,7 @@ function ns:TBCInitializeData()
     -- The Arcatraz
     ns.data[552] = {
         name = "The Arcatraz",
+        version = 2,
         {
             npcID = 20870,
             encounterID = 1916, 
@@ -533,6 +548,7 @@ function ns:TBCInitializeData()
     -- The Botanica
     ns.data[553] = {
         name = "The Botanica",
+        version = 2,
         {
             npcID = 17976,
             encounterID = 1925, 
@@ -588,6 +604,7 @@ function ns:TBCInitializeData()
     -- The Mechanar
     ns.data[554] = {
         name = "The Mechanar",
+        version = 2,
         {
             npcID = 19219,
             encounterID = 1932, 
@@ -625,6 +642,7 @@ function ns:TBCInitializeData()
     -- Shadow Labyrinth
     ns.data[555] = {
         name = "Shadow Labyrinth",
+        version = 2,
         {
             npcID = 18731,
             encounterID = 1908, 
@@ -671,6 +689,7 @@ function ns:TBCInitializeData()
     -- Sethekk Halls
     ns.data[556] = {
         name = "Sethekk Halls",
+        version = 2,
         {
             npcID = 18472,
             encounterID = 1903, 
@@ -709,6 +728,7 @@ function ns:TBCInitializeData()
     -- Mana-Tombs
     ns.data[557] = {
         name = "Mana-Tombs",
+        version = 2,
         {
             npcID = 18341,
             encounterID = 1900, 
@@ -749,6 +769,7 @@ function ns:TBCInitializeData()
     -- Auchenai Crypts
     ns.data[558] = {
         name = "Auchenai Crypts",
+        version = 2,
         {
             npcID = 18371,
             encounterID = 1890, 
@@ -774,6 +795,7 @@ function ns:TBCInitializeData()
     -- Old Hillsbrad Foothills
     ns.data[560] = {
         name = "Old Hillsbrad Foothills",
+        version = 2,
         {
             npcID = 17848,
             encounterID = 1905, 
@@ -812,6 +834,7 @@ function ns:TBCInitializeData()
     -- Black Temple
     ns.data[564] = {
         name = "Black Temple",
+        version = 2,
         {
             npcID = 22887,
             encounterID = 601, 
@@ -976,6 +999,7 @@ function ns:TBCInitializeData()
     -- Gruul's Lair
     ns.data[565] = {
         name = "Gruul's Lair",
+        version = 2,
         {
             npcID = 18831,
             encounterID = 649, 
@@ -995,6 +1019,7 @@ function ns:TBCInitializeData()
     -- Zul'Aman
     ns.data[568] = {
         name = "Zul'Aman",
+        version = 2,
         {
             npcID = 23574,
             encounterID = 1189, 
@@ -1042,6 +1067,7 @@ function ns:TBCInitializeData()
     -- Sunwell Plateau
     ns.data[580] = {
         name = "Sunwell Plateau",
+        version = 2,
         {
             npcID = 24850,
             encounterID = 724, 
@@ -1089,6 +1115,7 @@ function ns:TBCInitializeData()
     -- Magisters' Terrace
     ns.data[585] = {
         name = "Magisters' Terrace",
+        version = 2,
         {
             npcID = 24723,
             encounterID = 1897, 
