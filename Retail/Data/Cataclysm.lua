@@ -1,15 +1,14 @@
-local addonName, addonTable = ...
-local gz = addonTable.GeezerAddon
+local addonName, ns = ...
 
 local function S(id)
     local name, _, icon = GetSpellInfo(id)
     return string.format("|T%s:0|t|cff71d5ff%s|r", icon, name)
 end
 
-function gz:CataclysmInitializeData()
+function ns:CataclysmInitializeData()
      
     -- Zul'Gurub
-    addonTable.data[309] = {
+    ns.data[309] = {
         name = "Zul'Gurub",
         {
             npcID = 52258,
@@ -38,7 +37,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- Zul'Aman
-    addonTable.data[568] = {
+    ns.data[568] = {
         name = "Zul'Aman",
         {
             npcID = 23574,
@@ -79,7 +78,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- The Nexus
-    addonTable.data[576] = {
+    ns.data[576] = {
         name = "The Nexus",
         {
             npcID = 26796,
@@ -126,8 +125,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- Throne of the Tides
-    addonTable.data[643] = {
+    ns.data[643] = {
         name = "Throne of the Tides",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 40586,
             encounterID = 1045, 
@@ -177,8 +178,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- Halls of Origination
-    addonTable.data[644] = {
+    ns.data[644] = {
         name = "Halls of Origination",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 39425,
             encounterID = 1080, 
@@ -261,8 +264,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- Blackrock Caverns
-    addonTable.data[645] = {
+    ns.data[645] = {
         name = "Blackrock Caverns",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 39665,
             encounterID = 1040, 
@@ -321,8 +326,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- The Vortex Pinnacle
-    addonTable.data[657] = {
+    ns.data[657] = {
         name = "The Vortex Pinnacle",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 43878,
             encounterID = 1043, 
@@ -359,7 +366,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- Blackwing Descent
-    addonTable.data[669] = {
+    ns.data[669] = {
         name = "Blackwing Descent",
         {
             npcID = 999999,
@@ -406,8 +413,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- Grim Batol
-    addonTable.data[670] = {
+    ns.data[670] = {
         name = "Grim Batol",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 39625,
             encounterID = 1051, 
@@ -458,7 +467,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- The Bastion of Twilight
-    addonTable.data[671] = {
+    ns.data[671] = {
         name = "The Bastion of Twilight",
         {
             npcID = 44600,
@@ -498,8 +507,9 @@ function gz:CataclysmInitializeData()
     }
     
     -- Firelands
-    addonTable.data[720] = {
+    ns.data[720] = {
         name = "Firelands",
+        version = 4,
         {
             npcID = 52498,
             encounterID = 1197, 
@@ -566,8 +576,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- The Stonecore
-    addonTable.data[725] = {
+    ns.data[725] = {
         name = "The Stonecore",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 43438,
             encounterID = 1056, 
@@ -624,7 +636,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- Throne of the Four Winds
-    addonTable.data[754] = {
+    ns.data[754] = {
         name = "Throne of the Four Winds",
         {
             npcID = 999999,
@@ -643,8 +655,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- Lost City of the Tol'vir
-    addonTable.data[755] = {
+    ns.data[755] = {
         name = "Lost City of the Tol'vir",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 44577,
             encounterID = 1052, 
@@ -701,7 +715,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- Baradin Hold
-    addonTable.data[757] = {
+    ns.data[757] = {
         name = "Baradin Hold",
         {
             npcID = 47120,
@@ -727,7 +741,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- Zul'Gurub
-    addonTable.data[859] = {
+    ns.data[859] = {
         name = "Zul'Gurub",
         {
             npcID = 52155,
@@ -774,8 +788,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- End Time
-    addonTable.data[938] = {
+    ns.data[938] = {
         name = "End Time",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 54544,
             encounterID = 1884, 
@@ -849,8 +865,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- Well of Eternity
-    addonTable.data[939] = {
+    ns.data[939] = {
         name = "Well of Eternity",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 55085,
             encounterID = 1272, 
@@ -878,8 +896,10 @@ function gz:CataclysmInitializeData()
     }
     
     -- Hour of Twilight
-    addonTable.data[940] = {
+    ns.data[940] = {
         name = "Hour of Twilight",
+        instanceType = 1,
+        version = 4,
         {
             npcID = 54590,
             encounterID = 1337, 
@@ -907,7 +927,7 @@ function gz:CataclysmInitializeData()
     }
     
     -- Dragon Soul
-    addonTable.data[967] = {
+    ns.data[967] = {
         name = "Dragon Soul",
         {
             npcID = 55265,

@@ -1,15 +1,14 @@
-local addonName, addonTable = ...
-local gz = addonTable.GeezerAddon
+local addonName, ns = ...
 
 local function S(id)
     local name, _, icon = GetSpellInfo(id)
     return string.format("|T%s:0|t|cff71d5ff%s|r", icon, name)
 end
 
-function gz:WrathInitializeData()
+function ns:WrathInitializeData()
      
     -- Onyxia's Lair
-    addonTable.data[249] = {
+    ns.data[249] = {
         name = "Onyxia's Lair",
         {
             npcID = 41270,
@@ -21,7 +20,7 @@ function gz:WrathInitializeData()
     }
     
     -- Naxxramas
-    addonTable.data[533] = {
+    ns.data[533] = {
         name = "Naxxramas",
         {
             npcID = 15956,
@@ -131,8 +130,10 @@ function gz:WrathInitializeData()
     }
     
     -- Utgarde Keep
-    addonTable.data[574] = {
+    ns.data[574] = {
         name = "Utgarde Keep",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 23953,
             encounterID = 2026, 
@@ -169,8 +170,10 @@ function gz:WrathInitializeData()
     }
     
     -- Utgarde Pinnacle
-    addonTable.data[575] = {
+    ns.data[575] = {
         name = "Utgarde Pinnacle",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 26668,
             encounterID = 2030, 
@@ -216,8 +219,10 @@ function gz:WrathInitializeData()
     }
     
     -- The Nexus
-    addonTable.data[576] = {
+    ns.data[576] = {
         name = "The Nexus",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 26796,
             encounterID = 519, 
@@ -263,8 +268,10 @@ function gz:WrathInitializeData()
     }
     
     -- The Oculus
-    addonTable.data[578] = {
+    ns.data[578] = {
         name = "The Oculus",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 27654,
             encounterID = 528, 
@@ -308,8 +315,10 @@ function gz:WrathInitializeData()
     }
     
     -- The Culling of Stratholme
-    addonTable.data[595] = {
+    ns.data[595] = {
         name = "The Culling of Stratholme",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 26529,
             encounterID = 2002, 
@@ -353,8 +362,10 @@ function gz:WrathInitializeData()
     }
     
     -- Halls of Stone
-    addonTable.data[599] = {
+    ns.data[599] = {
         name = "Halls of Stone",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 27977,
             encounterID = 1994, 
@@ -399,8 +410,10 @@ function gz:WrathInitializeData()
     }
     
     -- Drak'Tharon Keep
-    addonTable.data[600] = {
+    ns.data[600] = {
         name = "Drak'Tharon Keep",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 26630,
             encounterID = 1974, 
@@ -447,8 +460,10 @@ function gz:WrathInitializeData()
     }
     
     -- Azjol-Nerub
-    addonTable.data[601] = {
+    ns.data[601] = {
         name = "Azjol-Nerub",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 28684,
             encounterID = 1971, 
@@ -473,8 +488,10 @@ function gz:WrathInitializeData()
     }
     
     -- Halls of Lightning
-    addonTable.data[602] = {
+    ns.data[602] = {
         name = "Halls of Lightning",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 28586,
             encounterID = 1987, 
@@ -516,8 +533,9 @@ function gz:WrathInitializeData()
     }
     
     -- Ulduar
-    addonTable.data[603] = {
+    ns.data[603] = {
         name = "Ulduar",
+        version = 3,
         {
             npcID = 33113,
             encounterID = 1132, 
@@ -619,8 +637,10 @@ function gz:WrathInitializeData()
     }
     
     -- Gundrak
-    addonTable.data[604] = {
+    ns.data[604] = {
         name = "Gundrak",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 29304,
             encounterID = 1978, 
@@ -676,8 +696,10 @@ function gz:WrathInitializeData()
     }
     
     -- The Violet Hold
-    addonTable.data[608] = {
+    ns.data[608] = {
         name = "The Violet Hold",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 31134,
             encounterID = 2020, 
@@ -692,7 +714,7 @@ function gz:WrathInitializeData()
     }
     
     -- The Obsidian Sanctum
-    addonTable.data[615] = {
+    ns.data[615] = {
         name = "The Obsidian Sanctum",
         {
             npcID = 28860,
@@ -704,7 +726,7 @@ function gz:WrathInitializeData()
     }
     
     -- The Eye of Eternity
-    addonTable.data[616] = {
+    ns.data[616] = {
         name = "The Eye of Eternity",
         {
             npcID = 28859,
@@ -716,8 +738,10 @@ function gz:WrathInitializeData()
     }
     
     -- Ahn'kahet: The Old Kingdom
-    addonTable.data[619] = {
+    ns.data[619] = {
         name = "Ahn'kahet: The Old Kingdom",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 29309,
             encounterID = 1969, 
@@ -773,8 +797,10 @@ function gz:WrathInitializeData()
     }
     
     -- Vault of Archavon
-    addonTable.data[624] = {
+    ns.data[624] = {
         name = "Vault of Archavon",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 31125,
             encounterID = 1126, 
@@ -806,8 +832,9 @@ function gz:WrathInitializeData()
     }
     
     -- Icecrown Citadel
-    addonTable.data[631] = {
+    ns.data[631] = {
         name = "Icecrown Citadel",
+        version = 3,
         {
             npcID = 36612,
             encounterID = 1101, 
@@ -902,8 +929,10 @@ function gz:WrathInitializeData()
     }
     
     -- The Forge of Souls
-    addonTable.data[632] = {
+    ns.data[632] = {
         name = "The Forge of Souls",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 36497,
             encounterID = 2006, 
@@ -929,7 +958,7 @@ function gz:WrathInitializeData()
     }
     
     -- Trial of the Crusader
-    addonTable.data[649] = {
+    ns.data[649] = {
         name = "Trial of the Crusader",
         {
             npcID = 999999,
@@ -976,8 +1005,10 @@ function gz:WrathInitializeData()
     }
     
     -- Trial of the Champion
-    addonTable.data[650] = {
+    ns.data[650] = {
         name = "Trial of the Champion",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 999999,
             encounterID = 2022, 
@@ -1027,8 +1058,10 @@ function gz:WrathInitializeData()
     }
     
     -- Pit of Saron
-    addonTable.data[658] = {
+    ns.data[658] = {
         name = "Pit of Saron",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 36494,
             encounterID = 1999, 
@@ -1067,8 +1100,10 @@ function gz:WrathInitializeData()
     }
     
     -- Halls of Reflection
-    addonTable.data[668] = {
+    ns.data[668] = {
         name = "Halls of Reflection",
+        instanceType = 1,
+        version = 3,
         {
             npcID = 38112,
             encounterID = 1992, 
@@ -1103,7 +1138,7 @@ function gz:WrathInitializeData()
     }
     
     -- The Ruby Sanctum
-    addonTable.data[724] = {
+    ns.data[724] = {
         name = "The Ruby Sanctum",
         {
             npcID = 39863,

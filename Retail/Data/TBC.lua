@@ -216,6 +216,7 @@ function ns:TBCInitializeData()
     -- The Blood Furnace
     ns.data[542] = {
         name = "The Blood Furnace",
+        instanceType = 1,
         version = 2,
         {
             npcID = 17381,
@@ -253,6 +254,7 @@ function ns:TBCInitializeData()
     -- Hellfire Ramparts
     ns.data[543] = {
         name = "Hellfire Ramparts",
+        instanceType = 1,
         version = 2,
         {
             npcID = 17306,
@@ -302,6 +304,7 @@ function ns:TBCInitializeData()
     -- The Steamvault
     ns.data[545] = {
         name = "The Steamvault",
+        instanceType = 1,
         version = 2,
         {
             npcID = 17797,
@@ -335,6 +338,7 @@ function ns:TBCInitializeData()
     -- The Underbog
     ns.data[546] = {
         name = "The Underbog",
+        instanceType = 1,
         version = 2,
         {
             npcID = 17770,
@@ -382,6 +386,7 @@ function ns:TBCInitializeData()
     -- The Slave Pens
     ns.data[547] = {
         name = "The Slave Pens",
+        instanceType = 1,
         version = 2,
         {
             npcID = 17941,
@@ -463,6 +468,7 @@ function ns:TBCInitializeData()
     -- The Eye
     ns.data[550] = {
         name = "The Eye",
+        instanceType = 1,
         version = 2,
         {
             npcID = 999999,
@@ -502,6 +508,7 @@ function ns:TBCInitializeData()
     -- The Arcatraz
     ns.data[552] = {
         name = "The Arcatraz",
+        instanceType = 1,
         version = 2,
         {
             npcID = 20870,
@@ -548,6 +555,7 @@ function ns:TBCInitializeData()
     -- The Botanica
     ns.data[553] = {
         name = "The Botanica",
+        instanceType = 1,
         version = 2,
         {
             npcID = 17976,
@@ -604,6 +612,7 @@ function ns:TBCInitializeData()
     -- The Mechanar
     ns.data[554] = {
         name = "The Mechanar",
+        instanceType = 1,
         version = 2,
         {
             npcID = 19219,
@@ -642,6 +651,7 @@ function ns:TBCInitializeData()
     -- Shadow Labyrinth
     ns.data[555] = {
         name = "Shadow Labyrinth",
+        instanceType = 1,
         version = 2,
         {
             npcID = 18731,
@@ -689,6 +699,7 @@ function ns:TBCInitializeData()
     -- Sethekk Halls
     ns.data[556] = {
         name = "Sethekk Halls",
+        instanceType = 1,
         version = 2,
         {
             npcID = 18472,
@@ -728,6 +739,7 @@ function ns:TBCInitializeData()
     -- Mana-Tombs
     ns.data[557] = {
         name = "Mana-Tombs",
+        instanceType = 1,
         version = 2,
         {
             npcID = 18341,
@@ -769,6 +781,7 @@ function ns:TBCInitializeData()
     -- Auchenai Crypts
     ns.data[558] = {
         name = "Auchenai Crypts",
+        instanceType = 1,
         version = 2,
         {
             npcID = 18371,
@@ -795,6 +808,7 @@ function ns:TBCInitializeData()
     -- Old Hillsbrad Foothills
     ns.data[560] = {
         name = "Old Hillsbrad Foothills",
+        instanceType = 1,
         version = 2,
         {
             npcID = 17848,
@@ -1115,6 +1129,7 @@ function ns:TBCInitializeData()
     -- Magisters' Terrace
     ns.data[585] = {
         name = "Magisters' Terrace",
+        instanceType = 1,
         version = 2,
         {
             npcID = 24723,

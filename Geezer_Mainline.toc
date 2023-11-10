@@ -7,9 +7,12 @@
 
 Retail\Data\Classic.lua
 Retail\Data\TBC.lua
+Retail\Data\Wrath.lua
+Retail\Data\Cataclysm.lua
 
 Retail\Events.lua
 Frame.lua
+Retail\Options.lua
 Geezer.lua
 Retail\Init.lua
 
