@@ -17,6 +17,7 @@ function ns:ClassicInitializeData()
     ns.data[33] = {
         name = "Shadowfang Keep",
         instanceType = 1,
+        version = 1,
         {
             npcID = 3914,
             encounterID = 0, 
@@ -106,6 +107,7 @@ function ns:ClassicInitializeData()
     ns.data[34] = {
         name = "The Stockade",
         instanceType = 1,
+        version = 1,
         {
             npcID = 1696,
             encounterID = 0, 
@@ -172,6 +174,7 @@ function ns:ClassicInitializeData()
     ns.data[36] = {
         name = "Deadmines",
         instanceType = 1,
+        version = 1,
         {
             npcID = 644,
             encounterID = 0, 
@@ -260,6 +263,7 @@ function ns:ClassicInitializeData()
     ns.data[43] = {
         name = "Wailing Caverns",
         instanceType = 1,
+        version = 1,
         {
             npcID = 3653,
             encounterID = 587, 
@@ -339,6 +343,7 @@ function ns:ClassicInitializeData()
     ns.data[47] = {
         name = "Razorfen Kraul",
         instanceType = 1,
+        version = 1,
         {
             npcID = 6168,
             encounterID = 438, 
@@ -396,6 +401,7 @@ function ns:ClassicInitializeData()
     ns.data[48] = {
         name = "Blackfathom Deeps",
         instanceType = 1,
+        version = 1,
         {
             npcID = 4887,
             encounterID = 1667, 
@@ -458,6 +464,7 @@ function ns:ClassicInitializeData()
     ns.data[70] = {
         name = "Uldaman",
         instanceType = 1,
+        version = 1,
         {
             npcID = 6910,
             encounterID = 547, 
@@ -543,6 +550,7 @@ function ns:ClassicInitializeData()
     ns.data[90] = {
         name = "Gnomeregan",
         instanceType = 1,
+        version = 1,
         {
             npcID = 7361,
             encounterID = 0, 
@@ -630,6 +638,7 @@ function ns:ClassicInitializeData()
     -- Razorfen Downs *
     ns.data[129] = {
         name = "Razorfen Downs",
+        version = 1,
         instanceType = 1,
         {
             npcID = 7355,
@@ -697,6 +706,7 @@ function ns:ClassicInitializeData()
     ns.data[209] = {
         name = "Zul'Farrak",
         instanceType = 1,
+        version = 1,
         {
             npcID = 7273,
             encounterID = 0, 
@@ -794,6 +804,7 @@ function ns:ClassicInitializeData()
     ns.data[229] = {
         name = "Lower Blackrock Spire",
         instanceType = 1,
+        version = 1,
         {
             npcID = 9196,
             encounterID = 267, 
@@ -888,6 +899,7 @@ function ns:ClassicInitializeData()
     ns.data[230] = {
         name = "Blackrock Depths",
         instanceType = 1,
+        version = 1,
         {
             npcID = 9018,
             encounterID = 227, 
@@ -1067,6 +1079,7 @@ function ns:ClassicInitializeData()
     -- Onyxia's Lair
     ns.data[249] = {
         name = "Onyxia's Lair",
+        version = 1,
         instanceType = 2,
         {
             npcID = 41270,
@@ -1081,6 +1094,7 @@ function ns:ClassicInitializeData()
     ns.data[329] = {
         name = "Stratholme",
         instanceType = 1,
+        version = 1,
         {
             npcID = 10558,
             encounterID = 473, 
@@ -1208,6 +1222,7 @@ function ns:ClassicInitializeData()
     ns.data[349] = {
         name = "Maraudon",
         instanceType = 1,
+        version = 1,
         {
             npcID = 12236,
             encounterID = 0, 
@@ -1287,6 +1302,7 @@ function ns:ClassicInitializeData()
     ns.data[109] = {
         name = "Sunken Temple",
         instanceType = 1,
+        version = 1,
         {
             npcID = 0,
             encounterID = 0, 
@@ -1342,6 +1358,7 @@ function ns:ClassicInitializeData()
     ns.data[389] = {
         name = "Ragefire Chasm",
         instanceType = 1,
+        version = 1,
         {
             npcID = 11517,
             encounterID = 0, 
@@ -1386,6 +1403,7 @@ function ns:ClassicInitializeData()
     ns.data[409] = {
         name = "Molten Core",
         instanceType = 2,
+        version = 1,
         {
             npcID = 11988,
             encounterID = 670, 
@@ -1462,6 +1480,7 @@ function ns:ClassicInitializeData()
     ns.data[429] = {
         name = "Dire Maul",
         instanceType = 1,
+        version = 1,
         {
             npcID = 11490,
             encounterID = 343, 
@@ -1628,6 +1647,7 @@ function ns:ClassicInitializeData()
     -- Blackwing Lair
     ns.data[469] = {
         name = "Blackwing Lair",
+        version = 1,
         instanceType = 2,
         {
             npcID = 12435,
@@ -1690,6 +1710,7 @@ function ns:ClassicInitializeData()
     -- Ruins of Ahn'Qiraj
     ns.data[509] = {
         name = "Ruins of Ahn'Qiraj",
+        version = 1,
         instanceType = 2,
         {
             npcID = 15348,
@@ -1738,6 +1759,7 @@ function ns:ClassicInitializeData()
     -- Temple of Ahn'Qiraj
     ns.data[531] = {
         name = "Temple of Ahn'Qiraj",
+        version = 1,
         instanceType = 2,
         {
             npcID = 15263,
@@ -1807,6 +1829,7 @@ function ns:ClassicInitializeData()
     -- Naxxramas
     ns.data[533] = {
         name = "Naxxramas",
+        version = 1,
         instanceType = 2,
         {
             npcID = 15956,
@@ -1918,6 +1941,7 @@ function ns:ClassicInitializeData()
     -- Zul'Gurub
     ns.data[1977] = {
         name = "Zul'Gurub",
+        version = 1,
         instanceType = 2,
         {
             npcID = 52155,
@@ -1960,7 +1984,7 @@ function ns:ClassicInitializeData()
     ns.data[1004] = {
         name = "Scarlet Monastery",
         instanceType = 1,
-
+        version = 1,
         {
             npcID = 3983,
             encounterID = 1424, 
@@ -2030,6 +2054,7 @@ function ns:ClassicInitializeData()
     -- Upper Blackrock Spire
     ns.data[1358] = {
         name = "Upper Blackrock Spire",
+        version = 1,
         instanceType = 1,
         {
             npcID = 76413,
@@ -2069,17 +2094,3 @@ function ns:ClassicInitializeData()
     }
     
 end
-
--- 451 	Kirtonos the Herald 	Scholomance 	289 	
--- 452 	Jandice Barov 	Scholomance 	289 	
--- 453 	Rattlegore 	Scholomance 	289 	
--- 454 	Marduk Blackpool 	Scholomance 	289 	
--- 455 	Vectus 	Scholomance 	289 	
--- 456 	Ras Frostwhisper 	Scholomance 	289 	
--- 457 	Instructor Malicia 	Scholomance 	289 	
--- 458 	Doctor Theolen Krastinov 	Scholomance 	289 	
--- 459 	Lorekeeper Polkelt 	Scholomance 	289 	
--- 460 	The Ravenian 	Scholomance 	289 	
--- 461 	Lord Alexei Barov 	Scholomance 	289 	
--- 462 	Lady Illucia Barov 	Scholomance 	289 	
--- 463 	Darkmaster Gandling 	Scholomance

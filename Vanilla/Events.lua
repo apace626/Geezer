@@ -25,8 +25,8 @@ function ns:UNIT_TARGET(unitTarget)
         local class = UnitClass("unit")
         local isEnemy = UnitIsEnemy("player","target")
 
-        print(name)
-        print('IsEnemy', isEnemy)
+        --print(name)
+        --print('IsEnemy', isEnemy)
 
         if guid then
             --local link = unitLink:format(guid, name) -- clickable link

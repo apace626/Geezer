@@ -5,11 +5,13 @@
 ## Author: Rodenbach
 ## SavedVariables: GeezerDB
 
-embeds.xml
-
 Vanilla\Data\Classic.lua
+Vanilla\Data\TBC.lua
+Vanilla\Data\Wrath.lua
+
 Vanilla\Events.lua
 Frame.lua
+Vanilla\Options.lua
 Geezer.lua
 Vanilla\Init.lua
 
