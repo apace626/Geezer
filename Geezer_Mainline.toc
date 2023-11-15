@@ -9,6 +9,7 @@ Retail\Data\Classic.lua
 Retail\Data\TBC.lua
 Retail\Data\Wrath.lua
 Retail\Data\Cataclysm.lua
+Retail\Data\Dragonflight.lua
 
 Retail\Events.lua
 Frame.lua

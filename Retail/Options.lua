@@ -141,6 +141,41 @@ function WPDropDownDemo_Menu_Cata(frame, level, menuList)
 
 end
 
+function WPDropDownDemo_Menu_DF(frame, level, menuList)
+	local info = UIDropDownMenu_CreateInfo()
+	info.func = WPDropDownDemo_OnClick
+
+	local instanceData = ns.data
+	local dungeonsTable = { }
+	local raidsTable = { }
+
+	for key, item in pairs(instanceData) do
+		if item.version == 10 then
+			if item.instanceType == 1 then
+				table.insert(dungeonsTable, { id = key, name = item.name })
+			else
+				table.insert(raidsTable, { id = key, name = item.name })
+			end
+		end
+	end
+
+	table.sort(dungeonsTable, sortbyName)
+	table.sort(raidsTable, sortbyName)
+
+	for key, item in ipairs(dungeonsTable) do
+		info.text, info.arg1 = item.name, item.id
+		UIDropDownMenu_AddButton(info)
+	end
+
+	UIDropDownMenu_AddSeparator()
+
+	for key, item in ipairs(raidsTable) do
+		info.text, info.arg1 = item.name, item.id
+		UIDropDownMenu_AddButton(info)
+	end
+
+end
+
 function WPDropDownDemo_OnClick(self, arg1, arg2, checked)
     ns:InitializeBossDropdown(arg1)
     ns:ShowNote(arg1, nil, nil)
@@ -192,6 +227,13 @@ function ns:BuildOptionsFrame()
     -- Bind an initializer function to the dropdown; see previous sections for initializer function examples.
     UIDropDownMenu_SetText(dropDown, "Cataclysm")
     UIDropDownMenu_Initialize(dropDown, WPDropDownDemo_Menu_Cata)
+
+	local dropDown = CreateFrame("Frame", "WPDemoDropDown", panel, "UIDropDownMenuTemplate")
+    dropDown:SetPoint("TOPLEFT", 200, -120)
+    UIDropDownMenu_SetWidth(dropDown, 200) -- Use in place of dropDown:SetWidth
+    -- Bind an initializer function to the dropdown; see previous sections for initializer function examples.
+    UIDropDownMenu_SetText(dropDown, "Dragonflight")
+    UIDropDownMenu_Initialize(dropDown, WPDropDownDemo_Menu_DF)
 
     local title = panel:CreateFontString("ARTWORK", nil, "GameFontNormalSmall")
     title:SetPoint("TOPLEFT", 0, -170)

@@ -1,16 +1,17 @@
-local addonName, addonTable = ...
-local gz = addonTable.GeezerAddon
+local addonName, ns = ...
 
 local function S(id)
     local name, _, icon = GetSpellInfo(id)
     return string.format("|T%s:0|t|cff71d5ff%s|r", icon, name)
 end
 
-function gz:DragonflightInitializeData()
+function ns:DragonflightInitializeData()
      
     -- Uldaman: Legacy of Tyr
-    addonTable.data[2451] = {
+    ns.data[2451] = {
         name = "Uldaman: Legacy of Tyr",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 6906,
             encounterID = 2555, 
@@ -75,8 +76,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- The Azure Vault
-    addonTable.data[2515] = {
+    ns.data[2515] = {
         name = "The Azure Vault",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 199614,
             encounterID = 2583, 
@@ -124,8 +127,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- The Nokhud Offensive
-    addonTable.data[2516] = {
+    ns.data[2516] = {
         name = "The Nokhud Offensive",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 186151,
             encounterID = 2580, 
@@ -179,8 +184,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Neltharus
-    addonTable.data[2519] = {
+    ns.data[2519] = {
         name = "Neltharus",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 189478,
             encounterID = 2612, 
@@ -231,8 +238,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Brackenhide Hollow
-    addonTable.data[2520] = {
+    ns.data[2520] = {
         name = "Brackenhide Hollow",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 186122,
             encounterID = 2570, 
@@ -285,8 +294,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Ruby Life Pools
-    addonTable.data[2521] = {
+    ns.data[2521] = {
         name = "Ruby Life Pools",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 188252,
             encounterID = 2609, 
@@ -325,8 +336,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Vault of the Incarnates
-    addonTable.data[2522] = {
+    ns.data[2522] = {
         name = "Vault of the Incarnates",
+        instanceType = 2,
+        version = 10,
         {
             npcID = 184972,
             encounterID = 2587, 
@@ -386,8 +399,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Algeth'ar Academy
-    addonTable.data[2526] = {
+    ns.data[2526] = {
         name = "Algeth'ar Academy",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 191736,
             encounterID = 2564, 
@@ -439,8 +454,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Halls of Infusion
-    addonTable.data[2527] = {
+    ns.data[2527] = {
         name = "Halls of Infusion",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 189719,
             encounterID = 2615, 
@@ -493,8 +510,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Aberrus, the Shadowed Crucible
-    addonTable.data[2569] = {
+    ns.data[2569] = {
         name = "Aberrus, the Shadowed Crucible",
+        instanceType = 2,
+        version = 10,
         {
             npcID = 999999,
             encounterID = 2685, 
@@ -561,8 +580,10 @@ function gz:DragonflightInitializeData()
     }
     
     -- Dawn of the Infinite
-    addonTable.data[2579] = {
+    ns.data[2579] = {
         name = "Dawn of the Infinite",
+        instanceType = 1,
+        version = 10,
         {
             npcID = 198995,
             encounterID = 2666, 
