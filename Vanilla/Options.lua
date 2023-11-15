@@ -171,6 +171,10 @@ function ns:BuildOptionsFrame()
     title:SetPoint("TOPLEFT", 0, -260)
     title:SetText("wowaddongeezer@gmail.com")
 
+	local title = panel:CreateFontString("ARTWORK", nil, "GameTooltipTextSmall")
+    title:SetPoint("TOPLEFT", 0, -280)
+    title:SetText("https://github.com/apace626/Geezer")
+
     -- local dropDown = CreateFrame("Frame", "WPDemoDropDown", panel, "UIDropDownMenuTemplate")
     -- dropDown:SetPoint("TOPLEFT", 200, -40)
     -- UIDropDownMenu_SetWidth(dropDown, 200) -- Use in place of dropDown:SetWidth
