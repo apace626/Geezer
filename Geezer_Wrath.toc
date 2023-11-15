@@ -6,8 +6,6 @@
 ## SavedVariables: GeezerDB
 
 Vanilla\Data\Classic.lua
-Vanilla\Data\TBC.lua
-Vanilla\Data\Wrath.lua
 
 Vanilla\Events.lua
 Frame.lua
