@@ -6,8 +6,10 @@
 ## SavedVariables: GeezerDB
 
 Vanilla\Data\Classic.lua
+
 Vanilla\Events.lua
 Frame.lua
+Vanilla\Options.lua
 Geezer.lua
 Vanilla\Init.lua
 
