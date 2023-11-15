@@ -39,21 +39,21 @@ function ns:UNIT_TARGET(unitTarget)
         local class = UnitClass("unit")
         local isEnemy = UnitIsEnemy("player","target")
 
-        print(name)
-        print('IsEnemy', isEnemy)
+        --print(name)
+        --print('IsEnemy', isEnemy)
 
         if guid then
             --local link = unitLink:format(guid, name) -- clickable link
             local unit_type = strsplit("-", guid)
             if unit_type == "Creature" or unit_type == "Vehicle" then
                 local _, _, server_id, instance_id, zone_uid, npc_id, spawn_uid = strsplit("-", guid)
-                print(format("[%s] is a creature with NPC ID %d", name, npc_id))
+                --print(format("[%s] is a creature with NPC ID %d", name, npc_id))
                 if isEnemy and self:IsInstanceBoss(instance_id, npc_id) then
                     self:ShowNote(instanceID, npc_id, nil)
                 end
             elseif unit_type == "Player" then
                 local _, server_id, player_id = strsplit("-", guid)
-                print(format("[%s] is a player with ID %s", name, player_id))
+                --print(format("[%s] is a player with ID %s", name, player_id))
             end
 	    end
         
@@ -89,7 +89,7 @@ function ns:UPDATE_INSTANCE_INFO(event)
 end
 
 function ns:ENCOUNTER_START(event, encounterID, encounterName, difficultyID, groupSize)
-    --print("E:ENCOUNTER_START")
+    print("E:ENCOUNTER_START")
     print(encounterID, encounterName, difficultyID, groupSize)
     self:ShowNote(self.currentInstanceID, nil, encounterID)
 end
